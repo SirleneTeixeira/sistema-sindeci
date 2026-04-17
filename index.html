@@ -654,26 +654,27 @@ function onEntidadeChange(){
   const eId=document.getElementById('gEntidade').value;
   if(!eId) return;
   const ent=ENTIDADES.find(e=>e.id===eId);
-  const tBoth=document.getElementById('tBoth');
-  const tGen=document.getElementById('tGen');
-  const tLoj=document.getElementById('tLoj');
-  // Sempre resetar display primeiro
-  tBoth.style.display=''; tGen.style.display=''; tLoj.style.display='';
-  if(!ent.temGen){
-    // Entidade só tem Lojas (ex: ita_l)
-    tBoth.style.display='none'; tGen.style.display='none';
-    setTipo('lojas',tLoj);
-  } else if(!ent.temLoj){
-    // Entidade só tem Gêneros (ex: ita_g, op_s)
-    tBoth.style.display='none'; tLoj.style.display='none';
-    setTipo('generos',tGen);
+  // Reconstruir os botões do tipo dinamicamente — evita bugs de display
+  const row=document.querySelector('#gTipoWrap .toggle-row');
+  if(ent.temGen && ent.temLoj){
+    // Fecomércio OP — tem ambos
+    row.innerHTML=`
+      <button class="toggle-btn active" onclick="setTipo('ambos',this)">Ambos</button>
+      <button class="toggle-btn" onclick="setTipo('generos',this)">Gêneros</button>
+      <button class="toggle-btn" onclick="setTipo('lojas',this)">Lojas</button>`;
+    tipoAtivo='ambos';
+  } else if(ent.temGen && !ent.temLoj){
+    // Gêneros apenas (ita_g, op_s)
+    row.innerHTML=`<button class="toggle-btn active" onclick="setTipo('generos',this)">🛒 Gêneros Alimentícios</button>`;
+    tipoAtivo='generos';
   } else {
-    // Entidade tem ambos (ex: op_f)
-    setTipo('ambos',tBoth);
+    // Lojas apenas (ita_l) — SEMPRE gera comunicado de lojas, seja qual for a regra
+    row.innerHTML=`<button class="toggle-btn active" onclick="setTipo('lojas',this)">🏪 Lojas em Geral</button>`;
+    tipoAtivo='lojas';
   }
 }
 
-function setTipo(t,btn){ tipoAtivo=t; document.querySelectorAll('#gTipoWrap .toggle-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+function setTipo(t,btn){ tipoAtivo=t; document.querySelectorAll('#gTipoWrap .toggle-btn').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active'); }
 
 let formatoAtivo='whatsapp';
 function setFormato(fmt,btn){
