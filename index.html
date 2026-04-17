@@ -197,9 +197,10 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
       <div class="field">
         <label>Regra do Feriado</label>
         <select id="novaRegra">
-          <option value="permitido">✅ Pode trabalhar (padrão)</option>
-          <option value="proibido">🚫 Proibido (01/01, 01/05, 25/12)</option>
-          <option value="acordo_lojas">📋 Acordo p/ lojas (08/12 Ita.)</option>
+          <option value="generos_only">🛒 Somente Gêneros podem · Lojas PROIBIDAS</option>
+          <option value="permitido">🛒 Gêneros podem · 🏪 Lojas c/ acordo</option>
+          <option value="proibido">🚫 PROIBIDO a todos (01/01 · 01/05 · 25/12)</option>
+          <option value="acordo_lojas">📋 Lojas só c/ acordo (08/12 Ita.)</option>
           <option value="comercio_op">🏛️ Comércio livre OP/Mariana (20/11)</option>
         </select>
       </div>
@@ -397,6 +398,14 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
             </div>
           </div>
 
+          <div class="field" style="margin-bottom:11px;">
+            <label>📤 Formato de Saída</label>
+            <div class="toggle-row">
+              <button class="toggle-btn active" id="fWpp" onclick="setFormato('whatsapp',this)">📢 WhatsApp</button>
+              <button class="toggle-btn" id="fInsta" onclick="setFormato('instagram',this)">📸 Instagram</button>
+            </div>
+          </div>
+
           <div class="field" id="gObsWrap" style="margin-bottom:4px;">
             <label>Observação (opcional)</label>
             <textarea id="gObs" rows="3" style="font-size:12px;"></textarea>
@@ -414,6 +423,14 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
         <p>Selecione um feriado e a entidade, depois clique em <strong style="color:rgba(200,168,75,.7)">Gerar Comunicado</strong>.</p>
       </div>
       <div id="gResult" style="display:none;">
+        <div class="fmt-toggle">
+          <button class="fmt-btn active" id="fmtWpp" onclick="setFormato('whatsapp',this)">
+            💬 WhatsApp — Grupo de Associados
+          </button>
+          <button class="fmt-btn" id="fmtInsta" onclick="setFormato('instagram',this)">
+            📸 Instagram — Feed (4:5)
+          </button>
+        </div>
         <div class="prev-tabs" id="prevTabs"></div>
         <div id="prevGen" class="prev-wrap" style="display:none;">
           <div class="prev-label">Gêneros Alimentícios</div>
@@ -429,6 +446,21 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG
           </button>
         </div>
+          <!-- INSTAGRAM PANELS -->
+          <div id="prevGenInsta" class="prev-wrap" style="display:none;">
+            <div class="prev-label">Instagram 4:5 — Gêneros Alimentícios</div>
+            <div class="insta-card" id="cardGenInsta"></div>
+            <button class="btn btn-outline" onclick="baixar('cardGenInsta','insta_generos')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG — Instagram
+            </button>
+          </div>
+          <div id="prevLojInsta" class="prev-wrap" style="display:none;">
+            <div class="prev-label">Instagram 4:5 — Lojas em Geral</div>
+            <div class="insta-card" id="cardLojInsta"></div>
+            <button class="btn btn-outline" onclick="baixar('cardLojInsta','insta_lojas')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG — Instagram
+            </button>
+          </div>
       </div>
     </div>
   </div>
@@ -440,6 +472,25 @@ const DIAS = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-fe
 const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 
 document.getElementById('logoHdr').src = LOGO_SRC;
+let formatoAtivo = 'whatsapp';
+
+function setFormato(fmt, btn) {
+  formatoAtivo = fmt;
+  document.querySelectorAll('.fmt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Show/hide panels
+  const isWpp = fmt === 'whatsapp';
+  ['prevGen','prevLoj'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = (isWpp && el.style.display !== 'none' && !el.classList.contains('forced-hide')) ? 'flex' : 'none';
+  });
+  ['prevGenInsta','prevLojInsta'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = (!isWpp && el.style.display !== 'none' && !el.classList.contains('forced-hide')) ? 'flex' : 'none';
+  });
+  // Re-run gerar to rebuild panels
+  if (document.getElementById('gFeriado').value !== '') gerar();
+}
 
 // FERIADOS proibidos absolutos
 const PROIBIDOS_ABS = ['01-01','05-01','12-25']; // mm-dd
@@ -511,8 +562,8 @@ function renderTbl(){
   empty.style.display='none';
   const aL={todas:'Todas',itabirito:'Itabirito',op_mariana:'OP/Mariana'};
   const aC={todas:'b-gold',itabirito:'b-green',op_mariana:'b-blue'};
-  const rL={permitido:'✅ Pode trabalhar',proibido:'🚫 Proibido',acordo_lojas:'📋 Acordo p/ lojas',comercio_op:'🏛️ Comércio livre OP'};
-  const rC={permitido:'b-green',proibido:'b-red',acordo_lojas:'b-orange',comercio_op:'b-blue'};
+  const rL={generos_only:'🛒 Gêneros · 🚫 Lojas proibidas',permitido:'🛒 Gêneros · 🏪 Lojas c/ acordo',proibido:'🚫 Proibido a todos',acordo_lojas:'📋 Lojas só c/ acordo',comercio_op:'🏛️ Comércio livre OP'};
+  const rC={generos_only:'b-green',permitido:'b-gold',proibido:'b-red',acordo_lojas:'b-orange',comercio_op:'b-blue'};
   body.innerHTML=feriados.map((f,i)=>`
     <tr>
       <td><strong>${fmtC(f.data)}</strong></td>
@@ -531,15 +582,15 @@ function renderTbl(){
 function addFeriadosPadrao(){
   const padrao=[
     {data:'2026-01-01',nome:'Confraternização Universal',abrangencia:'todas',regra:'proibido',obs:''},
-    {data:'2026-04-03',nome:'Paixão de Cristo (Sexta-Feira Santa)',abrangencia:'todas',regra:'permitido',obs:''},
-    {data:'2026-04-21',nome:'Tiradentes',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-04-03',nome:'Paixão de Cristo (Sexta-Feira Santa)',abrangencia:'todas',regra:'generos_only',obs:''},
+    {data:'2026-04-21',nome:'Tiradentes',abrangencia:'todas',regra:'generos_only',obs:''},
     {data:'2026-05-01',nome:'Dia do Trabalho',abrangencia:'todas',regra:'proibido',obs:''},
-    {data:'2026-06-04',nome:'Corpus Christi',abrangencia:'todas',regra:'permitido',obs:''},
-    {data:'2026-08-28',nome:'Aniversário de Itabirito',abrangencia:'itabirito',regra:'permitido',obs:'Feriado municipal de Itabirito.'},
-    {data:'2026-09-07',nome:'Independência do Brasil',abrangencia:'todas',regra:'permitido',obs:''},
-    {data:'2026-10-12',nome:'Nossa Senhora Aparecida',abrangencia:'todas',regra:'permitido',obs:''},
-    {data:'2026-11-02',nome:'Finados',abrangencia:'todas',regra:'permitido',obs:''},
-    {data:'2026-11-15',nome:'Proclamação da República',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-06-04',nome:'Corpus Christi',abrangencia:'todas',regra:'generos_only',obs:''},
+    {data:'2026-08-28',nome:'Aniversário de Itabirito',abrangencia:'itabirito',regra:'generos_only',obs:'Feriado municipal de Itabirito.'},
+    {data:'2026-09-07',nome:'Independência do Brasil',abrangencia:'todas',regra:'generos_only',obs:''},
+    {data:'2026-10-12',nome:'Nossa Senhora Aparecida',abrangencia:'todas',regra:'generos_only',obs:''},
+    {data:'2026-11-02',nome:'Finados',abrangencia:'todas',regra:'generos_only',obs:''},
+    {data:'2026-11-15',nome:'Proclamação da República',abrangencia:'todas',regra:'generos_only',obs:''},
     {data:'2026-11-20',nome:'Dia da Consciência Negra',abrangencia:'op_mariana',regra:'comercio_op',obs:'Em Ouro Preto e Mariana, todo o comércio pode funcionar nesta data com as regras de pagamento da CCT.'},
     {data:'2026-12-08',nome:'Nossa Senhora da Conceição',abrangencia:'itabirito',regra:'acordo_lojas',obs:'Lojas de Itabirito podem abrir somente se houver acordo prévio assinado com o sindicato. Sem acordo, somente gêneros alimentícios podem funcionar.'},
     {data:'2026-12-25',nome:'Natal',abrangencia:'todas',regra:'proibido',obs:''},
@@ -572,12 +623,13 @@ function onFeriadoChange(){
   // Alert de regra
   const alertEl=document.getElementById('gRegAlert');
   const rMsg={
+    generos_only:'🛒 Somente GÊNEROS ALIMENTÍCIOS podem trabalhar. 🚫 LOJAS estão PROIBIDAS de exigir trabalho neste feriado.',
     proibido:'🚫 FERIADO PROIBIDO — Nenhum estabelecimento pode convocar funcionários. (01/01 · 01/05 · 25/12)',
-    permitido:'✅ Feriado permitido — comércio pode funcionar seguindo as regras da CCT.',
+    permitido:'🛒 Gêneros Alimentícios podem trabalhar com as regras da CCT. 🏪 Lojas: somente com acordo assinado com o sindicato.',
     acordo_lojas:'📋 Lojas: somente com acordo assinado. Gêneros alimentícios podem sempre funcionar.',
     comercio_op:'🏛️ Comércio em geral pode funcionar — Ouro Preto e Mariana (20/11).',
   };
-  const rCl={proibido:'a-red',permitido:'a-green',acordo_lojas:'a-gold',comercio_op:'a-info'};
+  const rCl={generos_only:'a-gold',proibido:'a-red',permitido:'a-gold',acordo_lojas:'a-gold',comercio_op:'a-green'};
   alertEl.className='alert '+( rCl[f.regra]||'a-gold');
   alertEl.textContent=rMsg[f.regra]||'';
   alertEl.style.display='flex';
@@ -609,7 +661,14 @@ function onEntidadeChange(){
   else { setTipo('ambos',tBoth); }
 }
 
-function setTipo(t,btn){ tipoAtivo=t; document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+function setTipo(t,btn){ tipoAtivo=t; document.querySelectorAll('#gTipoWrap .toggle-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+
+let formatoAtivo='whatsapp';
+function setFormato(f,btn){
+  formatoAtivo=f;
+  document.querySelectorAll('#fWpp,#fInsta').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
 
 function gerar(){
   const fidx=document.getElementById('gFeriado').value;
@@ -634,13 +693,27 @@ function gerar(){
 
   document.getElementById('prevGen').style.display='none';
   document.getElementById('prevLoj').style.display='none';
-  if(mostraGen){ buildGen(ctx); document.getElementById('prevGen').style.display='flex'; }
-  if(mostraLoj){ buildLoj(ctx); document.getElementById('prevLoj').style.display='flex'; }
+  if(mostraGen){ formatoAtivo==='instagram'?buildGenInsta(ctx):buildGen(ctx); document.getElementById('prevGen').style.display='flex'; }
+  if(mostraLoj){ formatoAtivo==='instagram'?buildLojInsta(ctx):buildLoj(ctx); document.getElementById('prevLoj').style.display='flex'; }
   if(!mostraGen&&mostraLoj) swTabDirect('loj');
 }
 
-function swTab(w,btn){ document.querySelectorAll('.prev-tab').forEach(t=>t.classList.remove('active')); btn.classList.add('active'); document.getElementById('prevGen').style.display=w==='gen'?'flex':'none'; document.getElementById('prevLoj').style.display=w==='loj'?'flex':'none'; }
-function swTabDirect(w){ document.getElementById('prevGen').style.display=w==='gen'?'flex':'none'; document.getElementById('prevLoj').style.display=w==='loj'?'flex':'none'; }
+function swTab(w,btn){
+  document.querySelectorAll('.prev-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  const isWpp = formatoAtivo==='whatsapp';
+  document.getElementById('prevGen').style.display=(w==='gen'&&isWpp)?'flex':'none';
+  document.getElementById('prevLoj').style.display=(w==='loj'&&isWpp)?'flex':'none';
+  document.getElementById('prevGenInsta').style.display=(w==='gen'&&!isWpp)?'flex':'none';
+  document.getElementById('prevLojInsta').style.display=(w==='loj'&&!isWpp)?'flex':'none';
+}
+function swTabDirect(w){
+  const isWpp = formatoAtivo==='whatsapp';
+  document.getElementById('prevGen').style.display=(w==='gen'&&isWpp)?'flex':'none';
+  document.getElementById('prevLoj').style.display=(w==='loj'&&isWpp)?'flex':'none';
+  document.getElementById('prevGenInsta').style.display=(w==='gen'&&!isWpp)?'flex':'none';
+  document.getElementById('prevLojInsta').style.display=(w==='loj'&&!isWpp)?'flex':'none';
+}
 
 /* ── BUILD CARDS ── */
 function listaDir(ac, eId){
@@ -678,7 +751,7 @@ function buildGen(c){
     ${listaDir(c.ac, c.eId)}`;
   }
   document.getElementById('cardGen').innerHTML=`
-    <div class="c-tit">📌 ${c.cidade} – GÊNEROS ALIMENTÍCIOS<br>${c.dataLonga} – ${c.feriado}</div>
+    <div class="c-tit">📢 ${c.cidade} – GÊNEROS ALIMENTÍCIOS<br>${c.dataLonga} – ${c.feriado}</div>
     <hr class="c-hr">
     ${corpo}
     ${obsH}
@@ -689,22 +762,36 @@ function buildLoj(c){
   const obsH=c.obs?`<div class="c-obs">📌 ${c.obs}</div>`:'';
   // For lojas entity (ita_l), when regra=permitido, it means they CAN work WITH an agreement
   // The default for lojas is PROIBIDO unless explicitly permitido or comercio_op
-  const lojasPodemTrabalhar = c.regra==='permitido'||c.regra==='comercio_op';
+  const lojasPodemTrabalhar = c.regra==='comercio_op'; // Only 20/11 OP allows lojas freely
+  const lojasNormalComAcordo = c.regra==='permitido'; // Normal holiday: lojas need acordo
+  const lojasProibidasExplicit = c.regra==='generos_only'; // Lojas explicitly forbidden
   const lojasComAcordo = c.regra==='acordo_lojas';
   const lojasProibidas = c.regra==='proibido';
   let corpo='';
 
-  if(lojasProibidas){
+  if(lojasProibidasExplicit){
+    // generos_only: lojas proibidas, gêneros podem
+    corpo=`<div class="c-destaque">🚫 AS LOJAS NÃO PODEM CONVOCAR FUNCIONÁRIOS<br>PARA TRABALHAR NESTE FERIADO.<br><br>NÃO EXISTE ACORDO QUE AUTORIZE<br>ESSA EXIGÊNCIA.</div>
+    <div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER DE<br>RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS, EM FACE<br>DE TODOS AQUELES QUE INSISTIREM NO<br>DESCUMPRIMENTO DA LEI.</div>
+    <hr class="c-hr2">
+    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
+  } else if(lojasProibidas){
     // 01/01, 01/05, 25/12 — proibido absoluto
     corpo=`<div class="c-destaque">🚫 É PROIBIDO CONVOCAR FUNCIONÁRIOS PARA TRABALHAR NESTE DIA.<br>ESTE É UM DOS 3 FERIADOS ABSOLUTAMENTE PROIBIDOS PELA CCT.</div>
     <div class="c-corpo">NENHUM ESTABELECIMENTO PODE FUNCIONAR EM:<br><br>01 DE JANEIRO · 01 DE MAIO · 25 DE DEZEMBRO</div>
     <hr class="c-hr2">
     <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE NO SITE DO SINDICATO.</div>`;
   } else if(lojasPodemTrabalhar){
-    // pode trabalhar com regras
+    // 20/11 OP/Mariana - comércio livre
     corpo=`<div class="c-pode">✅ AS LOJAS PODERÃO FUNCIONAR NESTA DATA,<br>SEGUINDO AS REGRAS DA CCT.</div>
     <div class="c-intro">🏪 O funcionário que trabalhar no feriado tem direito a:</div>
     ${listaDir(c.ac, c.eId)}`;
+  } else if(lojasNormalComAcordo){
+    // Feriado normal: lojas NÃO PODEM trabalhar em regra — só com acordo assinado
+    corpo=`<div class="c-destaque">🚫 EM REGRA, AS LOJAS NÃO PODEM EXIGIR<br>QUE O FUNCIONÁRIO TRABALHE NESTE FERIADO.<br><br>SOMENTE PODERÃO FUNCIONAR MEDIANTE<br>ACORDO PRÉVIO ASSINADO COM O SINDICATO.</div>
+    <div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER DE<br>RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS, EM FACE<br>DE TODOS AQUELES QUE INSISTIREM NO<br>DESCUMPRIMENTO DA LEI.</div>
+    <hr class="c-hr2">
+    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
   } else if(lojasComAcordo){
     // 08/12 Itabirito — só com acordo
     corpo=`<div class="c-acordo">📋 AS LOJAS SOMENTE PODERÃO FUNCIONAR NESTA DATA MEDIANTE ACORDO PRÉVIO, FORMAL E ASSINADO COM O SINDICATO.</div>
@@ -715,7 +802,7 @@ function buildLoj(c){
   }
 
   document.getElementById('cardLoj').innerHTML=`
-    <div class="c-tit">📌 LOJAS EM GERAL — ${c.cidade}<br>📅 ${c.dataCurta} (${c.diaSem})<br>${c.feriado}</div>
+    <div class="c-tit">📢 LOJAS EM GERAL — ${c.cidade}<br>📅 ${c.dataCurta} (${c.diaSem})<br>${c.feriado}</div>
     <hr class="c-hr">
     ${corpo}
     ${obsH}
@@ -726,10 +813,11 @@ function buildLoj(c){
 function editarRegra(i){
   const f = feriados[i];
   const opcoes = [
-    {v:'permitido',    l:'✅ Gêneros podem trabalhar (padrão)'},
-    {v:'proibido',     l:'🚫 Proibido a todos (01/01, 01/05, 25/12)'},
-    {v:'acordo_lojas', l:'📋 Lojas só com acordo assinado'},
-    {v:'comercio_op',  l:'🏛️ Comércio livre OP/Mariana (20/11)'},
+    {v:'generos_only', l:'🛒 Somente Gêneros Alimentícios podem trabalhar — Lojas PROIBIDAS'},
+    {v:'permitido',    l:'🛒 Gêneros podem · 🏪 Lojas somente com acordo assinado'},
+    {v:'proibido',     l:'🚫 PROIBIDO a todos — 01/01 · 01/05 · 25/12'},
+    {v:'acordo_lojas', l:'📋 Lojas: somente se houver acordo assinado (08/12 Itabirito)'},
+    {v:'comercio_op',  l:'🏛️ Comércio livre OP/Mariana — todo comércio pode funcionar (20/11)'},
   ];
   // Build select options
   const opts = opcoes.map(o=>`<option value="${o.v}" ${f.regra===o.v?'selected':''}>${o.l}</option>`).join('');
@@ -744,7 +832,7 @@ function editarRegra(i){
         ✏️ Alterar Regra — ${f.nome}
       </div>
       <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Nova Regra</div>
-      <select id="novaRegraEdit" style="width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(200,168,75,.3);border-radius:7px;padding:10px 12px;color:white;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;outline:none;margin-bottom:14px;">
+      <select id="novaRegraEdit" style="width:100%;background:#0d1f3c;border:1px solid rgba(200,168,75,.3);border-radius:7px;padding:10px 12px;color:white;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;outline:none;margin-bottom:14px;">
         ${opts}
       </select>
       <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Observação (opcional)</div>
@@ -762,6 +850,151 @@ function salvarRegraEdit(i){
   feriados[i].obs   = document.getElementById('novaObsEdit').value.trim();
   document.getElementById('modalRegra').remove();
   salvarFer(); renderTbl();
+}
+
+/* ── INSTAGRAM CARDS ── */
+function buildGenInsta(c){
+  const isProib = c.regra==='proibido';
+  const msgClass = isProib ? 'proib' : 'ok';
+  const msgTxt = isProib
+    ? '🚫 Nenhum estabelecimento pode funcionar nesta data.<br>É um dos 3 feriados absolutamente proibidos pela CCT.'
+    : '🛒 Os estabelecimentos de gêneros alimentícios que funcionarem neste feriado devem respeitar as regras da Convenção Coletiva de Trabalho.<br><br>Funcionário, conheça seus direitos!';
+  document.getElementById('cardGen').innerHTML=`
+    <div class="insta-card" id="instaGen">
+      <div class="insta-top">
+        <img class="insta-logo" src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS">
+        <div class="insta-data">${c.dataCurta}<br>${c.diaSem}</div>
+      </div>
+      <div class="insta-badge">📢 COMUNICADO OFICIAL</div>
+      <div class="insta-mega">📢</div>
+      <div class="insta-feriado">
+        <span>FERIADO</span>
+        ${c.feriado}
+      </div>
+      <div class="insta-line"></div>
+      <div class="insta-msg ${msgClass}">${msgTxt}</div>
+      <div class="insta-bottom">
+        <div class="insta-ctt">📱 ${c.ac.tel||'(31) 3561-2269'}</div>
+        <div class="insta-tag">🌐 ${c.ac.site||'www.sindeci.com.br'}</div>
+      </div>
+    </div>`;
+}
+
+function buildLojInsta(c){
+  const isProib = c.regra==='proibido';
+  const isGenOnly = c.regra==='generos_only';
+  const isAcordo = c.regra==='acordo_lojas';
+  const isLivre = c.regra==='comercio_op';
+
+  let msgTxt='', msgClass='';
+  if(isProib){
+    msgTxt='🚫 NENHUMA LOJA pode funcionar nesta data.<br>É um dos 3 feriados absolutamente proibidos pela CCT.<br><br>Comerciário, faça valer seus direitos!';
+    msgClass='proib';
+  } else if(isGenOnly){
+    msgTxt='🚫 As LOJAS não podem exigir que o funcionário trabalhe neste feriado.<br><br>Não existe acordo que autorize essa exigência.<br>Comerciário, denuncie o abuso!';
+    msgClass='proib';
+  } else if(isAcordo){
+    msgTxt='📋 As lojas somente poderão funcionar se houver <strong>acordo prévio assinado</strong> com o sindicato.<br><br>Sem acordo, o funcionamento é PROIBIDO.';
+    msgClass='';
+  } else if(isLivre){
+    msgTxt='✅ As lojas poderão funcionar nesta data seguindo as regras da Convenção Coletiva de Trabalho.<br><br>Funcionário, conheça seus direitos!';
+    msgClass='ok';
+  } else {
+    msgTxt='🏪 As lojas somente poderão funcionar mediante <strong>acordo assinado</strong> com o sindicato.<br><br>Comerciário, conheça seus direitos!';
+    msgClass='';
+  }
+
+  document.getElementById('cardLoj').innerHTML=`
+    <div class="insta-card" id="instaLoj">
+      <div class="insta-top">
+        <img class="insta-logo" src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS">
+        <div class="insta-data">${c.dataCurta}<br>${c.diaSem}</div>
+      </div>
+      <div class="insta-badge">📢 COMUNICADO OFICIAL</div>
+      <div class="insta-mega">📢</div>
+      <div class="insta-feriado">
+        <span>FERIADO — LOJAS</span>
+        ${c.feriado}
+      </div>
+      <div class="insta-line"></div>
+      <div class="insta-msg ${msgClass}">${msgTxt}</div>
+      <div class="insta-bottom">
+        <div class="insta-ctt">📱 ${c.ac.tel||'(31) 3561-2269'}</div>
+        <div class="insta-tag">🌐 ${c.ac.site||'www.sindeci.com.br'}</div>
+      </div>
+    </div>`;
+}
+
+/* ── INSTAGRAM CARDS ── */
+function regraBoxInsta(regra){
+  // Returns {cls, txt} for the regra box
+  if(regra==='proibido'){
+    return {cls:'proib', txt:'🚫 NENHUM ESTABELECIMENTO<br>PODE FUNCIONAR NESTA DATA'};
+  } else if(regra==='generos_only'){
+    return {cls:'proib', txt:'🚫 LOJAS NÃO PODEM<br>EXIGIR TRABALHO NESTE FERIADO'};
+  } else if(regra==='comercio_op'){
+    return {cls:'perm', txt:'✅ COMÉRCIO PODE FUNCIONAR<br>SEGUINDO AS REGRAS DA CCT'};
+  } else if(regra==='acordo_lojas'){
+    return {cls:'acordo', txt:'📋 LOJAS: SOMENTE COM<br>ACORDO ASSINADO'};
+  } else {
+    return {cls:'perm', txt:'✅ PODE FUNCIONAR<br>SEGUINDO AS REGRAS DA CCT'};
+  }
+}
+
+function buildGenInsta(c){
+  const rb = regraBoxInsta(c.regra==='generos_only'?'perm_gen':c.regra);
+  const rbGen = {cls:'perm', txt:'🛒 GÊNEROS ALIMENTÍCIOS<br>PODEM FUNCIONAR NESTA DATA'};
+  if(c.regra==='proibido') rbGen.cls='proib', rbGen.txt='🚫 PROIBIDO FUNCIONAR<br>NESTA DATA (01/01 · 01/05 · 25/12)';
+  document.getElementById('cardGenInsta').innerHTML=`
+    <div class="insta-bg"></div>
+    <div class="insta-overlay"></div>
+    <div class="insta-content">
+      <div class="insta-top">
+        <div class="insta-logo-wrap"><img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS"></div>
+      </div>
+      <div class="insta-mid">
+        <div class="insta-mega">📢</div>
+        <div class="insta-comunicado">Comunicado Importante</div>
+        <div class="insta-feriado">${c.feriado}</div>
+        <div class="insta-data">${c.dataLonga} · ${c.diaSem}</div>
+        <div class="insta-regra-box ${rbGen.cls}">
+          <div class="insta-regra-txt">${rbGen.txt}</div>
+        </div>
+      </div>
+      <div class="insta-bottom">
+        <div class="insta-cta">Detalhes e denúncias</div>
+        <div class="insta-site">📱 ${c.ac.tel||''} · 🌐 ${c.ac.site||''}</div>
+      </div>
+    </div>`;
+}
+
+function buildLojInsta(c){
+  let rBox = {cls:'proib', txt:'🚫 LOJAS NÃO PODEM<br>CONVOCAR FUNCIONÁRIOS'};
+  if(c.regra==='comercio_op') rBox={cls:'perm',txt:'✅ COMÉRCIO PODE FUNCIONAR<br>SEGUINDO AS REGRAS DA CCT'};
+  else if(c.regra==='proibido') rBox={cls:'proib',txt:'🚫 PROIBIDO FUNCIONAR<br>NESTA DATA (01/01 · 01/05 · 25/12)'};
+  else if(c.regra==='acordo_lojas') rBox={cls:'acordo',txt:'📋 SOMENTE COM ACORDO<br>ASSINADO COM O SINDICATO'};
+  else if(c.regra==='permitido') rBox={cls:'acordo',txt:'📋 LOJAS: SOMENTE COM<br>ACORDO ASSINADO'};
+  document.getElementById('cardLojInsta').innerHTML=`
+    <div class="insta-bg"></div>
+    <div class="insta-overlay"></div>
+    <div class="insta-content">
+      <div class="insta-top">
+        <div class="insta-logo-wrap"><img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS"></div>
+      </div>
+      <div class="insta-mid">
+        <div class="insta-mega">📢</div>
+        <div class="insta-comunicado">Comunicado Importante</div>
+        <div class="insta-feriado">${c.feriado}</div>
+        <div class="insta-data">${c.dataLonga} · ${c.diaSem}</div>
+        <div class="insta-regra-box ${rBox.cls}">
+          <div class="insta-regra-txt">${rBox.txt}</div>
+        </div>
+      </div>
+      <div class="insta-bottom">
+        <div class="insta-cta">Saiba mais · Denuncie abusos</div>
+        <div class="insta-site">🌐 ${c.ac.site||''}</div>
+      </div>
+    </div>`;
 }
 
 /* ── DOWNLOAD ── */
