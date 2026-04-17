@@ -81,6 +81,7 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .toggle-row{display:flex;border-radius:7px;overflow:hidden;border:1px solid rgba(200,168,75,.3);}
 .toggle-btn{flex:1;padding:7px 4px;background:transparent;border:none;color:rgba(255,255,255,.4);font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all .2s;}
 .toggle-btn.active{background:var(--gold);color:var(--navy);}
+.toggle-btn[disabled]{opacity:.28;cursor:not-allowed;}
 
 .tbl{width:100%;border-collapse:collapse;}
 .tbl th{font-size:9px;font-weight:700;color:var(--gold2);letter-spacing:1px;text-transform:uppercase;padding:7px 10px;text-align:left;border-bottom:1px solid rgba(200,168,75,.2);}
@@ -162,6 +163,29 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .insta-foot{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;}
 .insta-foot-cta{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:2px;text-transform:uppercase;}
 .insta-foot-site{font-size:10.5px;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.5px;}
+
+/* MEGAFONE HEADER */
+.mega-header{width:100%;display:flex;flex-direction:column;align-items:center;margin-bottom:14px;}
+.mega-icon-wrap{width:72px;height:72px;background:linear-gradient(135deg,#0a3d6e,#1a6aa8);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(10,61,110,.4);margin-bottom:8px;}
+.mega-icon{font-size:36px;line-height:1;}
+.mega-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:rgba(10,61,110,.8);letter-spacing:3px;text-transform:uppercase;background:rgba(10,61,110,.1);padding:3px 14px;border-radius:20px;}
+
+/* TOAST CONFIRMAÇÃO */
+.toast{position:fixed;bottom:32px;right:32px;background:linear-gradient(135deg,#27ae60,#2ecc71);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;padding:14px 22px;border-radius:10px;box-shadow:0 6px 28px rgba(39,174,96,.4);z-index:9999;display:flex;align-items:center;gap:10px;transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast-icon{font-size:20px;}
+
+/* MODAL CONFIRMAÇÃO */
+.confirm-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;}
+.confirm-box{background:#162d52;border:1px solid rgba(200,168,75,.35);border-radius:12px;padding:28px 32px;width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.6);}
+.confirm-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:var(--white);letter-spacing:.5px;margin-bottom:8px;}
+.confirm-sub{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:24px;line-height:1.5;}
+.confirm-btns{display:flex;gap:10px;justify-content:center;}
+
+/* TOAST RESTAURAR */
+.toast-restore{position:fixed;bottom:32px;right:32px;background:#162d52;border:1px solid rgba(200,168,75,.35);color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;padding:12px 18px;border-radius:10px;box-shadow:0 6px 28px rgba(0,0,0,.4);z-index:9998;display:flex;align-items:center;gap:12px;transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);}
+.toast-restore.show{transform:translateY(0);opacity:1;}
+.restore-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);border:none;border-radius:6px;padding:6px 14px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -290,39 +314,15 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
           <div class="field"><label>Telefone Denúncias</label><input id="ita_g_tel" value="(31) 3561-2269"></div>
           <div class="field"><label>Site</label><input id="ita_g_site" value="www.sindeci.com.br"></div>
         </div>
-      </div>
-    </div>
-
-    <!-- ITA LOJAS -->
-    <div class="entity-card">
-      <div class="entity-hdr" style="border-left:4px solid #e74c3c;">
-        <span class="entity-icon">🏪</span>
-        <div>
-          <div class="entity-title">Itabirito — Lojas em Geral</div>
-          <div class="entity-sub">SINDCOMERCIÁRIOS · Comércio Varejista</div>
-        </div>
-      </div>
-      <div class="entity-body">
-        <div class="g2">
-          <div class="field"><label>Ano da CCT</label><input id="ita_l_ano" value="2026"></div>
-          <div class="field"><label>Gratificação (R$)</label><input id="ita_l_grat" value="90,00"></div>
-        </div>
-        <div class="g3">
-          <div class="field"><label>Jornada Máxima</label><input id="ita_l_jorn" value="6 horas"></div>
-          <div class="field"><label>Intervalo</label><input id="ita_l_int" value="15 minutos"></div>
-          <div class="field"><label>Folga Comp.</label><input id="ita_l_folga" value="60 dias"></div>
-        </div>
-        <div class="g2">
-          <div class="field"><label>Telefone Denúncias</label><input id="ita_l_tel" value="(31) 3561-2269"></div>
-          <div class="field"><label>Site</label><input id="ita_l_site" value="www.sindeci.com.br"></div>
-        </div>
-        <div class="alert a-gold" style="font-size:11px;margin-top:2px;">
-          📋 <strong>08/12:</strong> Lojas só abrem com acordo assinado. Sem acordo, somente gêneros alimentícios funcionam.
+        <div class="field">
+          <label>Partes da CCT</label>
+          <input id="ita_g_partes" value="SINDECI x SINCOVITA">
         </div>
       </div>
     </div>
 
-    <!-- OP FECOMERCIO -->
+
+        <!-- OP FECOMERCIO -->
     <div class="entity-card">
       <div class="entity-hdr" style="border-left:4px solid #2980b9;">
         <span class="entity-icon">🏛️</span>
@@ -345,6 +345,10 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
         <div class="g2">
           <div class="field"><label>Telefone Denúncias</label><input id="op_f_tel" value="(31) 3561-2269"></div>
           <div class="field"><label>Site</label><input id="op_f_site" value="www.sindeci.com.br"></div>
+        </div>
+        <div class="field">
+          <label>Partes da CCT</label>
+          <input id="op_f_partes" value="SINDECI x FECOMÉRCIO">
         </div>
         <div class="alert a-info" style="font-size:11px;margin-top:2px;">
           ℹ️ <strong>20/11 — Consciência Negra:</strong> Todo o comércio (lojas e supermercados) pode funcionar com as regras da CCT.
@@ -375,6 +379,10 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
         <div class="g2">
           <div class="field"><label>Telefone Denúncias</label><input id="op_s_tel" value="(31) 3561-2269"></div>
           <div class="field"><label>Site</label><input id="op_s_site" value="www.sindeci.com.br"></div>
+        </div>
+        <div class="field">
+          <label>Partes da CCT</label>
+          <input id="op_s_partes" value="SINDECI x SINDSUPER">
         </div>
       </div>
     </div>
@@ -419,9 +427,9 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
           <div class="field" style="margin-bottom:11px;" id="gTipoWrap">
             <label>Tipo de Comunicado</label>
             <div class="toggle-row">
-              <button class="toggle-btn active" id="tBoth" onclick="setTipo('ambos',this)">Ambos</button>
-              <button class="toggle-btn" id="tGen"  onclick="setTipo('generos',this)">Gêneros</button>
-              <button class="toggle-btn" id="tLoj"  onclick="setTipo('lojas',this)">Lojas</button>
+              <button class="toggle-btn active" id="tBoth" onclick="if(!this.disabled)setTipo('ambos',this)">Ambos</button>
+              <button class="toggle-btn" id="tGen"  onclick="if(!this.disabled)setTipo('generos',this)">Gêneros</button>
+              <button class="toggle-btn" id="tLoj"  onclick="if(!this.disabled)setTipo('lojas',this)">Lojas</button>
             </div>
           </div>
 
@@ -508,10 +516,9 @@ let feriados = JSON.parse(localStorage.getItem('sind4_feriados')||'[]');
 let tipoAtivo = 'ambos';
 
 const ENTIDADES = [
-  {id:'ita_g', label:'Itabirito — Gêneros Alimentícios (SINDCOMERCIÁRIOS)', cidade:'itabirito', temGen:true,  temLoj:false},
-  {id:'ita_l', label:'Itabirito — Lojas em Geral (SINDCOMERCIÁRIOS)',       cidade:'itabirito', temGen:false, temLoj:true },
-  {id:'op_f',  label:'Ouro Preto/Mariana — Fecomércio (Lojas e Peq. Supermercados)', cidade:'op_mariana', temGen:true, temLoj:true},
-  {id:'op_s',  label:'Ouro Preto/Mariana — Sindsuper (Grandes Supermercados)', cidade:'op_mariana', temGen:true, temLoj:false},
+  {id:'ita_g', label:'Itabirito — Gêneros + Lojas (SINDCOMERCIÁRIOS)', cidade:'itabirito', temGen:true,  temLoj:true },
+  {id:'op_f',  label:'Ouro Preto/Mariana — Fecomércio (Peq. Supermercados + Lojas)', cidade:'op_mariana', temGen:true, temLoj:true},
+  {id:'op_s',  label:'Ouro Preto/Mariana — Sindsuper (Grandes Supermercados + Lojas)', cidade:'op_mariana', temGen:true, temLoj:true},
 ];
 
 /* ── UTILS ── */
@@ -524,21 +531,22 @@ function showPage(id,btn){ document.querySelectorAll('.page').forEach(p=>p.class
 /* ── ACORDOS ── */
 function getAcordo(id){
   const saved=JSON.parse(localStorage.getItem('sind4_acordos')||'{}');
-  if(saved[id]) return saved[id];
-  const fields=['ano','grat','jorn','int','folga','tel','site'];
-  const r={};
-  fields.forEach(f=>{ const el=document.getElementById(`${id}_${f}`); if(el) r[f]=el.value; });
-  return r;
+  const fields=['ano','grat','jorn','int','folga','tel','site','partes'];
+  // Sempre lê os campos do HTML como base (defaults)
+  const defaults={};
+  fields.forEach(f=>{ const el=document.getElementById(`${id}_${f}`); if(el) defaults[f]=el.value; });
+  // Mescla com dados salvos — campos novos como 'partes' sempre pegam o default se não existir no saved
+  return Object.assign({}, defaults, saved[id]||{});
 }
 function salvarAcordos(){
   const data={};
   ENTIDADES.forEach(e=>{
-    const fields=['ano','grat','jorn','int','folga','tel','site'];
+    const fields=['ano','grat','jorn','int','folga','tel','site','partes'];
     data[e.id]={};
     fields.forEach(f=>{ const el=document.getElementById(`${e.id}_${f}`); if(el) data[e.id][f]=el.value; });
   });
   localStorage.setItem('sind4_acordos',JSON.stringify(data));
-  alert('✅ Acordos coletivos salvos com sucesso!');
+  showToast('Acordos coletivos salvos com sucesso! ✅');
 }
 
 /* ── FERIADOS ── */
@@ -555,7 +563,61 @@ function addFeriado(){
   ['novaData','novoNome','novaObs'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('novaBadge').style.display='none';
 }
-function removeFer(i){ if(!confirm('Remover feriado?'))return; feriados.splice(i,1); salvarFer(); renderTbl(); }
+let _feriadoRemovido = null;
+let _restoreTimer = null;
+
+function removeFer(i){
+  const f = feriados[i];
+  // Custom confirmation modal
+  const modal = document.createElement('div');
+  modal.className = 'confirm-modal';
+  modal.id = 'confirmModal';
+  modal.innerHTML = `
+    <div class="confirm-box">
+      <div class="confirm-title">⚠️ Remover Feriado</div>
+      <div class="confirm-sub">Deseja remover <strong>${f.nome}</strong> (${fmtC(f.data)})?<br>Você poderá restaurar logo após a remoção.</div>
+      <div class="confirm-btns">
+        <button onclick="document.getElementById('confirmModal').remove()"
+          style="flex:1;padding:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:7px;color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;">
+          ✕ Não
+        </button>
+        <button onclick="confirmarRemocao(${i})"
+          style="flex:1;padding:10px;background:linear-gradient(135deg,#e74c3c,#c0392b);border:none;border-radius:7px;color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;">
+          ✓ Sim, Remover
+        </button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+function confirmarRemocao(i){
+  document.getElementById('confirmModal').remove();
+  // Salvar backup para restaurar
+  _feriadoRemovido = { feriado: {...feriados[i]}, indice: i };
+  feriados.splice(i, 1);
+  salvarFer();
+  renderTbl();
+  // Mostrar toast com botão restaurar
+  const t = document.getElementById('restoreToast');
+  t.classList.add('show');
+  if(_restoreTimer) clearTimeout(_restoreTimer);
+  _restoreTimer = setTimeout(()=>{
+    t.classList.remove('show');
+    _feriadoRemovido = null;
+  }, 8000); // 8 segundos para restaurar
+}
+
+function restaurarFeriado(){
+  if(!_feriadoRemovido) return;
+  clearTimeout(_restoreTimer);
+  feriados.splice(_feriadoRemovido.indice, 0, _feriadoRemovido.feriado);
+  feriados.sort((a,b)=>a.data.localeCompare(b.data));
+  salvarFer();
+  renderTbl();
+  _feriadoRemovido = null;
+  document.getElementById('restoreToast').classList.remove('show');
+  showToast('✅ Feriado restaurado com sucesso!');
+}
 function salvarFer(){ localStorage.setItem('sind4_feriados',JSON.stringify(feriados)); }
 
 function renderTbl(){
@@ -575,9 +637,11 @@ function renderTbl(){
       <td><span class="badge ${aC[f.abrangencia]||'b-gold'}">${aL[f.abrangencia]||f.abrangencia}</span></td>
       <td><span class="badge ${rC[f.regra]||'b-gray'}">${rL[f.regra]||f.regra}</span></td>
       <td style="font-size:11px;color:rgba(255,255,255,.4);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${f.obs}">${f.obs||'—'}</td>
-      <td style="display:flex;gap:4px;">
-        <button class="btn btn-sm" style="background:rgba(200,168,75,.15);border:1px solid rgba(200,168,75,.3);color:var(--gold2);" onclick="editarRegra(${i})">✏️ Regra</button>
-        <button class="btn btn-red btn-sm" onclick="removeFer(${i})">✕</button>
+      <td>
+        <div style="display:flex;gap:4px;">
+          <button class="btn btn-sm" style="background:rgba(200,168,75,.15);border:1px solid rgba(200,168,75,.3);color:var(--gold2);" onclick="editarRegra(${i})">✏️ Regra</button>
+          <button class="btn btn-red btn-sm" onclick="removeFer(${i})">✕ Remover</button>
+        </div>
       </td>
     </tr>`).join('');
 }
@@ -654,26 +718,26 @@ function onEntidadeChange(){
   const eId=document.getElementById('gEntidade').value;
   if(!eId) return;
   const ent=ENTIDADES.find(e=>e.id===eId);
-  // Reconstruir os botões do tipo dinamicamente — evita bugs de display
-  const row=document.querySelector('#gTipoWrap .toggle-row');
+  const tBoth=document.getElementById('tBoth');
+  const tGen=document.getElementById('tGen');
+  const tLoj=document.getElementById('tLoj');
+
+  // Sempre mostra os 3 botões — só habilita/desabilita conforme a entidade
+  [tBoth,tGen,tLoj].forEach(b=>{ b.disabled=false; b.classList.remove('active'); });
+
   if(ent.temGen && ent.temLoj){
-    // Fecomércio OP — tem ambos
-    row.innerHTML=`
-      <button class="toggle-btn active" onclick="setTipo('ambos',this)">Ambos</button>
-      <button class="toggle-btn" onclick="setTipo('generos',this)">Gêneros</button>
-      <button class="toggle-btn" onclick="setTipo('lojas',this)">Lojas</button>`;
-    tipoAtivo='ambos';
+    // op_f: tem ambos — seleciona Ambos
+    tipoAtivo='ambos'; tBoth.classList.add('active');
   } else if(ent.temGen && !ent.temLoj){
-    // Gêneros apenas (ita_g, op_s)
-    row.innerHTML=`<button class="toggle-btn active" onclick="setTipo('generos',this)">🛒 Gêneros Alimentícios</button>`;
-    tipoAtivo='generos';
+    // ita_g, op_s: só gêneros — desabilita Lojas e Ambos
+    tBoth.disabled=true; tLoj.disabled=true;
+    tipoAtivo='generos'; tGen.classList.add('active');
   } else {
-    // Lojas apenas (ita_l) — SEMPRE gera comunicado de lojas, seja qual for a regra
-    row.innerHTML=`<button class="toggle-btn active" onclick="setTipo('lojas',this)">🏪 Lojas em Geral</button>`;
-    tipoAtivo='lojas';
+    // Entidade só tem Lojas — desabilita Gêneros e Ambos
+    tBoth.disabled=true; tGen.disabled=true;
+    tipoAtivo='lojas'; tLoj.classList.add('active');
   }
 }
-
 function setTipo(t,btn){ tipoAtivo=t; document.querySelectorAll('#gTipoWrap .toggle-btn').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active'); }
 
 let formatoAtivo='whatsapp';
@@ -757,131 +821,121 @@ function listaDir(ac, eId){
 }
 
 function rodapeGen(c){
-  return `<div class="c-cct">${c.cct}</div><div class="c-rod"><span>📱 DENÚNCIAS: ${c.ac.tel||'—'}</span><span style="color:#0a3d6e;margin:0 4px;font-size:13px;">|</span><span>🌐 ${c.ac.site||'—'}</span></div>`;
+  const partesStr = c.ac.partes || '';
+  return `
+    <div class="c-rod-logo" style="margin-bottom:10px;">
+      <img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS" style="height:44px;object-fit:contain;background:#fff;border-radius:8px;padding:4px 10px;">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">
+        ${partesStr ? `<div style="font-size:12px;font-weight:900;color:#0a3d6e;letter-spacing:.8px;text-transform:uppercase;">${partesStr}</div>` : ''}
+        <div style="font-size:9.5px;font-weight:700;color:#1a3a6e;opacity:.75;letter-spacing:.3px;">${c.cct}</div>
+      </div>
+    </div>
+    <div class="c-rod"><span>📱 DENÚNCIAS: ${c.ac.tel||'—'}</span><span style="color:#0a3d6e;margin:0 4px;font-size:13px;">|</span><span>🌐 ${c.ac.site||'—'}</span></div>`;
 }
 function rodapeLoj(c){
-  return `<div class="c-cct">${c.cct}</div><div class="c-rod-logo"><img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS"><span>${(c.ac.site||'www.sindeci.com.br').toUpperCase()}</span></div>`;
+  const partesStr = c.ac.partes || '';
+  return `
+    <div class="c-rod-logo">
+      <img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS" style="height:44px;object-fit:contain;background:#fff;border-radius:8px;padding:4px 10px;">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">
+        ${partesStr ? `<div style="font-size:12px;font-weight:900;color:#0a3d6e;letter-spacing:.8px;text-transform:uppercase;">${partesStr}</div>` : ''}
+        <div style="font-size:9.5px;font-weight:700;color:#1a3a6e;opacity:.75;letter-spacing:.3px;">${c.cct}</div>
+        <div style="font-size:9.5px;font-weight:700;color:#0a3d6e;opacity:.7;">${(c.ac.site||'www.sindeci.com.br').toUpperCase()}</div>
+      </div>
+    </div>`;
 }
 
 function buildGen(c){
-  const obsH=c.obs?`<div class="c-obs">📌 ${c.obs}</div>`:'';
-  let corpo='';
-  if(c.regra==='proibido'){
-    // 01/01, 01/05, 25/12 — proibido absoluto para todos
-    corpo=`<div class="c-destaque">🚫 ESTABELECIMENTOS DE GÊNEROS ALIMENTÍCIOS NÃO PODERÃO FUNCIONAR NESTA DATA.<br>É UM DOS 3 FERIADOS PROIBIDOS PELA CCT.</div>
-    <div class="c-corpo">NENHUM ESTABELECIMENTO PODE CONVOCAR<br>FUNCIONÁRIOS PARA TRABALHAR EM:<br><br>01 DE JANEIRO · 01 DE MAIO · 25 DE DEZEMBRO</div>`;
-  } else if(c.regra==='generos_only'){
-    // Somente gêneros podem — destacar isso no início
-    corpo=`<div class="c-pode">✅ GÊNEROS ALIMENTÍCIOS ESTÃO AUTORIZADOS<br>A FUNCIONAR NESTE FERIADO.</div>
+  const obsH = c.obs ? `<div class="c-obs">📌 ${c.obs}</div>` : '';
+  let corpo = '';
+
+  if(c.regra === 'proibido'){
+    corpo = `
+    <div class="c-destaque">🚫 ESTABELECIMENTOS DE GÊNEROS ALIMENTÍCIOS<br>NÃO PODERÃO FUNCIONAR NESTA DATA.<br>(01/01 · 01/05 · 25/12)</div>
+    <div class="c-corpo">NENHUM ESTABELECIMENTO PODE CONVOCAR<br>FUNCIONÁRIOS PARA TRABALHAR NESTES FERIADOS.</div>`;
+  } else {
+    // generos_only, permitido, comercio_op, acordo_lojas — gêneros SEMPRE podem
+    corpo = `
+    <div class="c-pode">✅ GÊNEROS ALIMENTÍCIOS ESTÃO AUTORIZADOS<br>A FUNCIONAR NESTE FERIADO.</div>
     <div class="c-intro">🛒 O funcionário que trabalhar no feriado tem direito a:</div>
     ${listaDir(c.ac, c.eId)}`;
-  } else {
-    corpo=`<div class="c-intro">🛒 Para os estabelecimentos de gêneros alimentícios que<br>funcionarem no feriado, o funcionário tem direito a:</div>
-    ${listaDir(c.ac, c.eId)}`;
   }
-  document.getElementById('cardGen').innerHTML=`
-    <div class="c-tit">📢 ${c.cidade} – GÊNEROS ALIMENTÍCIOS<br>${c.dataLonga} – ${c.feriado}</div>
+
+  const partesTagGen = c.ac.partes ? `<div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:#0a3d6e;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;background:rgba(255,255,255,.4);padding:4px 18px;border-radius:20px;display:inline-block;">${c.ac.partes}</div>` : '';
+  document.getElementById('cardGen').innerHTML = `
+    <div class="mega-header">
+      <div class="mega-icon-wrap"><div class="mega-icon">📢</div></div>
+      <div class="mega-label">Comunicado Importante</div>
+    </div>
+    ${partesTagGen}
+    <div class="c-tit">${c.cidade} – SUPERMERCADOS E GÊNEROS ALIMENTÍCIOS<br>${c.dataLonga} – ${c.feriado}</div>
     <hr class="c-hr">
     ${corpo}
     ${obsH}
     ${rodapeGen(c)}`;
 }
 
-function buildLoj(c){
-  const obsH=c.obs?`<div class="c-obs">📌 ${c.obs}</div>`:'';
-  // For lojas entity (ita_l), when regra=permitido, it means they CAN work WITH an agreement
-  // The default for lojas is PROIBIDO unless explicitly permitido or comercio_op
-  const lojasPodemTrabalhar = c.regra==='comercio_op'; // Only 20/11 OP allows lojas freely
-  const lojasNormalComAcordo = c.regra==='permitido'; // Normal holiday: lojas need acordo
-  const lojasProibidasExplicit = c.regra==='generos_only'; // Lojas explicitly forbidden
-  const lojasComAcordo = c.regra==='acordo_lojas';
-  const lojasProibidas = c.regra==='proibido';
-  let corpo='';
 
-  if(lojasProibidasExplicit){
-    // generos_only: lojas proibidas, gêneros podem
-    corpo=`<div class="c-destaque">🚫 AS LOJAS NÃO PODEM CONVOCAR FUNCIONÁRIOS<br>PARA TRABALHAR NESTE FERIADO.<br><br>NÃO EXISTE ACORDO QUE AUTORIZE<br>ESSA EXIGÊNCIA.</div>
-    <div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER DE<br>RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS, EM FACE<br>DE TODOS AQUELES QUE INSISTIREM NO<br>DESCUMPRIMENTO DA LEI.</div>
-    <hr class="c-hr2">
-    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
-  } else if(lojasProibidas){
-    // 01/01, 01/05, 25/12 — proibido absoluto
-    corpo=`<div class="c-destaque">🚫 É PROIBIDO CONVOCAR FUNCIONÁRIOS PARA TRABALHAR NESTE DIA.<br>ESTE É UM DOS 3 FERIADOS ABSOLUTAMENTE PROIBIDOS PELA CCT.</div>
+function buildLoj(c){
+  const obsH = c.obs ? `<div class="c-obs">📌 ${c.obs}</div>` : '';
+
+  let corpo = '';
+
+  if(c.regra === 'proibido'){
+    // 01/01 · 01/05 · 25/12 — proibido absoluto
+    corpo = `
+    <div class="c-destaque">🚫 É PROIBIDO CONVOCAR FUNCIONÁRIOS<br>PARA TRABALHAR NESTE DIA.<br><br>ESTE É UM DOS 3 FERIADOS ABSOLUTAMENTE<br>PROIBIDOS PELA CONVENÇÃO COLETIVA.</div>
     <div class="c-corpo">NENHUM ESTABELECIMENTO PODE FUNCIONAR EM:<br><br>01 DE JANEIRO · 01 DE MAIO · 25 DE DEZEMBRO</div>
     <hr class="c-hr2">
-    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE NO SITE DO SINDICATO.</div>`;
-  } else if(lojasPodemTrabalhar){
-    // 20/11 OP/Mariana - comércio livre
-    corpo=`<div class="c-pode">✅ AS LOJAS PODERÃO FUNCIONAR NESTA DATA,<br>SEGUINDO AS REGRAS DA CCT.</div>
-    <div class="c-intro">🏪 O funcionário que trabalhar no feriado tem direito a:</div>
-    ${listaDir(c.ac, c.eId)}`;
-  } else if(lojasNormalComAcordo){
-    // Feriado normal: lojas NÃO PODEM trabalhar em regra — só com acordo assinado
-    corpo=`<div class="c-destaque">🚫 EM REGRA, AS LOJAS NÃO PODEM EXIGIR<br>QUE O FUNCIONÁRIO TRABALHE NESTE FERIADO.<br><br>SOMENTE PODERÃO FUNCIONAR MEDIANTE<br>ACORDO PRÉVIO ASSINADO COM O SINDICATO.</div>
-    <div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER DE<br>RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS, EM FACE<br>DE TODOS AQUELES QUE INSISTIREM NO<br>DESCUMPRIMENTO DA LEI.</div>
+    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
+
+  } else if(c.regra === 'generos_only'){
+    // Regra padrão: somente gêneros podem — lojas PROIBIDAS
+    corpo = `
+    <div class="c-destaque">🚫 AS LOJAS NÃO PODEM CONVOCAR<br>FUNCIONÁRIOS PARA TRABALHAR NESTE DIA.<br><br>NÃO EXISTE ACORDO COM O SINDICATO<br>QUE AUTORIZE ESSA EXIGÊNCIA.</div>
+    <div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER<br>DE RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS,<br>EM FACE DE TODOS AQUELES QUE INSISTIREM<br>NO DESCUMPRIMENTO DA LEI.</div>
     <hr class="c-hr2">
     <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
-  } else if(lojasComAcordo){
-    // 08/12 Itabirito — só com acordo
-    corpo=`<div class="c-acordo">📋 AS LOJAS SOMENTE PODERÃO FUNCIONAR NESTA DATA MEDIANTE ACORDO PRÉVIO, FORMAL E ASSINADO COM O SINDICATO.</div>
-    <div class="c-corpo">SEM ACORDO ASSINADO,<br>O FUNCIONAMENTO É PROIBIDO<br>E SUJEITA O EMPREGADOR<br>ÀS SANÇÕES DA CCT.</div>
+
+  } else if(c.regra === 'comercio_op'){
+    // 20/11 OP — comércio livre, pode trabalhar
+    corpo = `
+    <div class="c-pode">✅ AS LOJAS PODERÃO FUNCIONAR NESTA DATA,<br>SEGUINDO AS REGRAS DA CCT.</div>
+    <div class="c-intro">🏪 O funcionário que trabalhar no feriado tem direito a:</div>
+    ${listaDir(c.ac, c.eId)}`;
+
+  } else if(c.regra === 'acordo_lojas'){
+    // 08/12 Itabirito — somente com acordo assinado
+    corpo = `
+    <div class="c-acordo">📋 AS LOJAS SOMENTE PODERÃO FUNCIONAR<br>MEDIANTE ACORDO PRÉVIO,<br>FORMAL E ASSINADO COM O SINDICATO.</div>
+    <div class="c-corpo">SEM ACORDO ASSINADO,<br>O FUNCIONAMENTO É PROIBIDO E SUJEITA<br>O EMPREGADOR ÀS SANÇÕES DA CCT.</div>
     <hr class="c-hr2">
-    <div class="c-cta">HAVENDO ACORDO, O FUNCIONÁRIO TEM DIREITO A:<br>GRATIFICAÇÃO · JORNADA LIMITADA · FOLGA · VT</div>
-    <div class="c-alerta"><span>⚠️</span><span class="c-alerta-txt">O descumprimento sujeita o empregador ao pagamento de multa diretamente ao funcionário prejudicado.</span></div>`;
+    <div class="c-alerta"><span>⚠️</span><span class="c-alerta-txt">Havendo acordo, os direitos do funcionário são: gratificação, jornada limitada, folga compensatória e vale-transporte.</span></div>`;
+
+  } else {
+    // permitido — lojas com acordo (regra normal)
+    corpo = `
+    <div class="c-destaque">🚫 EM REGRA, AS LOJAS NÃO PODEM EXIGIR<br>QUE O FUNCIONÁRIO TRABALHE NESTE FERIADO.<br><br>SOMENTE PODERÃO FUNCIONAR MEDIANTE<br>ACORDO PRÉVIO ASSINADO COM O SINDICATO.</div>
+    <div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER<br>DE RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS,<br>EM FACE DE TODOS AQUELES QUE INSISTIREM<br>NO DESCUMPRIMENTO DA LEI.</div>
+    <hr class="c-hr2">
+    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
   }
 
-  document.getElementById('cardLoj').innerHTML=`
-    <div class="c-tit">📢 LOJAS EM GERAL — ${c.cidade}<br>📅 ${c.dataCurta} (${c.diaSem})<br>${c.feriado}</div>
+  const partesTagLoj = c.ac.partes ? `<div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:#0a3d6e;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;background:rgba(255,255,255,.4);padding:4px 18px;border-radius:20px;display:inline-block;">${c.ac.partes}</div>` : '';
+  document.getElementById('cardLoj').innerHTML = `
+    <div class="mega-header">
+      <div class="mega-icon-wrap"><div class="mega-icon">📢</div></div>
+      <div class="mega-label">Comunicado Importante</div>
+    </div>
+    ${partesTagLoj}
+    <div class="c-tit">LOJAS EM GERAL — ${c.cidade}<br>📅 ${c.dataCurta} (${c.diaSem})<br>${c.feriado}</div>
     <hr class="c-hr">
     ${corpo}
     ${obsH}
     ${rodapeLoj(c)}`;
 }
 
-/* ── EDITAR REGRA FERIADO ── */
-function editarRegra(i){
-  const f = feriados[i];
-  const opcoes = [
-    {v:'generos_only', l:'🛒 Somente Gêneros Alimentícios podem trabalhar — Lojas PROIBIDAS'},
-    {v:'permitido',    l:'🛒 Gêneros podem · 🏪 Lojas somente com acordo assinado'},
-    {v:'proibido',     l:'🚫 PROIBIDO a todos — 01/01 · 01/05 · 25/12'},
-    {v:'acordo_lojas', l:'📋 Lojas: somente se houver acordo assinado (08/12 Itabirito)'},
-    {v:'comercio_op',  l:'🏛️ Comércio livre OP/Mariana — todo comércio pode funcionar (20/11)'},
-  ];
-  // Build select options
-  const opts = opcoes.map(o=>`<option value="${o.v}" ${f.regra===o.v?'selected':''}>${o.l}</option>`).join('');
-  
-  // Create modal
-  const modal = document.createElement('div');
-  modal.id = 'modalRegra';
-  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:9999;display:flex;align-items:center;justify-content:center;';
-  modal.innerHTML = `
-    <div style="background:#162d52;border:1px solid rgba(200,168,75,.3);border-radius:12px;padding:28px;width:480px;box-shadow:0 20px 60px rgba(0,0,0,.5);">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;">
-        ✏️ Alterar Regra — ${f.nome}
-      </div>
-      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Nova Regra</div>
-      <select id="novaRegraEdit" style="width:100%;background:#0d1f3c;border:1px solid rgba(200,168,75,.3);border-radius:7px;padding:10px 12px;color:white;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;outline:none;margin-bottom:14px;">
-        ${opts}
-      </select>
-      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Observação (opcional)</div>
-      <textarea id="novaObsEdit" style="width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(200,168,75,.3);border-radius:7px;padding:10px 12px;color:white;font-family:'Montserrat',sans-serif;font-size:13px;min-height:70px;outline:none;resize:vertical;margin-bottom:18px;">${f.obs||''}</textarea>
-      <div style="display:flex;gap:10px;justify-content:flex-end;">
-        <button onclick="document.getElementById('modalRegra').remove()" style="padding:9px 20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:7px;color:white;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;">Cancelar</button>
-        <button onclick="salvarRegraEdit(${i})" style="padding:9px 20px;background:linear-gradient(135deg,#c8a84b,#e2c06a);border:none;border-radius:7px;color:#0d1f3c;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">💾 Salvar</button>
-      </div>
-    </div>`;
-  document.body.appendChild(modal);
-}
 
-function salvarRegraEdit(i){
-  feriados[i].regra = document.getElementById('novaRegraEdit').value;
-  feriados[i].obs   = document.getElementById('novaObsEdit').value.trim();
-  document.getElementById('modalRegra').remove();
-  salvarFer(); renderTbl();
-}
-
-/* ── INSTAGRAM CARDS ── */
 function buildGenInsta(c){
   const isProib = c.regra==='proibido';
   const msgClass = isProib ? 'proib' : 'ok';
@@ -1011,6 +1065,49 @@ function buildInsta(tipo, c) {
     </div>`;
 }
 
+/* ── EDITAR REGRA FERIADO ── */
+function editarRegra(i){
+  const f=feriados[i];
+  const opcoes=[
+    {v:'generos_only', l:'🛒 Somente Gêneros podem · Lojas PROIBIDAS'},
+    {v:'permitido',    l:'🛒 Gêneros podem · 🏪 Lojas somente com acordo'},
+    {v:'proibido',     l:'🚫 PROIBIDO a todos (01/01 · 01/05 · 25/12)'},
+    {v:'acordo_lojas', l:'📋 Lojas só com acordo assinado (08/12 Ita.)'},
+    {v:'comercio_op',  l:'🏛️ Comércio livre OP/Mariana (20/11)'},
+  ];
+  const opts=opcoes.map(o=>`<option value="${o.v}" ${f.regra===o.v?'selected':''}>${o.l}</option>`).join('');
+
+  const modal=document.createElement('div');
+  modal.id='modalRegra';
+  modal.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;';
+  modal.innerHTML=`
+    <div style="background:#162d52;border:1px solid rgba(200,168,75,.35);border-radius:12px;padding:28px;width:500px;box-shadow:0 20px 60px rgba(0,0,0,.6);">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;">
+        ✏️ Alterar Regra — ${f.nome}
+      </div>
+      <div style="font-size:10px;font-weight:700;color:var(--gold2);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Nova Regra</div>
+      <select id="novaRegraEdit" style="width:100%;background:#0d1f3c;border:1px solid rgba(200,168,75,.3);border-radius:7px;padding:10px 12px;color:white;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;outline:none;margin-bottom:14px;">
+        ${opts}
+      </select>
+      <div style="font-size:10px;font-weight:700;color:var(--gold2);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Observação (opcional)</div>
+      <textarea id="novaObsEdit" style="width:100%;background:#0d1f3c;border:1px solid rgba(200,168,75,.3);border-radius:7px;padding:10px 12px;color:white;font-family:'Montserrat',sans-serif;font-size:13px;min-height:70px;outline:none;resize:vertical;margin-bottom:18px;">${f.obs||''}</textarea>
+      <div style="display:flex;gap:10px;justify-content:flex-end;">
+        <button onclick="document.getElementById('modalRegra').remove()" style="padding:9px 20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:7px;color:white;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;">Cancelar</button>
+        <button onclick="salvarRegraEdit(${i})" style="padding:9px 20px;background:linear-gradient(135deg,#c8a84b,#e2c06a);border:none;border-radius:7px;color:#0d1f3c;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">💾 Salvar</button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+function salvarRegraEdit(i){
+  feriados[i].regra=document.getElementById('novaRegraEdit').value;
+  feriados[i].obs=document.getElementById('novaObsEdit').value.trim();
+  document.getElementById('modalRegra').remove();
+  salvarFer();
+  renderTbl();
+  showToast('Regra do feriado atualizada! ✅');
+}
+
 /* ── DOWNLOAD ── */
 function baixar(cardId,tipo){
   const fidx=document.getElementById('gFeriado').value;
@@ -1024,6 +1121,16 @@ function baixar(cardId,tipo){
     .then(cv=>{ const a=document.createElement('a');a.download=filename;a.href=cv.toDataURL('image/png');a.click(); });
 }
 
+/* ── TOAST ── */
+function showToast(msg, isError){
+  const t=document.getElementById('saveToast');
+  const m=document.getElementById('toastMsg');
+  m.textContent=msg;
+  t.style.background=isError?'linear-gradient(135deg,#e74c3c,#c0392b)':'linear-gradient(135deg,#27ae60,#2ecc71)';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+
 /* ── INIT ── */
 renderTbl();
 const savedA=JSON.parse(localStorage.getItem('sind4_acordos')||'{}');
@@ -1031,5 +1138,15 @@ Object.keys(savedA).forEach(eid=>{
   Object.keys(savedA[eid]).forEach(f=>{ const el=document.getElementById(`${eid}_${f}`); if(el) el.value=savedA[eid][f]; });
 });
 </script>
+
+<div class="toast" id="saveToast">
+  <span class="toast-icon">✅</span>
+  <span id="toastMsg">Acordos salvos com sucesso!</span>
+</div>
+
+<div class="toast-restore" id="restoreToast">
+  <span>🗑️ Feriado removido</span>
+  <button class="restore-btn" onclick="restaurarFeriado()">↩️ Restaurar</button>
+</div>
 </body>
 </html>
