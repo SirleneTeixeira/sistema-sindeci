@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Comunicados — SINDCOMERCIÁRIOS</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{
+  --navy:#0d1f3c;--navy2:#162d52;--navy3:#1e3d6e;
+  --gold:#c8a84b;--gold2:#e2c06a;
+  --white:#fff;--danger:#e74c3c;--green:#27ae60;--blue:#2980b9;--orange:#e67e22;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--navy);color:var(--white);}
+
+.hdr{background:linear-gradient(90deg,var(--navy),var(--navy2));border-bottom:3px solid var(--gold);padding:13px 26px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:200;}
+.hdr img{height:44px;background:#fff;border-radius:8px;padding:4px 10px;object-fit:contain;}
+.hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;letter-spacing:1px;text-transform:uppercase;}
+.hdr p{font-size:10px;color:var(--gold2);letter-spacing:2px;text-transform:uppercase;margin-top:1px;}
+.hdr-v{margin-left:auto;background:var(--gold);color:var(--navy);font-size:9px;font-weight:800;padding:3px 11px;border-radius:20px;letter-spacing:1.5px;}
+
+.nav{display:flex;background:var(--navy2);border-bottom:2px solid rgba(200,168,75,.2);}
+.nav-btn{padding:12px 24px;background:transparent;border:none;border-bottom:3px solid transparent;color:rgba(255,255,255,.4);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-bottom:-2px;transition:all .2s;}
+.nav-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+.nav-btn:hover:not(.active){color:rgba(255,255,255,.7);}
+
+.page{display:none;padding:22px 26px;}
+.page.active{display:block;}
+
+.sec{background:var(--navy2);border-radius:12px;border:1px solid rgba(200,168,75,.15);padding:20px 24px;margin-bottom:16px;}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:7px;border-bottom:1px solid rgba(200,168,75,.2);}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:11px;}
+.g5{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:11px;}
+
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:10px;font-weight:700;color:var(--gold2);letter-spacing:1px;text-transform:uppercase;}
+.field input,.field select,.field textarea{background:rgba(255,255,255,.07);border:1px solid rgba(200,168,75,.25);border-radius:7px;padding:8px 12px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;outline:none;transition:border-color .2s;width:100%;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);}
+.field select option{background:var(--navy2);}
+.field textarea{resize:vertical;min-height:58px;line-height:1.5;}
+.field input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.5);cursor:pointer;}
+.field input[readonly]{opacity:.6;cursor:default;}
+
+.badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 9px;border-radius:10px;letter-spacing:.5px;}
+.b-red{background:rgba(231,76,60,.15);color:#e87070;}
+.b-green{background:rgba(39,174,96,.15);color:#5dca8a;}
+.b-orange{background:rgba(230,126,34,.15);color:#f0a86e;}
+.b-blue{background:rgba(41,128,185,.15);color:#7eb8e8;}
+.b-gold{background:rgba(200,168,75,.15);color:var(--gold2);}
+.b-gray{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
+.day-badge{display:inline-block;background:rgba(200,168,75,.15);color:var(--gold2);font-size:10px;font-weight:700;padding:2px 9px;border-radius:10px;margin-top:3px;}
+
+.btn{padding:9px 20px;border:none;border-radius:7px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);box-shadow:0 3px 14px rgba(200,168,75,.3);}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 5px 20px rgba(200,168,75,.45);}
+.btn-outline{background:transparent;border:2px solid var(--gold);color:var(--gold);}
+.btn-outline:hover{background:var(--gold);color:var(--navy);}
+.btn-red{background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);color:#e87070;}
+.btn-red:hover{background:rgba(231,76,60,.22);}
+.btn-full{width:100%;justify-content:center;padding:13px;}
+.btn-sm{padding:6px 13px;font-size:9.5px;}
+
+/* REGRA LEGEND */
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.6);}
+
+/* ENTITY GRID */
+.entity-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.entity-card{background:var(--navy3);border-radius:10px;border:1px solid rgba(200,168,75,.18);overflow:hidden;}
+.entity-hdr{padding:13px 17px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(200,168,75,.12);}
+.entity-icon{font-size:20px;}
+.entity-title{font-family:'Barlow Condensed',sans-serif;font-size:13.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;}
+.entity-sub{font-size:9.5px;color:var(--gold2);margin-top:1px;letter-spacing:.5px;}
+.entity-body{padding:15px 17px;display:flex;flex-direction:column;gap:10px;}
+
+.toggle-row{display:flex;border-radius:7px;overflow:hidden;border:1px solid rgba(200,168,75,.3);}
+.toggle-btn{flex:1;padding:7px 4px;background:transparent;border:none;color:rgba(255,255,255,.4);font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all .2s;}
+.toggle-btn.active{background:var(--gold);color:var(--navy);}
+
+.tbl{width:100%;border-collapse:collapse;}
+.tbl th{font-size:9px;font-weight:700;color:var(--gold2);letter-spacing:1px;text-transform:uppercase;padding:7px 10px;text-align:left;border-bottom:1px solid rgba(200,168,75,.2);}
+.tbl td{padding:9px 10px;font-size:12.5px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle;}
+.tbl tr:hover td{background:rgba(255,255,255,.02);}
+
+.alert{padding:9px 14px;border-radius:7px;font-size:12px;font-weight:600;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;}
+.a-gold{background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.3);color:var(--gold2);}
+.a-info{background:rgba(41,128,185,.1);border:1px solid rgba(41,128,185,.3);color:#7eb8e8;}
+.a-red{background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);color:#e87070;}
+.a-green{background:rgba(39,174,96,.1);border:1px solid rgba(39,174,96,.3);color:#5dca8a;}
+
+/* GERAR */
+.gerar-wrap{display:flex;gap:20px;align-items:flex-start;}
+.gerar-side{width:296px;min-width:296px;}
+.gerar-main{flex:1;min-width:0;}
+
+.prev-tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap;}
+.prev-tab{padding:7px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(200,168,75,.2);border-radius:6px;color:rgba(255,255,255,.4);font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:all .2s;}
+.prev-tab.active{background:rgba(200,168,75,.15);border-color:var(--gold);color:var(--gold);}
+.prev-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.prev-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.28);text-transform:uppercase;}
+
+/* COMUNICADO */
+.comunicado{font-family:'Montserrat',sans-serif;background:linear-gradient(170deg,#cce8f7 0%,#7fc4ea 45%,#3a9ed5 100%);width:530px;border-radius:14px;padding:32px 40px 28px 40px;display:flex;flex-direction:column;align-items:center;box-shadow:0 12px 60px rgba(0,0,0,.5);}
+.c-tit{font-size:18.5px;font-weight:900;color:#0a0a0a;text-align:center;line-height:1.3;margin-bottom:13px;text-transform:uppercase;}
+.c-hr{width:80%;border:none;border-top:2px solid rgba(0,60,120,.2);margin-bottom:12px;}
+.c-hr2{width:55%;border:none;border-top:1px solid rgba(0,60,120,.15);margin-bottom:13px;}
+.c-intro{font-size:13.5px;font-weight:600;color:#111;text-align:center;margin-bottom:13px;line-height:1.6;}
+.c-lista{width:100%;margin-bottom:13px;display:flex;flex-direction:column;gap:8px;padding:0 2px;}
+.c-item{display:flex;align-items:flex-start;gap:7px;font-size:13px;color:#111;line-height:1.55;}
+.c-arrow{font-size:11px;line-height:1.8;flex-shrink:0;color:#0a3d6e;font-weight:900;}
+.c-proib-box{display:flex;align-items:center;justify-content:center;gap:7px;font-size:13px;font-weight:800;color:#111;text-align:center;margin-bottom:11px;background:rgba(255,255,255,.25);border-radius:8px;padding:8px 12px;width:100%;}
+.c-alerta{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;font-weight:500;color:#111;margin-bottom:16px;line-height:1.6;background:rgba(255,255,255,.18);border-radius:8px;padding:10px 12px;width:100%;}
+.c-alerta-txt{text-align:center;flex:1;}
+.c-obs{font-size:11.5px;font-weight:600;color:#1a1a1a;text-align:center;margin-bottom:13px;line-height:1.6;background:rgba(255,255,255,.22);border-radius:8px;padding:9px 12px;width:100%;font-style:italic;}
+.c-cct{font-size:10px;font-weight:700;color:#1a3a6e;text-align:center;margin-bottom:12px;opacity:.75;letter-spacing:.3px;}
+.c-rod{display:flex;align-items:center;justify-content:center;gap:5px;font-size:12px;font-weight:700;color:#0a0a0a;flex-wrap:wrap;text-align:center;}
+.c-destaque{font-size:13.5px;font-weight:800;color:#0a0a0a;text-align:center;text-decoration:underline;text-underline-offset:3px;line-height:1.65;margin-bottom:16px;text-transform:uppercase;background:rgba(255,255,255,.2);border-radius:8px;padding:12px 15px;width:100%;}
+.c-corpo{font-size:12.5px;font-weight:700;color:#0a0a0a;text-align:center;line-height:1.85;margin-bottom:15px;text-transform:uppercase;}
+.c-cta{font-size:13.5px;font-weight:800;color:#0a0a0a;text-align:center;line-height:1.65;margin-bottom:20px;text-transform:uppercase;background:rgba(255,255,255,.2);border-radius:8px;padding:12px 15px;width:100%;}
+.c-rod-logo{display:flex;align-items:center;justify-content:center;gap:16px;width:100%;}
+.c-rod-logo img{height:40px;object-fit:contain;}
+.c-rod-logo span{font-size:12.5px;font-weight:800;color:#0a0a0a;letter-spacing:.5px;text-transform:uppercase;}
+.c-acordo{font-size:13px;font-weight:800;color:#0a0a0a;text-align:center;margin-bottom:13px;background:rgba(230,126,34,.2);border:1.5px solid rgba(230,126,34,.5);border-radius:8px;padding:10px 13px;width:100%;}
+.c-pode{font-size:13px;font-weight:800;color:#0a0a0a;text-align:center;margin-bottom:13px;background:rgba(39,174,96,.2);border:1.5px solid rgba(39,174,96,.4);border-radius:8px;padding:10px 13px;width:100%;}
+
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:60px 40px;text-align:center;color:rgba(255,255,255,.2);}
+.empty svg{width:52px;height:52px;opacity:.2;}
+.empty h2{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+.empty p{font-size:12px;max-width:280px;line-height:1.6;}
+
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-thumb{background:rgba(200,168,75,.3);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <img id="logoHdr" src="" alt="SINDCOMERCIÁRIOS">
+  <div>
+    <h1>Sistema de Comunicados</h1>
+    <p>SINDCOMERCIÁRIOS — Itabirito · Ouro Preto · Mariana</p>
+  </div>
+  <div class="hdr-v">v4.0</div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showPage('feriados',this)">📅 Feriados</button>
+  <button class="nav-btn" onclick="showPage('acordos',this)">📜 Acordos Coletivos</button>
+  <button class="nav-btn" onclick="showPage('gerar',this)">⚡ Gerar Comunicado</button>
+</div>
+
+<!-- ═══ PAGE FERIADOS ═══ -->
+<div class="page active" id="page-feriados">
+
+  <div class="sec">
+    <div class="sec-title">📌 Regra Geral da CCT</div>
+    <div class="legend">
+      <div class="legend-item"><span class="badge b-green">✅ Pode trabalhar</span> Padrão — comércio e gêneros podem funcionar com as regras da CCT</div>
+      <div class="legend-item"><span class="badge b-red">🚫 Proibido</span> Somente 3 datas: 01/01 · 01/05 · 25/12</div>
+      <div class="legend-item"><span class="badge b-orange">📋 Se houver acordo</span> 08/12 Itabirito — lojas só com acordo assinado; gêneros sempre podem</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">➕ Cadastrar Feriado</div>
+    <div class="g5" style="align-items:end;">
+      <div class="field">
+        <label>Data</label>
+        <input type="date" id="novaData" onchange="calcDia('novaData','novaBadge')">
+        <span class="day-badge" id="novaBadge" style="display:none"></span>
+      </div>
+      <div class="field">
+        <label>Nome do Feriado</label>
+        <input id="novoNome" placeholder="Ex: Corpus Christi">
+      </div>
+      <div class="field">
+        <label>Abrangência</label>
+        <select id="novaAbrang">
+          <option value="todas">Todas as cidades</option>
+          <option value="itabirito">Somente Itabirito</option>
+          <option value="op_mariana">Somente OP/Mariana</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Regra do Feriado</label>
+        <select id="novaRegra">
+          <option value="permitido">✅ Pode trabalhar (padrão)</option>
+          <option value="proibido">🚫 Proibido (01/01, 01/05, 25/12)</option>
+          <option value="acordo_lojas">📋 Acordo p/ lojas (08/12 Ita.)</option>
+          <option value="comercio_op">🏛️ Comércio livre OP/Mariana (20/11)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>&nbsp;</label>
+        <button class="btn btn-gold" onclick="addFeriado()" style="height:36px;">➕ Adicionar</button>
+      </div>
+    </div>
+    <div class="field" style="margin-top:11px;">
+      <label>Observação especial (opcional — aparece no comunicado)</label>
+      <textarea id="novaObs" placeholder="Texto adicional que aparecerá no comunicado gerado..."></textarea>
+    </div>
+    <div style="margin-top:11px;display:flex;gap:10px;">
+      <button class="btn btn-outline btn-sm" onclick="addFeriadosPadrao()">📋 Importar Feriados 2026 com Regras Corretas</button>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">📋 Feriados Cadastrados</div>
+    <div id="tblEmpty" class="alert a-gold">Nenhum feriado cadastrado. Use o botão "Importar Feriados 2026" para começar.</div>
+    <table class="tbl" id="tblFer">
+      <thead><tr>
+        <th>Data</th><th>Feriado</th><th>Dia</th>
+        <th>Abrangência</th><th>Regra</th><th>Observação</th><th></th>
+      </tr></thead>
+      <tbody id="tblBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ PAGE ACORDOS ═══ -->
+<div class="page" id="page-acordos">
+
+  <div class="alert a-info" style="margin-bottom:14px;">
+    💡 A CCT é válida por <strong>1 ano</strong>. As regras abaixo se aplicam a todos os feriados permitidos. Somente as datas mudam a cada ano — salve e use sem alterar novamente.
+  </div>
+
+  <div class="entity-grid">
+
+    <!-- ITA GENEROS -->
+    <div class="entity-card">
+      <div class="entity-hdr" style="border-left:4px solid #27ae60;">
+        <span class="entity-icon">🛒</span>
+        <div>
+          <div class="entity-title">Itabirito — Gêneros Alimentícios</div>
+          <div class="entity-sub">SINDCOMERCIÁRIOS · Supermercados e Mercearias</div>
+        </div>
+      </div>
+      <div class="entity-body">
+        <div class="g2">
+          <div class="field"><label>Ano da CCT</label><input id="ita_g_ano" value="2026"></div>
+          <div class="field"><label>Gratificação (R$)</label><input id="ita_g_grat" value="90,00"></div>
+        </div>
+        <div class="g3">
+          <div class="field"><label>Jornada Máxima</label><input id="ita_g_jorn" value="6 horas"></div>
+          <div class="field"><label>Intervalo</label><input id="ita_g_int" value="15 minutos"></div>
+          <div class="field"><label>Folga Comp.</label><input id="ita_g_folga" value="60 dias"></div>
+        </div>
+        <div class="g2">
+          <div class="field"><label>Telefone Denúncias</label><input id="ita_g_tel" value="(31) 3561-2269"></div>
+          <div class="field"><label>Site</label><input id="ita_g_site" value="www.sindeci.com.br"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITA LOJAS -->
+    <div class="entity-card">
+      <div class="entity-hdr" style="border-left:4px solid #e74c3c;">
+        <span class="entity-icon">🏪</span>
+        <div>
+          <div class="entity-title">Itabirito — Lojas em Geral</div>
+          <div class="entity-sub">SINDCOMERCIÁRIOS · Comércio Varejista</div>
+        </div>
+      </div>
+      <div class="entity-body">
+        <div class="g2">
+          <div class="field"><label>Ano da CCT</label><input id="ita_l_ano" value="2026"></div>
+          <div class="field"><label>Gratificação (R$)</label><input id="ita_l_grat" value="90,00"></div>
+        </div>
+        <div class="g3">
+          <div class="field"><label>Jornada Máxima</label><input id="ita_l_jorn" value="6 horas"></div>
+          <div class="field"><label>Intervalo</label><input id="ita_l_int" value="15 minutos"></div>
+          <div class="field"><label>Folga Comp.</label><input id="ita_l_folga" value="60 dias"></div>
+        </div>
+        <div class="g2">
+          <div class="field"><label>Telefone Denúncias</label><input id="ita_l_tel" value="(31) 3561-2269"></div>
+          <div class="field"><label>Site</label><input id="ita_l_site" value="www.sindeci.com.br"></div>
+        </div>
+        <div class="alert a-gold" style="font-size:11px;margin-top:2px;">
+          📋 <strong>08/12:</strong> Lojas só abrem com acordo assinado. Sem acordo, somente gêneros alimentícios funcionam.
+        </div>
+      </div>
+    </div>
+
+    <!-- OP FECOMERCIO -->
+    <div class="entity-card">
+      <div class="entity-hdr" style="border-left:4px solid #2980b9;">
+        <span class="entity-icon">🏛️</span>
+        <div>
+          <div class="entity-title">Ouro Preto e Mariana — Fecomércio</div>
+          <div class="entity-sub">Lojas e Pequenos Supermercados</div>
+        </div>
+      </div>
+      <div class="entity-body">
+        <div class="alert a-red" style="font-size:11px;">⚠️ Preencha os valores corretos do acordo Fecomércio — OP/Mariana.</div>
+        <div class="g2">
+          <div class="field"><label>Ano da CCT</label><input id="op_f_ano" value="2026"></div>
+          <div class="field"><label>Gratificação (R$)</label><input id="op_f_grat" value="0,00" style="border-color:rgba(231,76,60,.5)"></div>
+        </div>
+        <div class="g3">
+          <div class="field"><label>Jornada Máxima</label><input id="op_f_jorn" value="6 horas"></div>
+          <div class="field"><label>Intervalo</label><input id="op_f_int" value="15 minutos"></div>
+          <div class="field"><label>Folga Comp.</label><input id="op_f_folga" value="60 dias"></div>
+        </div>
+        <div class="g2">
+          <div class="field"><label>Telefone Denúncias</label><input id="op_f_tel" value="(31) 3561-2269"></div>
+          <div class="field"><label>Site</label><input id="op_f_site" value="www.sindeci.com.br"></div>
+        </div>
+        <div class="alert a-info" style="font-size:11px;margin-top:2px;">
+          ℹ️ <strong>20/11 — Consciência Negra:</strong> Todo o comércio (lojas e supermercados) pode funcionar com as regras da CCT.
+        </div>
+      </div>
+    </div>
+
+    <!-- OP SINDSUPER -->
+    <div class="entity-card">
+      <div class="entity-hdr" style="border-left:4px solid #e67e22;">
+        <span class="entity-icon">🏬</span>
+        <div>
+          <div class="entity-title">Ouro Preto e Mariana — Sindsuper</div>
+          <div class="entity-sub">Grandes Supermercados e Hipermercados</div>
+        </div>
+      </div>
+      <div class="entity-body">
+        <div class="alert a-red" style="font-size:11px;">⚠️ Preencha os valores corretos do acordo Sindsuper — OP/Mariana.</div>
+        <div class="g2">
+          <div class="field"><label>Ano da CCT</label><input id="op_s_ano" value="2026"></div>
+          <div class="field"><label>Gratificação (R$)</label><input id="op_s_grat" value="0,00" style="border-color:rgba(231,76,60,.5)"></div>
+        </div>
+        <div class="g3">
+          <div class="field"><label>Jornada Máxima</label><input id="op_s_jorn" value="6 horas"></div>
+          <div class="field"><label>Intervalo</label><input id="op_s_int" value="15 minutos"></div>
+          <div class="field"><label>Folga Comp.</label><input id="op_s_folga" value="60 dias"></div>
+        </div>
+        <div class="g2">
+          <div class="field"><label>Telefone Denúncias</label><input id="op_s_tel" value="(31) 3561-2269"></div>
+          <div class="field"><label>Site</label><input id="op_s_site" value="www.sindeci.com.br"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;justify-content:flex-end;margin-top:4px;">
+    <button class="btn btn-gold" onclick="salvarAcordos()">💾 Salvar Todos os Acordos</button>
+  </div>
+</div>
+
+<!-- ═══ PAGE GERAR ═══ -->
+<div class="page" id="page-gerar">
+  <div class="gerar-wrap">
+
+    <div class="gerar-side">
+      <div class="sec" style="margin-bottom:0;">
+        <div class="sec-title">⚙️ Configurar</div>
+
+        <div class="field" style="margin-bottom:11px;">
+          <label>Feriado</label>
+          <select id="gFeriado" onchange="onFeriadoChange()">
+            <option value="">— Selecione —</option>
+          </select>
+        </div>
+
+        <div id="gInfo" style="display:none;">
+          <div class="g2" style="margin-bottom:11px;">
+            <div class="field"><label>Data</label><input id="gDataTxt" readonly></div>
+            <div class="field"><label>Dia da Semana</label><input id="gDiaTxt" readonly></div>
+          </div>
+
+          <div id="gRegAlert" class="alert" style="margin-bottom:11px;font-size:11.5px;display:none;"></div>
+
+          <div class="field" style="margin-bottom:11px;">
+            <label>Acordo / Entidade</label>
+            <select id="gEntidade" onchange="onEntidadeChange()">
+              <option value="">— Selecione a entidade —</option>
+            </select>
+          </div>
+
+          <div class="field" style="margin-bottom:11px;" id="gTipoWrap">
+            <label>Tipo de Comunicado</label>
+            <div class="toggle-row">
+              <button class="toggle-btn active" id="tBoth" onclick="setTipo('ambos',this)">Ambos</button>
+              <button class="toggle-btn" id="tGen"  onclick="setTipo('generos',this)">Gêneros</button>
+              <button class="toggle-btn" id="tLoj"  onclick="setTipo('lojas',this)">Lojas</button>
+            </div>
+          </div>
+
+          <div class="field" id="gObsWrap" style="margin-bottom:4px;">
+            <label>Observação (opcional)</label>
+            <textarea id="gObs" rows="3" style="font-size:12px;"></textarea>
+          </div>
+        </div>
+
+        <button class="btn btn-gold btn-full" style="margin-top:13px;" onclick="gerar()">⚡ Gerar Comunicado</button>
+      </div>
+    </div>
+
+    <div class="gerar-main">
+      <div id="gEmpty" class="empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <h2>Nenhum Comunicado</h2>
+        <p>Selecione um feriado e a entidade, depois clique em <strong style="color:rgba(200,168,75,.7)">Gerar Comunicado</strong>.</p>
+      </div>
+      <div id="gResult" style="display:none;">
+        <div class="prev-tabs" id="prevTabs"></div>
+        <div id="prevGen" class="prev-wrap" style="display:none;">
+          <div class="prev-label">Gêneros Alimentícios</div>
+          <div class="comunicado" id="cardGen"></div>
+          <button class="btn btn-outline" onclick="baixar('cardGen','generos')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG
+          </button>
+        </div>
+        <div id="prevLoj" class="prev-wrap" style="display:none;">
+          <div class="prev-label">Lojas em Geral</div>
+          <div class="comunicado" id="cardLoj"></div>
+          <button class="btn btn-outline" onclick="baixar('cardLoj','lojas')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const LOGO_SRC = "data:image/jpeg;base64,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";
+const DIAS = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"];
+const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+
+document.getElementById('logoHdr').src = LOGO_SRC;
+
+// FERIADOS proibidos absolutos
+const PROIBIDOS_ABS = ['01-01','05-01','12-25']; // mm-dd
+function isProibidoAbs(dateStr){
+  const [y,m,d]=dateStr.split('-');
+  return PROIBIDOS_ABS.includes(`${m}-${d}`);
+}
+function is08Dez(dateStr){ const [y,m,d]=dateStr.split('-'); return m==='12'&&d==='08'; }
+function is20Nov(dateStr){ const [y,m,d]=dateStr.split('-'); return m==='11'&&d==='20'; }
+
+let feriados = JSON.parse(localStorage.getItem('sind4_feriados')||'[]');
+let tipoAtivo = 'ambos';
+
+const ENTIDADES = [
+  {id:'ita_g', label:'Itabirito — Gêneros Alimentícios (SINDCOMERCIÁRIOS)', cidade:'itabirito', temGen:true,  temLoj:false},
+  {id:'ita_l', label:'Itabirito — Lojas em Geral (SINDCOMERCIÁRIOS)',       cidade:'itabirito', temGen:false, temLoj:true },
+  {id:'op_f',  label:'Ouro Preto/Mariana — Fecomércio (Lojas e Peq. Supermercados)', cidade:'op_mariana', temGen:true, temLoj:true},
+  {id:'op_s',  label:'Ouro Preto/Mariana — Sindsuper (Grandes Supermercados)', cidade:'op_mariana', temGen:true, temLoj:false},
+];
+
+/* ── UTILS ── */
+function getDia(ds){ const [y,m,d]=ds.split('-').map(Number); return DIAS[new Date(y,m-1,d).getDay()]; }
+function fmtL(ds){ const [y,m,d]=ds.split('-').map(Number); return `${String(d).padStart(2,'0')} DE ${MESES[m-1].toUpperCase()} DE ${y}`; }
+function fmtC(ds){ const [y,m,d]=ds.split('-').map(Number); return `${String(d).padStart(2,'0')}/${String(m).padStart(2,'0')}/${y}`; }
+function calcDia(iid,bid){ const v=document.getElementById(iid).value,b=document.getElementById(bid); if(!v){b.style.display='none';return;} b.textContent=getDia(v); b.style.display='inline-block'; }
+function showPage(id,btn){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active')); document.getElementById('page-'+id).classList.add('active'); btn.classList.add('active'); if(id==='gerar') preencherSelFer(); }
+
+/* ── ACORDOS ── */
+function getAcordo(id){
+  const saved=JSON.parse(localStorage.getItem('sind4_acordos')||'{}');
+  if(saved[id]) return saved[id];
+  const fields=['ano','grat','jorn','int','folga','tel','site'];
+  const r={};
+  fields.forEach(f=>{ const el=document.getElementById(`${id}_${f}`); if(el) r[f]=el.value; });
+  return r;
+}
+function salvarAcordos(){
+  const data={};
+  ENTIDADES.forEach(e=>{
+    const fields=['ano','grat','jorn','int','folga','tel','site'];
+    data[e.id]={};
+    fields.forEach(f=>{ const el=document.getElementById(`${e.id}_${f}`); if(el) data[e.id][f]=el.value; });
+  });
+  localStorage.setItem('sind4_acordos',JSON.stringify(data));
+  alert('✅ Acordos coletivos salvos com sucesso!');
+}
+
+/* ── FERIADOS ── */
+function addFeriado(){
+  const data=document.getElementById('novaData').value;
+  const nome=document.getElementById('novoNome').value.trim();
+  const abr=document.getElementById('novaAbrang').value;
+  const regra=document.getElementById('novaRegra').value;
+  const obs=document.getElementById('novaObs').value.trim();
+  if(!data||!nome){alert('Preencha data e nome.');return;}
+  feriados.push({data,nome,abrangencia:abr,regra,obs});
+  feriados.sort((a,b)=>a.data.localeCompare(b.data));
+  salvarFer(); renderTbl();
+  ['novaData','novoNome','novaObs'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('novaBadge').style.display='none';
+}
+function removeFer(i){ if(!confirm('Remover feriado?'))return; feriados.splice(i,1); salvarFer(); renderTbl(); }
+function salvarFer(){ localStorage.setItem('sind4_feriados',JSON.stringify(feriados)); }
+
+function renderTbl(){
+  const body=document.getElementById('tblBody');
+  const empty=document.getElementById('tblEmpty');
+  if(!feriados.length){empty.style.display='flex';body.innerHTML='';return;}
+  empty.style.display='none';
+  const aL={todas:'Todas',itabirito:'Itabirito',op_mariana:'OP/Mariana'};
+  const aC={todas:'b-gold',itabirito:'b-green',op_mariana:'b-blue'};
+  const rL={permitido:'✅ Pode trabalhar',proibido:'🚫 Proibido',acordo_lojas:'📋 Acordo p/ lojas',comercio_op:'🏛️ Comércio livre OP'};
+  const rC={permitido:'b-green',proibido:'b-red',acordo_lojas:'b-orange',comercio_op:'b-blue'};
+  body.innerHTML=feriados.map((f,i)=>`
+    <tr>
+      <td><strong>${fmtC(f.data)}</strong></td>
+      <td>${f.nome}</td>
+      <td style="color:rgba(255,255,255,.5);font-size:11.5px;">${getDia(f.data)}</td>
+      <td><span class="badge ${aC[f.abrangencia]||'b-gold'}">${aL[f.abrangencia]||f.abrangencia}</span></td>
+      <td><span class="badge ${rC[f.regra]||'b-gray'}">${rL[f.regra]||f.regra}</span></td>
+      <td style="font-size:11px;color:rgba(255,255,255,.4);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${f.obs}">${f.obs||'—'}</td>
+      <td><button class="btn btn-red btn-sm" onclick="removeFer(${i})">✕</button></td>
+    </tr>`).join('');
+}
+
+function addFeriadosPadrao(){
+  const padrao=[
+    {data:'2026-01-01',nome:'Confraternização Universal',abrangencia:'todas',regra:'proibido',obs:''},
+    {data:'2026-04-03',nome:'Paixão de Cristo (Sexta-Feira Santa)',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-04-21',nome:'Tiradentes',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-05-01',nome:'Dia do Trabalho',abrangencia:'todas',regra:'proibido',obs:''},
+    {data:'2026-06-04',nome:'Corpus Christi',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-08-28',nome:'Aniversário de Itabirito',abrangencia:'itabirito',regra:'permitido',obs:'Feriado municipal de Itabirito.'},
+    {data:'2026-09-07',nome:'Independência do Brasil',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-10-12',nome:'Nossa Senhora Aparecida',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-11-02',nome:'Finados',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-11-15',nome:'Proclamação da República',abrangencia:'todas',regra:'permitido',obs:''},
+    {data:'2026-11-20',nome:'Dia da Consciência Negra',abrangencia:'op_mariana',regra:'comercio_op',obs:'Em Ouro Preto e Mariana, todo o comércio pode funcionar nesta data com as regras de pagamento da CCT.'},
+    {data:'2026-12-08',nome:'Nossa Senhora da Conceição',abrangencia:'itabirito',regra:'acordo_lojas',obs:'Lojas de Itabirito podem abrir somente se houver acordo prévio assinado com o sindicato. Sem acordo, somente gêneros alimentícios podem funcionar.'},
+    {data:'2026-12-25',nome:'Natal',abrangencia:'todas',regra:'proibido',obs:''},
+  ];
+  let n=0;
+  padrao.forEach(f=>{ if(!feriados.find(x=>x.data===f.data&&x.abrangencia===f.abrangencia)){feriados.push(f);n++;} });
+  feriados.sort((a,b)=>a.data.localeCompare(b.data));
+  salvarFer(); renderTbl();
+  alert(`${n} feriado(s) importado(s) com as regras corretas da CCT!`);
+}
+
+/* ── GERAR ── */
+function preencherSelFer(){
+  const sel=document.getElementById('gFeriado'); const cur=sel.value;
+  sel.innerHTML='<option value="">— Selecione —</option>';
+  feriados.forEach((f,i)=>{ const o=document.createElement('option'); o.value=i; o.textContent=`${fmtC(f.data)} — ${f.nome}`; sel.appendChild(o); });
+  if(cur) sel.value=cur;
+}
+
+function onFeriadoChange(){
+  const idx=document.getElementById('gFeriado').value;
+  const info=document.getElementById('gInfo');
+  if(idx===''){info.style.display='none';return;}
+  const f=feriados[idx];
+  info.style.display='block';
+  document.getElementById('gDataTxt').value=fmtC(f.data);
+  document.getElementById('gDiaTxt').value=getDia(f.data);
+  document.getElementById('gObs').value=f.obs||'';
+
+  // Alert de regra
+  const alertEl=document.getElementById('gRegAlert');
+  const rMsg={
+    proibido:'🚫 FERIADO PROIBIDO — Nenhum estabelecimento pode convocar funcionários. (01/01 · 01/05 · 25/12)',
+    permitido:'✅ Feriado permitido — comércio pode funcionar seguindo as regras da CCT.',
+    acordo_lojas:'📋 Lojas: somente com acordo assinado. Gêneros alimentícios podem sempre funcionar.',
+    comercio_op:'🏛️ Comércio em geral pode funcionar — Ouro Preto e Mariana (20/11).',
+  };
+  const rCl={proibido:'a-red',permitido:'a-green',acordo_lojas:'a-gold',comercio_op:'a-info'};
+  alertEl.className='alert '+( rCl[f.regra]||'a-gold');
+  alertEl.textContent=rMsg[f.regra]||'';
+  alertEl.style.display='flex';
+
+  // Entidades
+  const sel=document.getElementById('gEntidade');
+  sel.innerHTML='<option value="">— Selecione a entidade —</option>';
+  ENTIDADES.forEach(e=>{
+    const abr=f.abrangencia;
+    const ok=abr==='todas'||(abr==='itabirito'&&e.cidade==='itabirito')||(abr==='op_mariana'&&e.cidade==='op_mariana');
+    if(!ok) return;
+    // Para feriado proibido, não mostrar ita_g (gêneros sempre podem? Não — proibido é proibido pra todos)
+    const o=document.createElement('option'); o.value=e.id; o.textContent=e.label; sel.appendChild(o);
+  });
+  onEntidadeChange();
+}
+
+function onEntidadeChange(){
+  const eId=document.getElementById('gEntidade').value;
+  if(!eId) return;
+  const ent=ENTIDADES.find(e=>e.id===eId);
+  const tBoth=document.getElementById('tBoth');
+  const tGen=document.getElementById('tGen');
+  const tLoj=document.getElementById('tLoj');
+  if(!ent.temGen){ tBoth.style.display='none'; tGen.style.display='none'; setTipo('lojas',tLoj); }
+  else if(!ent.temLoj){ tBoth.style.display='none'; tLoj.style.display='none'; setTipo('generos',tGen); }
+  else { tBoth.style.display=''; tGen.style.display=''; tLoj.style.display=''; setTipo('ambos',tBoth); }
+}
+
+function setTipo(t,btn){ tipoAtivo=t; document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+
+function gerar(){
+  const fidx=document.getElementById('gFeriado').value;
+  const eId=document.getElementById('gEntidade').value;
+  if(fidx===''||!eId){alert('Selecione o feriado e a entidade.');return;}
+  const f=feriados[fidx];
+  const ac=getAcordo(eId);
+  const ent=ENTIDADES.find(e=>e.id===eId);
+  const obs=document.getElementById('gObs').value.trim();
+  const cidade=ent.cidade==='itabirito'?'ITABIRITO':'OURO PRETO E MARIANA';
+  const ctx={feriado:f.nome.toUpperCase(),dataLonga:fmtL(f.data),dataCurta:fmtC(f.data),diaSem:getDia(f.data).toUpperCase(),cidade,ac,obs,regra:f.regra,cct:`Convenção Coletiva de Trabalho — ${ac.ano||'2026'}`,eId};
+
+  document.getElementById('gEmpty').style.display='none';
+  document.getElementById('gResult').style.display='block';
+
+  const tabs=document.getElementById('prevTabs');
+  tabs.innerHTML='';
+  const mostraGen=tipoAtivo!=='lojas'&&ent.temGen;
+  const mostraLoj=tipoAtivo!=='generos'&&ent.temLoj;
+  if(mostraGen) tabs.innerHTML+=`<button class="prev-tab active" onclick="swTab('gen',this)">🛒 Gêneros Alimentícios</button>`;
+  if(mostraLoj) tabs.innerHTML+=`<button class="prev-tab ${!mostraGen?'active':''}" onclick="swTab('loj',this)">🏪 Lojas em Geral</button>`;
+
+  document.getElementById('prevGen').style.display='none';
+  document.getElementById('prevLoj').style.display='none';
+  if(mostraGen){ buildGen(ctx); document.getElementById('prevGen').style.display='flex'; }
+  if(mostraLoj){ buildLoj(ctx); document.getElementById('prevLoj').style.display='flex'; }
+  if(!mostraGen&&mostraLoj) swTabDirect('loj');
+}
+
+function swTab(w,btn){ document.querySelectorAll('.prev-tab').forEach(t=>t.classList.remove('active')); btn.classList.add('active'); document.getElementById('prevGen').style.display=w==='gen'?'flex':'none'; document.getElementById('prevLoj').style.display=w==='loj'?'flex':'none'; }
+function swTabDirect(w){ document.getElementById('prevGen').style.display=w==='gen'?'flex':'none'; document.getElementById('prevLoj').style.display=w==='loj'?'flex':'none'; }
+
+/* ── BUILD CARDS ── */
+function listaDir(ac, eId){
+  const isIta = eId && eId.startsWith('ita');
+  const pgtoTxt = isIta
+    ? 'paga no final do expediente'
+    : 'incluída na folha de pagamento do mês correspondente ao feriado';
+  return `
+    <div class="c-lista">
+      <div class="c-item"><span class="c-arrow">➤</span><span><strong>Gratificação</strong> — R$ ${ac.grat||'—'}, ${pgtoTxt};</span></div>
+      <div class="c-item"><span class="c-arrow">➤</span><span>Jornada máxima de <strong>${ac.jorn||'—'}</strong>, com ${ac.int||'—'} de intervalo;</span></div>
+      <div class="c-item"><span class="c-arrow">➤</span><span><strong>1 folga compensatória</strong> em até ${ac.folga||'—'} (não pode ser domingo ou feriado);</span></div>
+      <div class="c-item"><span class="c-arrow">➤</span><span><strong>Vale-transporte.</strong></span></div>
+    </div>
+    <div class="c-proib-box">🚫 É proibido ultrapassar a jornada de ${ac.jorn||'—'}.</div>
+    <div class="c-alerta"><span>⚠️</span><span class="c-alerta-txt">O descumprimento dessas normas sujeita o empregador ao pagamento de multa, a ser paga diretamente ao funcionário prejudicado.</span></div>`;
+}
+
+function rodapeGen(c){
+  return `<div class="c-cct">${c.cct}</div><div class="c-rod"><span>📱 DENÚNCIAS: ${c.ac.tel||'—'}</span><span style="color:#0a3d6e;margin:0 4px;font-size:13px;">|</span><span>🌐 ${c.ac.site||'—'}</span></div>`;
+}
+function rodapeLoj(c){
+  return `<div class="c-cct">${c.cct}</div><div class="c-rod-logo"><img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS"><span>${(c.ac.site||'www.sindeci.com.br').toUpperCase()}</span></div>`;
+}
+
+function buildGen(c){
+  const obsH=c.obs?`<div class="c-obs">📌 ${c.obs}</div>`:'';
+  // Para feriados proibidos, gêneros também não podem trabalhar
+  let corpo='';
+  if(c.regra==='proibido'){
+    corpo=`<div class="c-destaque">🚫 ESTABELECIMENTOS DE GÊNEROS ALIMENTÍCIOS NÃO PODERÃO FUNCIONAR NESTA DATA.<br>É UM DOS 3 FERIADOS PROIBIDOS PELA CCT.</div>
+    <div class="c-corpo">NENHUM ESTABELECIMENTO PODE CONVOCAR<br>FUNCIONÁRIOS PARA TRABALHAR EM:<br><br>01 DE JANEIRO · 01 DE MAIO · 25 DE DEZEMBRO</div>`;
+  } else {
+    corpo=`<div class="c-intro">🛒 Para os estabelecimentos de gêneros alimentícios que<br>funcionarem no feriado, o funcionário tem direito a:</div>
+    ${listaDir(c.ac, c.eId)}`;
+  }
+  document.getElementById('cardGen').innerHTML=`
+    <div class="c-tit">📌 ${c.cidade} – GÊNEROS ALIMENTÍCIOS<br>${c.dataLonga} – ${c.feriado}</div>
+    <hr class="c-hr">
+    ${corpo}
+    ${obsH}
+    ${rodapeGen(c)}`;
+}
+
+function buildLoj(c){
+  const obsH=c.obs?`<div class="c-obs">📌 ${c.obs}</div>`:'';
+  let corpo='';
+
+  if(c.regra==='proibido'){
+    // 01/01, 01/05, 25/12 — proibido absoluto
+    corpo=`<div class="c-destaque">🚫 É PROIBIDO CONVOCAR FUNCIONÁRIOS PARA TRABALHAR NESTE DIA.<br>ESTE É UM DOS 3 FERIADOS ABSOLUTAMENTE PROIBIDOS PELA CCT.</div>
+    <div class="c-corpo">NENHUM ESTABELECIMENTO PODE FUNCIONAR EM:<br><br>01 DE JANEIRO · 01 DE MAIO · 25 DE DEZEMBRO</div>
+    <hr class="c-hr2">
+    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE NO SITE DO SINDICATO.</div>`;
+  } else if(c.regra==='permitido'||c.regra==='comercio_op'){
+    // pode trabalhar com regras
+    corpo=`<div class="c-pode">✅ AS LOJAS PODERÃO FUNCIONAR NESTA DATA,<br>SEGUINDO AS REGRAS DA CCT.</div>
+    <div class="c-intro">🏪 O funcionário que trabalhar no feriado tem direito a:</div>
+    ${listaDir(c.ac, c.eId)}`;
+  } else if(c.regra==='acordo_lojas'){
+    // 08/12 Itabirito — só com acordo
+    corpo=`<div class="c-acordo">📋 AS LOJAS SOMENTE PODERÃO FUNCIONAR NESTA DATA MEDIANTE ACORDO PRÉVIO, FORMAL E ASSINADO COM O SINDICATO.</div>
+    <div class="c-corpo">SEM ACORDO ASSINADO,<br>O FUNCIONAMENTO É PROIBIDO<br>E SUJEITA O EMPREGADOR<br>ÀS SANÇÕES DA CCT.</div>
+    <hr class="c-hr2">
+    <div class="c-cta">HAVENDO ACORDO, O FUNCIONÁRIO TEM DIREITO A:<br>GRATIFICAÇÃO · JORNADA LIMITADA · FOLGA · VT</div>
+    <div class="c-alerta"><span>⚠️</span><span class="c-alerta-txt">O descumprimento sujeita o empregador ao pagamento de multa diretamente ao funcionário prejudicado.</span></div>`;
+  }
+
+  document.getElementById('cardLoj').innerHTML=`
+    <div class="c-tit">📌 LOJAS EM GERAL — ${c.cidade}<br>📅 ${c.dataCurta} (${c.diaSem})<br>${c.feriado}</div>
+    <hr class="c-hr">
+    ${corpo}
+    ${obsH}
+    ${rodapeLoj(c)}`;
+}
+
+/* ── DOWNLOAD ── */
+function baixar(cardId,tipo){
+  const fidx=document.getElementById('gFeriado').value;
+  const eId=document.getElementById('gEntidade').value;
+  const f=feriados[fidx];
+  const nome=f.nome.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/gi,'');
+  const [y,m,d]=f.data.split('-');
+  const cidSlug=eId.startsWith('ita')?'itabirito':'op_mariana';
+  const filename=`comunicado_${tipo}_${nome}_${d}-${m}-${y}_${cidSlug}.png`;
+  html2canvas(document.getElementById(cardId),{scale:3,useCORS:true,backgroundColor:null,logging:false})
+    .then(cv=>{ const a=document.createElement('a');a.download=filename;a.href=cv.toDataURL('image/png');a.click(); });
+}
+
+/* ── INIT ── */
+renderTbl();
+const savedA=JSON.parse(localStorage.getItem('sind4_acordos')||'{}');
+Object.keys(savedA).forEach(eid=>{
+  Object.keys(savedA[eid]).forEach(f=>{ const el=document.getElementById(`${eid}_${f}`); if(el) el.value=savedA[eid][f]; });
+});
+</script>
+</body>
+</html>
