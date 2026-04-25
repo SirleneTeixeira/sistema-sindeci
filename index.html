@@ -23,29 +23,23 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--navy);color:var(--white);}
-
 .hdr{background:linear-gradient(90deg,var(--navy),var(--navy2));border-bottom:3px solid var(--gold);padding:13px 26px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:200;}
 .hdr img{height:44px;background:#fff;border-radius:8px;padding:4px 10px;object-fit:contain;}
 .hdr h1{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;letter-spacing:1px;text-transform:uppercase;}
 .hdr p{font-size:10px;color:var(--gold2);letter-spacing:2px;text-transform:uppercase;margin-top:1px;}
 .hdr-v{margin-left:auto;background:var(--gold);color:var(--navy);font-size:9px;font-weight:800;padding:3px 11px;border-radius:20px;letter-spacing:1.5px;}
-
 .nav{display:flex;background:var(--navy2);border-bottom:2px solid rgba(200,168,75,.2);}
 .nav-btn{padding:12px 24px;background:transparent;border:none;border-bottom:3px solid transparent;color:rgba(255,255,255,.4);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-bottom:-2px;transition:all .2s;}
 .nav-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
 .nav-btn:hover:not(.active){color:rgba(255,255,255,.7);}
-
 .page{display:none;padding:22px 26px;}
 .page.active{display:block;}
-
 .sec{background:var(--navy2);border-radius:12px;border:1px solid rgba(200,168,75,.15);padding:20px 24px;margin-bottom:16px;}
 .sec-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:7px;border-bottom:1px solid rgba(200,168,75,.2);}
-
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;}
 .g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:11px;}
 .g5{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:11px;}
-
 .field{display:flex;flex-direction:column;gap:5px;}
 .field label{font-size:10px;font-weight:700;color:var(--gold2);letter-spacing:1px;text-transform:uppercase;}
 .field input,.field select,.field textarea{background:rgba(255,255,255,.07);border:1px solid rgba(200,168,75,.25);border-radius:7px;padding:8px 12px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;outline:none;transition:border-color .2s;width:100%;}
@@ -54,7 +48,6 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .field textarea{resize:vertical;min-height:58px;line-height:1.5;}
 .field input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.5);cursor:pointer;}
 .field input[readonly]{opacity:.6;cursor:default;}
-
 .badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 9px;border-radius:10px;letter-spacing:.5px;}
 .b-red{background:rgba(231,76,60,.15);color:#e87070;}
 .b-green{background:rgba(39,174,96,.15);color:#5dca8a;}
@@ -63,7 +56,6 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .b-gold{background:rgba(200,168,75,.15);color:var(--gold2);}
 .b-gray{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
 .day-badge{display:inline-block;background:rgba(200,168,75,.15);color:var(--gold2);font-size:10px;font-weight:700;padding:2px 9px;border-radius:10px;margin-top:3px;}
-
 .btn{padding:9px 20px;border:none;border-radius:7px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);box-shadow:0 3px 14px rgba(200,168,75,.3);}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 5px 20px rgba(200,168,75,.45);}
@@ -73,12 +65,8 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .btn-red:hover{background:rgba(231,76,60,.22);}
 .btn-full{width:100%;justify-content:center;padding:13px;}
 .btn-sm{padding:6px 13px;font-size:9.5px;}
-
-/* REGRA LEGEND */
 .legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
 .legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.6);}
-
-/* ENTITY GRID */
 .entity-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .entity-card{background:var(--navy3);border-radius:10px;border:1px solid rgba(200,168,75,.18);overflow:hidden;}
 .entity-hdr{padding:13px 17px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(200,168,75,.12);}
@@ -86,35 +74,27 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .entity-title{font-family:'Barlow Condensed',sans-serif;font-size:13.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;}
 .entity-sub{font-size:9.5px;color:var(--gold2);margin-top:1px;letter-spacing:.5px;}
 .entity-body{padding:15px 17px;display:flex;flex-direction:column;gap:10px;}
-
 .toggle-row{display:flex;border-radius:7px;overflow:hidden;border:1px solid rgba(200,168,75,.3);}
 .toggle-btn{flex:1;padding:7px 4px;background:transparent;border:none;color:rgba(255,255,255,.4);font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all .2s;}
 .toggle-btn.active{background:var(--gold);color:var(--navy);}
 .toggle-btn[disabled]{opacity:.28;cursor:not-allowed;}
-
 .tbl{width:100%;border-collapse:collapse;}
 .tbl th{font-size:9px;font-weight:700;color:var(--gold2);letter-spacing:1px;text-transform:uppercase;padding:7px 10px;text-align:left;border-bottom:1px solid rgba(200,168,75,.2);}
 .tbl td{padding:9px 10px;font-size:12.5px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle;}
 .tbl tr:hover td{background:rgba(255,255,255,.02);}
-
 .alert{padding:9px 14px;border-radius:7px;font-size:12px;font-weight:600;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;}
 .a-gold{background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.3);color:var(--gold2);}
 .a-info{background:rgba(41,128,185,.1);border:1px solid rgba(41,128,185,.3);color:#7eb8e8;}
 .a-red{background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);color:#e87070;}
 .a-green{background:rgba(39,174,96,.1);border:1px solid rgba(39,174,96,.3);color:#5dca8a;}
-
-/* GERAR */
 .gerar-wrap{display:flex;gap:20px;align-items:flex-start;}
 .gerar-side{width:296px;min-width:296px;}
 .gerar-main{flex:1;min-width:0;}
-
 .prev-tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap;}
 .prev-tab{padding:7px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(200,168,75,.2);border-radius:6px;color:rgba(255,255,255,.4);font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:all .2s;}
 .prev-tab.active{background:rgba(200,168,75,.15);border-color:var(--gold);color:var(--gold);}
 .prev-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;}
 .prev-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.28);text-transform:uppercase;}
-
-/* COMUNICADO */
 .comunicado{font-family:'Montserrat',sans-serif;background:linear-gradient(170deg,#cce8f7 0%,#7fc4ea 45%,#3a9ed5 100%);width:530px;border-radius:14px;padding:32px 40px 28px 40px;display:flex;flex-direction:column;align-items:center;box-shadow:0 12px 60px rgba(0,0,0,.5);}
 .c-tit{font-size:18.5px;font-weight:900;color:#0a0a0a;text-align:center;line-height:1.3;margin-bottom:13px;text-transform:uppercase;}
 .c-hr{width:80%;border:none;border-top:2px solid rgba(0,60,120,.2);margin-bottom:12px;}
@@ -137,29 +117,19 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .c-rod-logo span{font-size:12.5px;font-weight:800;color:#0a0a0a;letter-spacing:.5px;text-transform:uppercase;}
 .c-acordo{font-size:13px;font-weight:800;color:#0a0a0a;text-align:center;margin-bottom:13px;background:rgba(230,126,34,.2);border:1.5px solid rgba(230,126,34,.5);border-radius:8px;padding:10px 13px;width:100%;}
 .c-pode{font-size:13px;font-weight:800;color:#0a0a0a;text-align:center;margin-bottom:13px;background:rgba(39,174,96,.2);border:1.5px solid rgba(39,174,96,.4);border-radius:8px;padding:10px 13px;width:100%;}
-
 .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:60px 40px;text-align:center;color:rgba(255,255,255,.2);}
 .empty svg{width:52px;height:52px;opacity:.2;}
 .empty h2{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
 .empty p{font-size:12px;max-width:280px;line-height:1.6;}
-
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-thumb{background:rgba(200,168,75,.3);border-radius:3px;}
-
-/* FORMATO TOGGLE */
 .fmt-toggle{display:flex;gap:0;border:1px solid rgba(200,168,75,.3);border-radius:8px;overflow:hidden;margin-bottom:16px;}
 .fmt-btn{flex:1;padding:10px 12px;background:transparent;border:none;color:rgba(255,255,255,.4);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.8px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
 .fmt-btn.active{background:var(--gold);color:var(--navy);}
 .fmt-btn:hover:not(.active){color:rgba(255,255,255,.7);}
-
-/* ── INSTAGRAM CARD — NOVO DESIGN IMPACTANTE ── */
 .insta-wrap{width:432px;height:540px;border-radius:16px;overflow:hidden;position:relative;box-shadow:0 16px 60px rgba(0,0,0,.7);flex-shrink:0;}
-
-/* Background */
 .insta-bg-gen{position:absolute;inset:0;background:linear-gradient(145deg,#071a38 0%,#0d3060 50%,#0a4a80 100%);}
 .insta-bg-loj{position:absolute;inset:0;background:linear-gradient(145deg,#071a38 0%,#0d3060 50%,#0a4a80 100%);}
-
-/* Geometric accent shapes */
 .insta-shape1{position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;opacity:.12;}
 .insta-shape1-gen{background:radial-gradient(circle,#4fc3f7,transparent);}
 .insta-shape1-loj{background:radial-gradient(circle,#4fc3f7,transparent);}
@@ -169,72 +139,46 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .insta-diag{position:absolute;top:0;left:0;width:100%;height:6px;}
 .insta-diag-gen{background:linear-gradient(90deg,#1565c0,#42a5f5,#1565c0);}
 .insta-diag-loj{background:linear-gradient(90deg,#1565c0,#42a5f5,#1565c0);}
-
-/* Content */
 .insta-body{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;padding:0;}
-
-/* Header strip */
 .insta-header{padding:14px 20px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);}
 .insta-logo-box{background:rgba(255,255,255,.95);border-radius:8px;padding:5px 12px;display:flex;align-items:center;}
 .insta-logo-box img{height:28px;object-fit:contain;}
 .insta-header-badge{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:20px;}
 .insta-header-badge-gen{background:rgba(66,165,245,.2);color:#90caf9;border:1px solid rgba(66,165,245,.3);}
 .insta-header-badge-loj{background:rgba(66,165,245,.2);color:#90caf9;border:1px solid rgba(66,165,245,.3);}
-
-/* Main content area */
 .insta-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 24px;text-align:center;}
-
-/* Icon */
 .insta-big-icon{font-size:52px;line-height:1;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.6));}
-
-/* Alert/confirm band */
 .insta-band{width:100%;padding:10px 16px;border-radius:10px;margin-bottom:12px;}
 .insta-band-gen{background:linear-gradient(135deg,rgba(27,94,32,.7),rgba(46,125,50,.5));border:1.5px solid rgba(102,187,106,.5);}
 .insta-band-loj{background:linear-gradient(135deg,rgba(183,28,28,.7),rgba(229,57,53,.5));border:1.5px solid rgba(239,83,80,.5);}
 .insta-band-amber{background:linear-gradient(135deg,rgba(230,81,0,.6),rgba(245,124,0,.4));border:1.5px solid rgba(255,167,38,.5);}
 .insta-band-txt{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:1px;line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,.5);}
-
-/* Feriado title */
 .insta-feriado-name{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:900;color:#fff;text-transform:uppercase;line-height:1.05;margin-bottom:4px;text-shadow:0 2px 12px rgba(0,0,0,.7);}
 .insta-feriado-date{font-size:11px;font-weight:700;color:rgba(255,255,255,.65);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;}
-
-/* CCT mini list */
 .insta-cct-list{width:100%;background:rgba(255,255,255,.07);border-radius:8px;padding:8px 12px;margin-top:4px;border:1px solid rgba(255,255,255,.1);}
 .insta-cct-title{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
 .insta-cct-item{font-size:10px;font-weight:700;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:4px;margin-bottom:2px;line-height:1.3;}
 .insta-cct-item:last-child{margin-bottom:0;}
-
-/* Footer */
 .insta-foot{padding:10px 20px 14px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);}
 .insta-foot-left{display:flex;flex-direction:column;gap:1px;}
 .insta-foot-city{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:rgba(255,255,255,.7);letter-spacing:1px;text-transform:uppercase;}
 .insta-foot-site{font-size:9.5px;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.5px;}
 .insta-foot-year{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:900;color:rgba(255,255,255,.25);letter-spacing:1px;}
-
-/* MEGAFONE HEADER */
 .mega-header{width:100%;display:flex;flex-direction:column;align-items:center;margin-bottom:14px;}
 .mega-icon-wrap{width:72px;height:72px;background:linear-gradient(135deg,#0a3d6e,#1a6aa8);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(10,61,110,.4);margin-bottom:8px;}
 .mega-icon{font-size:36px;line-height:1;}
 .mega-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:rgba(10,61,110,.8);letter-spacing:3px;text-transform:uppercase;background:rgba(10,61,110,.1);padding:3px 14px;border-radius:20px;}
-
-/* TOAST CONFIRMAÇÃO */
 .toast{position:fixed;bottom:32px;right:32px;background:linear-gradient(135deg,#27ae60,#2ecc71);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;padding:14px 22px;border-radius:10px;box-shadow:0 6px 28px rgba(39,174,96,.4);z-index:9999;display:flex;align-items:center;gap:10px;transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast-icon{font-size:20px;}
-
-/* MODAL CONFIRMAÇÃO */
 .confirm-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;}
 .confirm-box{background:#162d52;border:1px solid rgba(200,168,75,.35);border-radius:12px;padding:28px 32px;width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.6);}
 .confirm-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:var(--white);letter-spacing:.5px;margin-bottom:8px;}
 .confirm-sub{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:24px;line-height:1.5;}
 .confirm-btns{display:flex;gap:10px;justify-content:center;}
-
-/* TOAST RESTAURAR */
 .toast-restore{position:fixed;bottom:32px;right:32px;background:#162d52;border:1px solid rgba(200,168,75,.35);color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;padding:12px 18px;border-radius:10px;box-shadow:0 6px 28px rgba(0,0,0,.4);z-index:9998;display:flex;align-items:center;gap:12px;transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);}
 .toast-restore.show{transform:translateY(0);opacity:1;}
 .restore-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);border:none;border-radius:6px;padding:6px 14px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
-
-/* LINKS PAGE */
 .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:24px;}
 .link-card{background:var(--navy3);border:1px solid rgba(200,168,75,.15);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer;text-decoration:none;display:block;}
 .link-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.3);border-color:rgba(200,168,75,.4);}
@@ -251,151 +195,35 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .denuncia-text h3{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#e87070;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
 .denuncia-text p{font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.55;}
 .denuncia-text .link-card-url{margin-top:8px;}
-
-/* BLOCO CCT NO COMUNICADO */
 .c-cct-box{width:100%;background:rgba(255,255,255,.18);border:1px solid rgba(10,61,110,.2);border-radius:8px;padding:10px 14px;margin-bottom:14px;}
 .c-cct-box-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:#0a3d6e;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:5px;}
 .c-cct-box-item{font-size:11px;font-weight:600;color:#1a2a4e;display:flex;align-items:center;gap:6px;margin-bottom:3px;line-height:1.4;}
 .c-cct-box-item:last-child{margin-bottom:0;}
-
-/* ════════════════════════════════
-   MOBILE RESPONSIVE — COMPLETO
-════════════════════════════════ */
 @media (max-width: 768px) {
-
-  /* HEADER */
-  .hdr { padding: 10px 14px; gap: 10px; }
-  .hdr img { height: 32px; padding: 3px 8px; }
-  .hdr h1 { font-size: 14px; }
-  .hdr p { font-size: 9px; letter-spacing: 1px; }
-  .hdr-v { font-size: 8px; padding: 2px 8px; }
-
-  /* NAV — scroll horizontal */
-  .nav { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav-btn { padding: 10px 14px; font-size: 10px; white-space: nowrap; flex-shrink: 0; }
-
-  /* PAGES */
-  .page { padding: 14px 12px; }
-
-  /* GRIDS — tudo vira coluna única */
-  .g2, .g3, .g4, .g5 { grid-template-columns: 1fr; gap: 10px; }
-  .entity-grid { grid-template-columns: 1fr; gap: 12px; }
-  .links-grid { grid-template-columns: 1fr; gap: 10px; }
-
-  /* SEC */
-  .sec { padding: 14px 14px; margin-bottom: 12px; }
-  .sec-title { font-size: 11px; margin-bottom: 12px; }
-
-  /* FIELDS */
-  .field label { font-size: 9px; }
-  .field input, .field select, .field textarea { font-size: 14px; padding: 10px 12px; }
-
-  /* BUTTONS */
-  .btn { font-size: 10px; padding: 9px 14px; }
-  .btn-full { padding: 14px; font-size: 13px; }
-  .btn-sm { font-size: 9px; padding: 6px 10px; }
-
-  /* TOGGLE */
-  .toggle-row { border-radius: 6px; }
-  .toggle-btn { font-size: 9px; padding: 8px 4px; }
-  .fmt-toggle { flex-direction: column; border-radius: 8px; }
-  .fmt-btn { padding: 11px; font-size: 10px; }
-
-  /* GERAR PAGE — sidebar vira top */
-  .gerar-side { width: 100%; min-width: unset; }
-  .gerar-wrap { flex-direction: column; gap: 14px; }
-  .gerar-main { min-width: unset; }
-
-  /* PREV TABS */
-  .prev-tabs { gap: 6px; }
-  .prev-tab { padding: 7px 12px; font-size: 9.5px; }
-
-  /* COMUNICADO CARD — menor no celular */
-  .comunicado { width: 100%; padding: 22px 18px 18px; border-radius: 10px; }
-  .c-tit { font-size: 14px; margin-bottom: 10px; }
-  .c-intro { font-size: 12px; }
-  .c-item { font-size: 11.5px; }
-  .c-proib-box { font-size: 12px; padding: 7px 10px; }
-  .c-alerta { font-size: 11px; padding: 9px 10px; }
-  .c-destaque { font-size: 12px; padding: 10px 12px; }
-  .c-corpo { font-size: 11px; line-height: 1.7; }
-  .c-cta { font-size: 12px; padding: 10px 12px; }
-  .c-rod { font-size: 11px; }
-  .c-rod-logo img { height: 36px; }
-  .c-rod-logo { gap: 10px; }
-  .c-rod-partes { font-size: 10.5px; }
-  .c-rod-cct { font-size: 8.5px; }
-  .mega-icon-wrap { width: 58px; height: 58px; margin-bottom: 6px; }
-  .mega-icon { font-size: 28px; }
-  .mega-label { font-size: 9.5px; padding: 2px 12px; }
-  .c-cct-box { padding: 8px 11px; }
-  .c-cct-box-title { font-size: 9.5px; }
-  .c-cct-box-item { font-size: 10px; }
-  .c-obs { font-size: 11px; }
-  .c-cct { font-size: 9px; }
-  .c-pode { font-size: 12px; padding: 8px 11px; }
-  .c-acordo { font-size: 12px; padding: 8px 11px; }
-
-  /* INSTAGRAM CARD */
-  .insta-wrap { width: 100%; height: auto; aspect-ratio: 4/5; border-radius: 12px; }
-  .insta-feriado-name { font-size: 28px; }
-  .insta-band-txt { font-size: 13px; }
-  .insta-big-icon { font-size: 42px; }
-
-  /* PREV WRAP buttons */
-  .prev-wrap { gap: 12px; }
-  .prev-wrap .btn-outline { width: 100%; justify-content: center; }
-
-  /* ENTITY CARDS */
-  .entity-hdr { padding: 12px 14px; }
-  .entity-title { font-size: 12px; }
-  .entity-body { padding: 12px 14px; gap: 9px; }
-
-  /* TABELA FERIADOS */
-  .tbl { font-size: 11.5px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .tbl th { font-size: 8.5px; padding: 6px 8px; white-space: nowrap; }
-  .tbl td { padding: 8px 8px; }
-
-  /* LINK CARDS */
-  .link-card-body { padding: 14px 16px; }
-  .link-card-icon { font-size: 26px; margin-bottom: 8px; }
-  .link-card-title { font-size: 14px; }
-  .link-card-desc { font-size: 11.5px; }
-  .link-card-url { font-size: 9.5px; }
-  .denuncia-card { padding: 16px 18px; gap: 14px; flex-direction: column; text-align: center; }
-  .denuncia-icon { font-size: 38px; }
-  .denuncia-text h3 { font-size: 17px; }
-  .denuncia-text p { font-size: 12px; }
-
-  /* LEGEND */
-  .legend { flex-direction: column; gap: 8px; }
-
-  /* MODAL */
-  .confirm-box { width: 90vw; padding: 22px 18px; }
-  .confirm-title { font-size: 16px; }
-
-  /* TOAST */
-  .toast { bottom: 16px; right: 12px; left: 12px; font-size: 12px; }
-  .toast-restore { bottom: 16px; right: 12px; left: 12px; font-size: 11px; }
-
-  /* ALERT */
-  .alert { font-size: 11.5px; padding: 8px 12px; }
-
-  /* ACCORDION */
-  .acc-body { display: block !important; }
+  .hdr{padding:10px 14px;gap:10px;}.hdr img{height:32px;padding:3px 8px;}.hdr h1{font-size:14px;}.hdr p{font-size:9px;letter-spacing:1px;}.hdr-v{font-size:8px;padding:2px 8px;}
+  .nav{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;}.nav::-webkit-scrollbar{display:none;}.nav-btn{padding:10px 14px;font-size:10px;white-space:nowrap;flex-shrink:0;}
+  .page{padding:14px 12px;}
+  .g2,.g3,.g4,.g5{grid-template-columns:1fr;gap:10px;}.entity-grid{grid-template-columns:1fr;gap:12px;}.links-grid{grid-template-columns:1fr;gap:10px;}
+  .sec{padding:14px 14px;margin-bottom:12px;}.sec-title{font-size:11px;margin-bottom:12px;}
+  .field label{font-size:9px;}.field input,.field select,.field textarea{font-size:14px;padding:10px 12px;}
+  .btn{font-size:10px;padding:9px 14px;}.btn-full{padding:14px;font-size:13px;}.btn-sm{font-size:9px;padding:6px 10px;}
+  .toggle-row{border-radius:6px;}.toggle-btn{font-size:9px;padding:8px 4px;}.fmt-toggle{flex-direction:column;border-radius:8px;}.fmt-btn{padding:11px;font-size:10px;}
+  .gerar-side{width:100%;min-width:unset;}.gerar-wrap{flex-direction:column;gap:14px;}.gerar-main{min-width:unset;}
+  .prev-tabs{gap:6px;}.prev-tab{padding:7px 12px;font-size:9.5px;}
+  .comunicado{width:100%;padding:22px 18px 18px;border-radius:10px;}.c-tit{font-size:14px;margin-bottom:10px;}.c-intro{font-size:12px;}.c-item{font-size:11.5px;}.c-proib-box{font-size:12px;padding:7px 10px;}.c-alerta{font-size:11px;padding:9px 10px;}.c-destaque{font-size:12px;padding:10px 12px;}.c-corpo{font-size:11px;line-height:1.7;}.c-cta{font-size:12px;padding:10px 12px;}.c-rod{font-size:11px;}.c-rod-logo img{height:36px;}.c-rod-logo{gap:10px;}.mega-icon-wrap{width:58px;height:58px;margin-bottom:6px;}.mega-icon{font-size:28px;}.mega-label{font-size:9.5px;padding:2px 12px;}.c-cct-box{padding:8px 11px;}.c-cct-box-title{font-size:9.5px;}.c-cct-box-item{font-size:10px;}.c-obs{font-size:11px;}.c-cct{font-size:9px;}.c-pode{font-size:12px;padding:8px 11px;}.c-acordo{font-size:12px;padding:8px 11px;}
+  .insta-wrap{width:100%;height:auto;aspect-ratio:4/5;border-radius:12px;}.insta-feriado-name{font-size:28px;}.insta-band-txt{font-size:13px;}.insta-big-icon{font-size:42px;}
+  .prev-wrap{gap:12px;}.prev-wrap .btn-outline{width:100%;justify-content:center;}
+  .entity-hdr{padding:12px 14px;}.entity-title{font-size:12px;}.entity-body{padding:12px 14px;gap:9px;}
+  .tbl{font-size:11.5px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}.tbl th{font-size:8.5px;padding:6px 8px;white-space:nowrap;}.tbl td{padding:8px 8px;}
+  .link-card-body{padding:14px 16px;}.link-card-icon{font-size:26px;margin-bottom:8px;}.link-card-title{font-size:14px;}.link-card-desc{font-size:11.5px;}.link-card-url{font-size:9.5px;}.denuncia-card{padding:16px 18px;gap:14px;flex-direction:column;text-align:center;}.denuncia-icon{font-size:38px;}.denuncia-text h3{font-size:17px;}.denuncia-text p{font-size:12px;}
+  .legend{flex-direction:column;gap:8px;}
+  .confirm-box{width:90vw;padding:22px 18px;}.confirm-title{font-size:16px;}
+  .toast{bottom:16px;right:12px;left:12px;font-size:12px;}.toast-restore{bottom:16px;right:12px;left:12px;font-size:11px;}
+  .alert{font-size:11.5px;padding:8px 12px;}
 }
-
-/* TABLET */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .g4, .g5 { grid-template-columns: 1fr 1fr; }
-  .entity-grid { grid-template-columns: 1fr; }
-  .gerar-side { width: 260px; min-width: 260px; }
-  .comunicado { width: 480px; }
-  .insta-wrap { width: 360px; height: 450px; }
+  .g4,.g5{grid-template-columns:1fr 1fr;}.entity-grid{grid-template-columns:1fr;}.gerar-side{width:260px;min-width:260px;}.comunicado{width:480px;}.insta-wrap{width:360px;height:450px;}
 }
-
-/* EXPORT / IMPORT */
 .sync-bar{display:flex;gap:10px;align-items:center;background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:12px 18px;margin-bottom:16px;flex-wrap:wrap;}
 .sync-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-right:4px;}
 .sync-info{font-size:11px;color:rgba(255,255,255,.5);flex:1;min-width:120px;}
@@ -404,6 +232,35 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
 .btn-import{background:linear-gradient(135deg,#2980b9,#3498db);color:#fff;border:none;border-radius:7px;padding:9px 18px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px;transition:all .2s;}
 .btn-import:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(41,128,185,.4);}
 #importFileInput{display:none;}
+/* MÓDULO JURÍDICO */
+.type-pills{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+.type-pill{padding:7px 16px;border-radius:20px;border:1px solid rgba(200,168,75,.3);font-size:11px;cursor:pointer;background:transparent;color:rgba(255,255,255,.45);font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;}
+.type-pill:hover{border-color:var(--gold);color:rgba(255,255,255,.75);}
+.type-pill.active{background:rgba(200,168,75,.2);border-color:var(--gold);color:var(--gold);}
+.jur-tabs{display:flex;background:var(--navy);border:1px solid rgba(200,168,75,.2);border-radius:8px;overflow:hidden;margin-bottom:16px;}
+.jur-tab{flex:1;padding:11px;background:transparent;border:none;color:rgba(255,255,255,.35);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.8px;transition:all .2s;}
+.jur-tab.active{background:rgba(200,168,75,.15);color:var(--gold);}
+.jur-result{background:var(--navy);border:1px solid rgba(200,168,75,.15);border-radius:8px;padding:16px 20px;font-size:12.5px;line-height:1.85;white-space:pre-wrap;color:rgba(255,255,255,.82);font-family:'Courier New',monospace;max-height:520px;overflow-y:auto;}
+.jur-report{background:var(--navy);border:1px solid rgba(200,168,75,.15);border-radius:8px;padding:16px 20px;font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.82);}
+.jur-report h3{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin:16px 0 6px;padding-bottom:5px;border-bottom:1px solid rgba(200,168,75,.15);}
+.jur-report p{margin-bottom:8px;color:rgba(255,255,255,.68);}
+.jur-report ul{padding-left:18px;margin-bottom:8px;}
+.jur-report li{color:rgba(255,255,255,.68);margin-bottom:4px;}
+.jur-report strong{color:#fff;}
+.src-item{display:flex;align-items:center;gap:11px;padding:12px 14px;border:1px solid rgba(200,168,75,.15);border-radius:9px;cursor:pointer;transition:all .2s;margin-bottom:8px;user-select:none;}
+.src-item:hover{border-color:rgba(200,168,75,.4);background:rgba(200,168,75,.04);}
+.src-item.selected{border-color:var(--gold);background:rgba(200,168,75,.08);}
+.src-check{width:16px;height:16px;border-radius:4px;border:1.5px solid rgba(200,168,75,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:900;transition:all .2s;color:var(--navy);}
+.src-check.on{background:var(--gold);border-color:var(--gold);}
+.jur-loading{height:3px;background:rgba(200,168,75,.12);border-radius:2px;overflow:hidden;margin:10px 0 14px;}
+.jur-loading-fill{height:100%;width:40%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;animation:jurLoad 1.4s ease-in-out infinite;}
+@keyframes jurLoad{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
+.jur-result-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.jur-copy-btn{background:rgba(200,168,75,.12);border:1px solid rgba(200,168,75,.25);color:var(--gold2);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:6px;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;}
+.jur-copy-btn:hover{background:rgba(200,168,75,.22);}
+.jur-print-btn{background:rgba(41,128,185,.12);border:1px solid rgba(41,128,185,.25);color:#7eb8e8;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:6px;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;}
+.jur-print-btn:hover{background:rgba(41,128,185,.22);}
+@media(max-width:768px){.jur-tabs{flex-direction:column;}.jur-tab{padding:10px;font-size:9.5px;}.jur-result{font-size:11.5px;padding:12px 14px;}.type-pill{font-size:10px;padding:6px 12px;}}
 </style>
 </head>
 <body>
@@ -414,7 +271,7 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
     <h1>Sistema de Comunicados</h1>
     <p>SINDCOMERCIÁRIOS — Itabirito · Ouro Preto · Mariana</p>
   </div>
-  <div class="hdr-v">v4.0</div>
+  <div class="hdr-v">v4.1</div>
 </div>
 
 <div class="nav">
@@ -422,23 +279,18 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
   <button class="nav-btn" onclick="showPage('acordos',this)">📜 Acordos Coletivos</button>
   <button class="nav-btn" onclick="showPage('gerar',this)">⚡ Gerar Comunicado</button>
   <button class="nav-btn" onclick="showPage('links',this)">🔗 Links e Recursos</button>
+  <button class="nav-btn" onclick="showPage('juridico',this)">⚖️ Módulo Jurídico</button>
 </div>
 
-<!-- ═══ PAGE FERIADOS ═══ -->
+<!-- PAGE FERIADOS -->
 <div class="page active" id="page-feriados">
-
   <div class="sync-bar">
     <span class="sync-title">🔄 Sincronizar</span>
     <span class="sync-info">Transfira seus dados entre celular e computador</span>
-    <button class="btn-export" onclick="exportarDados()">
-      📤 Exportar Dados
-    </button>
-    <button class="btn-import" onclick="document.getElementById('importFileInput').click()">
-      📥 Importar Dados
-    </button>
+    <button class="btn-export" onclick="exportarDados()">📤 Exportar Dados</button>
+    <button class="btn-import" onclick="document.getElementById('importFileInput').click()">📥 Importar Dados</button>
     <input type="file" id="importFileInput" accept=".json" onchange="importarDados(event)">
   </div>
-
   <div class="sec">
     <div class="sec-title">📌 Regra Geral da CCT</div>
     <div class="alert a-gold" style="margin-bottom:14px;font-size:12.5px;line-height:1.7;">
@@ -455,29 +307,19 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
       <div class="legend-item"><span class="badge b-blue">🏛️ Comércio livre</span> 20/11 OP/Mariana — todo comércio pode funcionar</div>
     </div>
   </div>
-
   <div class="sec">
     <div class="sec-title">➕ Cadastrar Feriado</div>
     <div class="g5" style="align-items:end;">
-      <div class="field">
-        <label>Data</label>
-        <input type="date" id="novaData" onchange="calcDia('novaData','novaBadge')">
-        <span class="day-badge" id="novaBadge" style="display:none"></span>
-      </div>
-      <div class="field">
-        <label>Nome do Feriado</label>
-        <input id="novoNome" placeholder="Ex: Corpus Christi">
-      </div>
-      <div class="field">
-        <label>Abrangência</label>
+      <div class="field"><label>Data</label><input type="date" id="novaData" onchange="calcDia('novaData','novaBadge')"><span class="day-badge" id="novaBadge" style="display:none"></span></div>
+      <div class="field"><label>Nome do Feriado</label><input id="novoNome" placeholder="Ex: Corpus Christi"></div>
+      <div class="field"><label>Abrangência</label>
         <select id="novaAbrang">
           <option value="todas">Todas as cidades</option>
           <option value="itabirito">Somente Itabirito</option>
           <option value="op_mariana">Somente OP/Mariana</option>
         </select>
       </div>
-      <div class="field">
-        <label>Regra do Feriado</label>
+      <div class="field"><label>Regra do Feriado</label>
         <select id="novaRegra">
           <option value="generos_only">🛒 Somente Gêneros podem · Lojas PROIBIDAS</option>
           <option value="permitido">🛒 Gêneros podem · 🏪 Lojas c/ acordo</option>
@@ -486,184 +328,97 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
           <option value="comercio_op">🏛️ Comércio livre OP/Mariana (20/11)</option>
         </select>
       </div>
-      <div class="field">
-        <label>&nbsp;</label>
-        <button class="btn btn-gold" onclick="addFeriado()" style="height:36px;">➕ Adicionar</button>
-      </div>
+      <div class="field"><label>&nbsp;</label><button class="btn btn-gold" onclick="addFeriado()" style="height:36px;">➕ Adicionar</button></div>
     </div>
-    <div class="field" style="margin-top:11px;">
-      <label>Observação especial (opcional — aparece no comunicado)</label>
-      <textarea id="novaObs" placeholder="Texto adicional que aparecerá no comunicado gerado..."></textarea>
-    </div>
+    <div class="field" style="margin-top:11px;"><label>Observação especial (opcional — aparece no comunicado)</label>
+      <textarea id="novaObs" placeholder="Texto adicional que aparecerá no comunicado gerado..."></textarea></div>
     <div style="margin-top:11px;display:flex;gap:10px;">
       <button class="btn btn-outline btn-sm" onclick="addFeriadosPadrao()">📋 Importar Feriados 2026 com Regras Corretas</button>
     </div>
   </div>
-
   <div class="sec">
     <div class="sec-title">📋 Feriados Cadastrados</div>
     <div id="tblEmpty" class="alert a-gold">Nenhum feriado cadastrado. Use o botão "Importar Feriados 2026" para começar.</div>
     <table class="tbl" id="tblFer">
-      <thead><tr>
-        <th>Data</th><th>Feriado</th><th>Dia</th>
-        <th>Abrangência</th><th>Regra</th><th>Observação</th><th></th>
-      </tr></thead>
+      <thead><tr><th>Data</th><th>Feriado</th><th>Dia</th><th>Abrangência</th><th>Regra</th><th>Observação</th><th></th></tr></thead>
       <tbody id="tblBody"></tbody>
     </table>
   </div>
 </div>
 
-<!-- ═══ PAGE ACORDOS ═══ -->
+<!-- PAGE ACORDOS -->
 <div class="page" id="page-acordos">
-
-  <div class="alert a-info" style="margin-bottom:14px;">
-    💡 A CCT é válida por <strong>1 ano</strong>. As regras abaixo se aplicam a todos os feriados permitidos. Somente as datas mudam a cada ano — salve e use sem alterar novamente.
-  </div>
-
+  <div class="alert a-info" style="margin-bottom:14px;">💡 A CCT é válida por <strong>1 ano</strong>. As regras abaixo se aplicam a todos os feriados permitidos. Somente as datas mudam a cada ano — salve e use sem alterar novamente.</div>
   <div class="entity-grid">
-
-    <!-- ITA GENEROS -->
     <div class="entity-card">
       <div class="entity-hdr" style="border-left:4px solid #27ae60;">
         <span class="entity-icon">🛒</span>
-        <div>
-          <div class="entity-title">Itabirito — Gêneros Alimentícios</div>
-          <div class="entity-sub">SINDCOMERCIÁRIOS · Supermercados e Mercearias</div>
-        </div>
+        <div><div class="entity-title">Itabirito — Gêneros Alimentícios</div><div class="entity-sub">SINDCOMERCIÁRIOS · Supermercados e Mercearias</div></div>
       </div>
       <div class="entity-body">
-        <div class="g2">
-          <div class="field"><label>Ano da CCT</label><input id="ita_g_ano" value="2026"></div>
-          <div class="field"><label>Gratificação (R$)</label><input id="ita_g_grat" value="90,00"></div>
-        </div>
-        <div class="g3">
-          <div class="field"><label>Jornada Máxima</label><input id="ita_g_jorn" value="6 horas"></div>
-          <div class="field"><label>Intervalo</label><input id="ita_g_int" value="15 minutos"></div>
-          <div class="field"><label>Folga Comp.</label><input id="ita_g_folga" value="60 dias"></div>
-        </div>
-        <div class="g2">
-          <div class="field"><label>Telefone Denúncias</label><input id="ita_g_tel" value="(31) 3561-2269"></div>
-          <div class="field"><label>Site</label><input id="ita_g_site" value="www.sindeci.com.br"></div>
-        </div>
-        <div class="field">
-          <label>Partes da CCT</label>
-          <input id="ita_g_partes" value="SINDECI x SINCOVITA">
-        </div>
+        <div class="g2"><div class="field"><label>Ano da CCT</label><input id="ita_g_ano" value="2026"></div><div class="field"><label>Gratificação (R$)</label><input id="ita_g_grat" value="90,00"></div></div>
+        <div class="g3"><div class="field"><label>Jornada Máxima</label><input id="ita_g_jorn" value="6 horas"></div><div class="field"><label>Intervalo</label><input id="ita_g_int" value="15 minutos"></div><div class="field"><label>Folga Comp.</label><input id="ita_g_folga" value="60 dias"></div></div>
+        <div class="g2"><div class="field"><label>Telefone Denúncias</label><input id="ita_g_tel" value="(31) 3561-2269"></div><div class="field"><label>Site</label><input id="ita_g_site" value="www.sindeci.com.br"></div></div>
+        <div class="field"><label>Partes da CCT</label><input id="ita_g_partes" value="SINDECI x SINCOVITA"></div>
       </div>
     </div>
-
-
-        <!-- OP FECOMERCIO -->
     <div class="entity-card">
       <div class="entity-hdr" style="border-left:4px solid #2980b9;">
         <span class="entity-icon">🏛️</span>
-        <div>
-          <div class="entity-title">Ouro Preto e Mariana — Fecomércio</div>
-          <div class="entity-sub">Lojas e Pequenos Supermercados</div>
-        </div>
+        <div><div class="entity-title">Ouro Preto e Mariana — Fecomércio</div><div class="entity-sub">Lojas e Pequenos Supermercados</div></div>
       </div>
       <div class="entity-body">
         <div class="alert a-red" style="font-size:11px;">⚠️ Preencha os valores corretos do acordo Fecomércio — OP/Mariana.</div>
-        <div class="g2">
-          <div class="field"><label>Ano da CCT</label><input id="op_f_ano" value="2026"></div>
-          <div class="field"><label>Gratificação (R$)</label><input id="op_f_grat" value="0,00" style="border-color:rgba(231,76,60,.5)"></div>
-        </div>
-        <div class="g3">
-          <div class="field"><label>Jornada Máxima</label><input id="op_f_jorn" value="6 horas"></div>
-          <div class="field"><label>Intervalo</label><input id="op_f_int" value="15 minutos"></div>
-          <div class="field"><label>Folga Comp.</label><input id="op_f_folga" value="60 dias"></div>
-        </div>
-        <div class="g2">
-          <div class="field"><label>Telefone Denúncias</label><input id="op_f_tel" value="(31) 3561-2269"></div>
-          <div class="field"><label>Site</label><input id="op_f_site" value="www.sindeci.com.br"></div>
-        </div>
-        <div class="field">
-          <label>Partes da CCT</label>
-          <input id="op_f_partes" value="SINDECI x FECOMÉRCIO">
-        </div>
-        <div class="alert a-info" style="font-size:11px;margin-top:2px;">
-          ℹ️ <strong>20/11 — Consciência Negra:</strong> Todo o comércio (lojas e supermercados) pode funcionar com as regras da CCT.
-        </div>
+        <div class="g2"><div class="field"><label>Ano da CCT</label><input id="op_f_ano" value="2026"></div><div class="field"><label>Gratificação (R$)</label><input id="op_f_grat" value="0,00" style="border-color:rgba(231,76,60,.5)"></div></div>
+        <div class="g3"><div class="field"><label>Jornada Máxima</label><input id="op_f_jorn" value="6 horas"></div><div class="field"><label>Intervalo</label><input id="op_f_int" value="15 minutos"></div><div class="field"><label>Folga Comp.</label><input id="op_f_folga" value="60 dias"></div></div>
+        <div class="g2"><div class="field"><label>Telefone Denúncias</label><input id="op_f_tel" value="(31) 3561-2269"></div><div class="field"><label>Site</label><input id="op_f_site" value="www.sindeci.com.br"></div></div>
+        <div class="field"><label>Partes da CCT</label><input id="op_f_partes" value="SINDECI x FECOMÉRCIO"></div>
+        <div class="alert a-info" style="font-size:11px;margin-top:2px;">ℹ️ <strong>20/11 — Consciência Negra:</strong> Todo o comércio (lojas e supermercados) pode funcionar com as regras da CCT.</div>
       </div>
     </div>
-
-    <!-- OP SINDSUPER -->
     <div class="entity-card">
       <div class="entity-hdr" style="border-left:4px solid #e67e22;">
         <span class="entity-icon">🏬</span>
-        <div>
-          <div class="entity-title">Ouro Preto e Mariana — Sindsuper</div>
-          <div class="entity-sub">Grandes Supermercados e Hipermercados</div>
-        </div>
+        <div><div class="entity-title">Ouro Preto e Mariana — Sindsuper</div><div class="entity-sub">Grandes Supermercados e Hipermercados</div></div>
       </div>
       <div class="entity-body">
         <div class="alert a-red" style="font-size:11px;">⚠️ Preencha os valores corretos do acordo Sindsuper — OP/Mariana.</div>
-        <div class="g2">
-          <div class="field"><label>Ano da CCT</label><input id="op_s_ano" value="2026"></div>
-          <div class="field"><label>Gratificação (R$)</label><input id="op_s_grat" value="0,00" style="border-color:rgba(231,76,60,.5)"></div>
-        </div>
-        <div class="g3">
-          <div class="field"><label>Jornada Máxima</label><input id="op_s_jorn" value="6 horas"></div>
-          <div class="field"><label>Intervalo</label><input id="op_s_int" value="15 minutos"></div>
-          <div class="field"><label>Folga Comp.</label><input id="op_s_folga" value="60 dias"></div>
-        </div>
-        <div class="g2">
-          <div class="field"><label>Telefone Denúncias</label><input id="op_s_tel" value="(31) 3561-2269"></div>
-          <div class="field"><label>Site</label><input id="op_s_site" value="www.sindeci.com.br"></div>
-        </div>
-        <div class="field">
-          <label>Partes da CCT</label>
-          <input id="op_s_partes" value="SINDECI x SINDSUPER">
-        </div>
+        <div class="g2"><div class="field"><label>Ano da CCT</label><input id="op_s_ano" value="2026"></div><div class="field"><label>Gratificação (R$)</label><input id="op_s_grat" value="0,00" style="border-color:rgba(231,76,60,.5)"></div></div>
+        <div class="g3"><div class="field"><label>Jornada Máxima</label><input id="op_s_jorn" value="6 horas"></div><div class="field"><label>Intervalo</label><input id="op_s_int" value="15 minutos"></div><div class="field"><label>Folga Comp.</label><input id="op_s_folga" value="60 dias"></div></div>
+        <div class="g2"><div class="field"><label>Telefone Denúncias</label><input id="op_s_tel" value="(31) 3561-2269"></div><div class="field"><label>Site</label><input id="op_s_site" value="www.sindeci.com.br"></div></div>
+        <div class="field"><label>Partes da CCT</label><input id="op_s_partes" value="SINDECI x SINDSUPER"></div>
       </div>
     </div>
-
   </div>
-
   <div style="display:flex;justify-content:flex-end;margin-top:4px;">
     <button class="btn btn-gold" onclick="salvarAcordos()">💾 Salvar Todos os Acordos</button>
   </div>
 </div>
 
-<!-- ═══ PAGE GERAR ═══ -->
+<!-- PAGE GERAR -->
 <div class="page" id="page-gerar">
   <div class="gerar-wrap">
-
     <div class="gerar-side">
       <div class="sec" style="margin-bottom:0;">
         <div class="sec-title">⚙️ Configurar</div>
-
-        <div class="field" style="margin-bottom:11px;">
-          <label>Feriado</label>
-          <select id="gFeriado" onchange="onFeriadoChange()">
-            <option value="">— Selecione —</option>
-          </select>
-        </div>
-
+        <div class="field" style="margin-bottom:11px;"><label>Feriado</label>
+          <select id="gFeriado" onchange="onFeriadoChange()"><option value="">— Selecione —</option></select></div>
         <div id="gInfo" style="display:none;">
           <div class="g2" style="margin-bottom:11px;">
             <div class="field"><label>Data</label><input id="gDataTxt" readonly></div>
             <div class="field"><label>Dia da Semana</label><input id="gDiaTxt" readonly></div>
           </div>
-
           <div id="gRegAlert" class="alert" style="margin-bottom:11px;font-size:11.5px;display:none;"></div>
-
-          <div class="field" style="margin-bottom:11px;">
-            <label>Acordo / Entidade</label>
-            <select id="gEntidade" onchange="onEntidadeChange()">
-              <option value="">— Selecione a entidade —</option>
-            </select>
-          </div>
-
+          <div class="field" style="margin-bottom:11px;"><label>Acordo / Entidade</label>
+            <select id="gEntidade" onchange="onEntidadeChange()"><option value="">— Selecione a entidade —</option></select></div>
           <div class="field" style="margin-bottom:11px;" id="gTipoWrap">
             <label>Tipo de Comunicado</label>
             <div class="toggle-row">
               <button class="toggle-btn active" id="tBoth" onclick="if(!this.disabled)setTipo('ambos',this)">Ambos</button>
-              <button class="toggle-btn" id="tGen"  onclick="if(!this.disabled)setTipo('generos',this)">Gêneros</button>
-              <button class="toggle-btn" id="tLoj"  onclick="if(!this.disabled)setTipo('lojas',this)">Lojas</button>
+              <button class="toggle-btn" id="tGen" onclick="if(!this.disabled)setTipo('generos',this)">Gêneros</button>
+              <button class="toggle-btn" id="tLoj" onclick="if(!this.disabled)setTipo('lojas',this)">Lojas</button>
             </div>
           </div>
-
           <div class="field" style="margin-bottom:11px;">
             <label>📤 Formato de Saída</label>
             <div class="toggle-row">
@@ -671,17 +426,12 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
               <button class="toggle-btn" id="fInsta" onclick="setFormato('instagram',this)">📸 Instagram</button>
             </div>
           </div>
-
-          <div class="field" id="gObsWrap" style="margin-bottom:4px;">
-            <label>Observação (opcional)</label>
-            <textarea id="gObs" rows="3" style="font-size:12px;"></textarea>
-          </div>
+          <div class="field" id="gObsWrap" style="margin-bottom:4px;"><label>Observação (opcional)</label>
+            <textarea id="gObs" rows="3" style="font-size:12px;"></textarea></div>
         </div>
-
         <button class="btn btn-gold btn-full" style="margin-top:13px;" onclick="gerar()">⚡ Gerar Comunicado</button>
       </div>
     </div>
-
     <div class="gerar-main">
       <div id="gEmpty" class="empty">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -694,915 +444,264 @@ html,body{min-height:100%;font-family:'Montserrat',sans-serif;background:var(--n
           <button class="fmt-btn" id="fmtInsta" onclick="setFormato('instagram',this)">📸 Instagram — Feed 4:5 (sem valores)</button>
         </div>
         <div class="prev-tabs" id="prevTabs"></div>
-        <div id="prevGen" class="prev-wrap" style="display:none;">
-          <div class="prev-label">Gêneros Alimentícios</div>
-          <div class="comunicado" id="cardGen"></div>
-          <button class="btn btn-outline" onclick="baixar('cardGen','generos')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG
-          </button>
-        </div>
-        <div id="prevLoj" class="prev-wrap" style="display:none;">
-          <div class="prev-label">Lojas em Geral</div>
-          <div class="comunicado" id="cardLoj"></div>
-          <button class="btn btn-outline" onclick="baixar('cardLoj','lojas')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG
-          </button>
-        </div>
-          <div id="prevGenInsta" class="prev-wrap" style="display:none;">
-            <div class="prev-label">Instagram 4:5 — Gêneros Alimentícios</div>
-            <div class="insta-wrap" id="cardGenInsta"></div>
-            <button class="btn btn-outline" onclick="baixar('cardGenInsta','insta_generos')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG Instagram
-            </button>
-          </div>
-          <div id="prevLojInsta" class="prev-wrap" style="display:none;">
-            <div class="prev-label">Instagram 4:5 — Lojas em Geral</div>
-            <div class="insta-wrap" id="cardLojInsta"></div>
-            <button class="btn btn-outline" onclick="baixar('cardLojInsta','insta_lojas')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG Instagram
-            </button>
-          </div>
+        <div id="prevGen" class="prev-wrap" style="display:none;"><div class="prev-label">Gêneros Alimentícios</div><div class="comunicado" id="cardGen"></div>
+          <button class="btn btn-outline" onclick="baixar('cardGen','generos')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG</button></div>
+        <div id="prevLoj" class="prev-wrap" style="display:none;"><div class="prev-label">Lojas em Geral</div><div class="comunicado" id="cardLoj"></div>
+          <button class="btn btn-outline" onclick="baixar('cardLoj','lojas')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG</button></div>
+        <div id="prevGenInsta" class="prev-wrap" style="display:none;"><div class="prev-label">Instagram 4:5 — Gêneros Alimentícios</div><div class="insta-wrap" id="cardGenInsta"></div>
+          <button class="btn btn-outline" onclick="baixar('cardGenInsta','insta_generos')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG Instagram</button></div>
+        <div id="prevLojInsta" class="prev-wrap" style="display:none;"><div class="prev-label">Instagram 4:5 — Lojas em Geral</div><div class="insta-wrap" id="cardLojInsta"></div>
+          <button class="btn btn-outline" onclick="baixar('cardLojInsta','insta_lojas')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>Baixar PNG Instagram</button></div>
       </div>
     </div>
   </div>
 </div>
-<!-- ═══ PAGE LINKS ═══ -->
-<div class="page" id="page-links">
 
-  <!-- DENÚNCIA EM DESTAQUE -->
+<!-- PAGE LINKS -->
+<div class="page" id="page-links">
   <div class="sec" style="margin-bottom:20px;">
     <div class="sec-title">🚨 Canais de Denúncia</div>
     <div style="display:flex;flex-direction:column;gap:12px;">
-
       <a class="denuncia-card" href="https://www.gov.br/pt-br/servicos/realizar-denuncia-trabalhista" target="_blank">
         <div class="denuncia-icon">🏛️</div>
-        <div class="denuncia-text">
-          <h3>Denúncia Trabalhista — Governo Federal</h3>
-          <p>Canal oficial do Governo Federal para registrar denúncias de irregularidades trabalhistas. Seus dados são protegidos.</p>
-          <div class="link-card-url">🔗 gov.br/pt-br/servicos/realizar-denuncia-trabalhista</div>
-        </div>
+        <div class="denuncia-text"><h3>Denúncia Trabalhista — Governo Federal</h3><p>Canal oficial do Governo Federal para registrar denúncias de irregularidades trabalhistas. Seus dados são protegidos.</p><div class="link-card-url">🔗 gov.br/pt-br/servicos/realizar-denuncia-trabalhista</div></div>
       </a>
-
       <a class="denuncia-card" href="https://mpt.mp.br/" target="_blank">
         <div class="denuncia-icon">⚖️</div>
-        <div class="denuncia-text">
-          <h3>Ministério Público do Trabalho</h3>
-          <p>Órgão responsável pela defesa da ordem jurídica trabalhista. Recebe denúncias de irregularidades coletivas e individuais.</p>
-          <div class="link-card-url">🔗 mpt.mp.br</div>
-        </div>
+        <div class="denuncia-text"><h3>Ministério Público do Trabalho</h3><p>Órgão responsável pela defesa da ordem jurídica trabalhista. Recebe denúncias de irregularidades coletivas e individuais.</p><div class="link-card-url">🔗 mpt.mp.br</div></div>
       </a>
-
     </div>
   </div>
-
-  <!-- SINDICATO E FEDERAÇÕES -->
   <div class="sec" style="margin-bottom:20px;">
     <div class="link-cat-title">🤝 Sindicato e Federações</div>
     <div class="links-grid">
-
-      <a class="link-card" href="https://www.sindeci.com.br" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#1a6aa8,#3a9ed5);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">🏢</div>
-          <div class="link-card-title">SINDCOMERCIÁRIOS</div>
-          <div class="link-card-desc">Site oficial do Sindicato dos Empregados no Comércio de Itabirito e Região. Convenções, emissão de guias, portal do associado.</div>
-          <div class="link-card-url">🔗 sindeci.com.br</div>
-        </div>
-      </a>
-
-      <a class="link-card" href="https://www.fecomerciariosmg.org.br/" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#c0392b,#e74c3c);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">🏛️</div>
-          <div class="link-card-title">FECOMERCIÁRIOS-MG</div>
-          <div class="link-card-desc">Federação dos Empregados no Comércio e Congêneres do Estado de Minas Gerais. Entidade máxima estadual dos comerciários.</div>
-          <div class="link-card-url">🔗 fecomerciariosmg.org.br</div>
-        </div>
-      </a>
-
-      <a class="link-card" href="https://fecomerciomg.org.br/" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#e67e22,#f39c12);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">🏗️</div>
-          <div class="link-card-title">FECOMÉRCIO-MG</div>
-          <div class="link-card-desc">Portal da Federação do Comércio de Minas Gerais — entidade patronal. Informações sobre convenções coletivas e acordos.</div>
-          <div class="link-card-url">🔗 fecomerciomg.org.br</div>
-        </div>
-      </a>
-
+      <a class="link-card" href="https://www.sindeci.com.br" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#1a6aa8,#3a9ed5);"></div><div class="link-card-body"><div class="link-card-icon">🏢</div><div class="link-card-title">SINDCOMERCIÁRIOS</div><div class="link-card-desc">Site oficial do Sindicato dos Empregados no Comércio de Itabirito e Região. Convenções, emissão de guias, portal do associado.</div><div class="link-card-url">🔗 sindeci.com.br</div></div></a>
+      <a class="link-card" href="https://www.fecomerciariosmg.org.br/" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#c0392b,#e74c3c);"></div><div class="link-card-body"><div class="link-card-icon">🏛️</div><div class="link-card-title">FECOMERCIÁRIOS-MG</div><div class="link-card-desc">Federação dos Empregados no Comércio e Congêneres do Estado de Minas Gerais. Entidade máxima estadual dos comerciários.</div><div class="link-card-url">🔗 fecomerciariosmg.org.br</div></div></a>
+      <a class="link-card" href="https://fecomerciomg.org.br/" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#e67e22,#f39c12);"></div><div class="link-card-body"><div class="link-card-icon">🏗️</div><div class="link-card-title">FECOMÉRCIO-MG</div><div class="link-card-desc">Portal da Federação do Comércio de Minas Gerais — entidade patronal. Informações sobre convenções coletivas e acordos.</div><div class="link-card-url">🔗 fecomerciomg.org.br</div></div></a>
     </div>
   </div>
-
-  <!-- ÓRGÃOS GOVERNAMENTAIS -->
   <div class="sec">
     <div class="link-cat-title">🏛️ Órgãos Governamentais</div>
     <div class="links-grid">
-
-      <a class="link-card" href="https://mpt.mp.br/" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#27ae60,#2ecc71);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">⚖️</div>
-          <div class="link-card-title">Ministério Público do Trabalho</div>
-          <div class="link-card-desc">MPT — defesa da ordem jurídica trabalhista, combate ao trabalho escravo, infantil e outras violações.</div>
-          <div class="link-card-url">🔗 mpt.mp.br</div>
-        </div>
-      </a>
-
-      <a class="link-card" href="https://www.gov.br/trabalho-e-emprego" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#2980b9,#3498db);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">📋</div>
-          <div class="link-card-title">Ministério do Trabalho e Emprego</div>
-          <div class="link-card-desc">Portal oficial do MTE. Consulta de CTPS digital, seguro-desemprego, FGTS, fiscalização trabalhista.</div>
-          <div class="link-card-url">🔗 gov.br/trabalho-e-emprego</div>
-        </div>
-      </a>
-
-      <a class="link-card" href="https://www.tst.jus.br/" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#8e44ad,#9b59b6);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">🏦</div>
-          <div class="link-card-title">Tribunal Superior do Trabalho</div>
-          <div class="link-card-desc">TST — jurisprudência trabalhista, súmulas, consulta processual. Principal fonte do direito do trabalho no Brasil.</div>
-          <div class="link-card-url">🔗 tst.jus.br</div>
-        </div>
-      </a>
-
-      <a class="link-card" href="https://www.trt3.jus.br/" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#16a085,#1abc9c);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">⚖️</div>
-          <div class="link-card-title">TRT 3ª Região — Minas Gerais</div>
-          <div class="link-card-desc">Tribunal Regional do Trabalho de MG. Consulta processual, jurisprudência regional e pauta de audiências.</div>
-          <div class="link-card-url">🔗 trt3.jus.br</div>
-        </div>
-      </a>
-
-      <a class="link-card" href="https://www.gov.br/esocial" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#c0392b,#e74c3c);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">💻</div>
-          <div class="link-card-title">eSocial</div>
-          <div class="link-card-desc">Sistema de escrituração digital das obrigações fiscais, previdenciárias e trabalhistas.</div>
-          <div class="link-card-url">🔗 gov.br/esocial</div>
-        </div>
-      </a>
-
-      <a class="link-card" href="https://www.fgts.gov.br" target="_blank">
-        <div class="link-card-accent" style="background:linear-gradient(90deg,#e67e22,#f39c12);"></div>
-        <div class="link-card-body">
-          <div class="link-card-icon">💰</div>
-          <div class="link-card-title">Portal FGTS — Governo Federal</div>
-          <div class="link-card-desc">Portal oficial do FGTS. Consulte saldo, extrato, saque-aniversário e verifique se o empregador está recolhendo corretamente. Também disponível pelo App FGTS (Android e iOS).</div>
-          <div class="link-card-url">🔗 fgts.gov.br</div>
-        </div>
-      </a>
-
+      <a class="link-card" href="https://mpt.mp.br/" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#27ae60,#2ecc71);"></div><div class="link-card-body"><div class="link-card-icon">⚖️</div><div class="link-card-title">Ministério Público do Trabalho</div><div class="link-card-desc">MPT — defesa da ordem jurídica trabalhista, combate ao trabalho escravo, infantil e outras violações.</div><div class="link-card-url">🔗 mpt.mp.br</div></div></a>
+      <a class="link-card" href="https://www.gov.br/trabalho-e-emprego" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#2980b9,#3498db);"></div><div class="link-card-body"><div class="link-card-icon">📋</div><div class="link-card-title">Ministério do Trabalho e Emprego</div><div class="link-card-desc">Portal oficial do MTE. Consulta de CTPS digital, seguro-desemprego, FGTS, fiscalização trabalhista.</div><div class="link-card-url">🔗 gov.br/trabalho-e-emprego</div></div></a>
+      <a class="link-card" href="https://www.tst.jus.br/" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#8e44ad,#9b59b6);"></div><div class="link-card-body"><div class="link-card-icon">🏦</div><div class="link-card-title">Tribunal Superior do Trabalho</div><div class="link-card-desc">TST — jurisprudência trabalhista, súmulas, consulta processual. Principal fonte do direito do trabalho no Brasil.</div><div class="link-card-url">🔗 tst.jus.br</div></div></a>
+      <a class="link-card" href="https://www.trt3.jus.br/" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#16a085,#1abc9c);"></div><div class="link-card-body"><div class="link-card-icon">⚖️</div><div class="link-card-title">TRT 3ª Região — Minas Gerais</div><div class="link-card-desc">Tribunal Regional do Trabalho de MG. Consulta processual, jurisprudência regional e pauta de audiências.</div><div class="link-card-url">🔗 trt3.jus.br</div></div></a>
+      <a class="link-card" href="https://www.gov.br/esocial" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#c0392b,#e74c3c);"></div><div class="link-card-body"><div class="link-card-icon">💻</div><div class="link-card-title">eSocial</div><div class="link-card-desc">Sistema de escrituração digital das obrigações fiscais, previdenciárias e trabalhistas.</div><div class="link-card-url">🔗 gov.br/esocial</div></div></a>
+      <a class="link-card" href="https://www.fgts.gov.br" target="_blank"><div class="link-card-accent" style="background:linear-gradient(90deg,#e67e22,#f39c12);"></div><div class="link-card-body"><div class="link-card-icon">💰</div><div class="link-card-title">Portal FGTS — Governo Federal</div><div class="link-card-desc">Portal oficial do FGTS. Consulte saldo, extrato, saque-aniversário e verifique se o empregador está recolhendo corretamente.</div><div class="link-card-url">🔗 fgts.gov.br</div></div></a>
     </div>
   </div>
-
 </div>
 
-<script>
-const LOGO_SRC = "data:image/jpeg;base64,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";
-const DIAS = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"];
-const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
-
-document.getElementById('logoHdr').src = LOGO_SRC;
-
-// FERIADOS proibidos absolutos
-const PROIBIDOS_ABS = ['01-01','05-01','12-25']; // mm-dd
-function isProibidoAbs(dateStr){
-  const [y,m,d]=dateStr.split('-');
-  return PROIBIDOS_ABS.includes(`${m}-${d}`);
-}
-function is08Dez(dateStr){ const [y,m,d]=dateStr.split('-'); return m==='12'&&d==='08'; }
-function is20Nov(dateStr){ const [y,m,d]=dateStr.split('-'); return m==='11'&&d==='20'; }
-
-let feriados = JSON.parse(localStorage.getItem('sind4_feriados')||'[]');
-let tipoAtivo = 'ambos';
-
-const ENTIDADES = [
-  {id:'ita_g', label:'Itabirito — Gêneros + Lojas (SINDCOMERCIÁRIOS)', cidade:'itabirito', temGen:true,  temLoj:true },
-  {id:'op_f',  label:'Ouro Preto/Mariana — Fecomércio (Peq. Supermercados + Lojas)', cidade:'op_mariana', temGen:true, temLoj:true},
-  {id:'op_s',  label:'Ouro Preto/Mariana — Sindsuper (Grandes Supermercados + Lojas)', cidade:'op_mariana', temGen:true, temLoj:true},
-];
-
-/* ── UTILS ── */
-function getDia(ds){ const [y,m,d]=ds.split('-').map(Number); return DIAS[new Date(y,m-1,d).getDay()]; }
-function fmtL(ds){ const [y,m,d]=ds.split('-').map(Number); return `${String(d).padStart(2,'0')} DE ${MESES[m-1].toUpperCase()} DE ${y}`; }
-function fmtC(ds){ const [y,m,d]=ds.split('-').map(Number); return `${String(d).padStart(2,'0')}/${String(m).padStart(2,'0')}/${y}`; }
-function calcDia(iid,bid){ const v=document.getElementById(iid).value,b=document.getElementById(bid); if(!v){b.style.display='none';return;} b.textContent=getDia(v); b.style.display='inline-block'; }
-function showPage(id,btn){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active')); document.getElementById('page-'+id).classList.add('active'); btn.classList.add('active'); if(id==='gerar') preencherSelFer(); }
-
-/* ── ACORDOS ── */
-function getAcordo(id){
-  const saved=JSON.parse(localStorage.getItem('sind4_acordos')||'{}');
-  const fields=['ano','grat','jorn','int','folga','tel','site','partes'];
-  // Sempre lê os campos do HTML como base (defaults)
-  const defaults={};
-  fields.forEach(f=>{ const el=document.getElementById(`${id}_${f}`); if(el) defaults[f]=el.value; });
-  // Mescla com dados salvos — campos novos como 'partes' sempre pegam o default se não existir no saved
-  return Object.assign({}, defaults, saved[id]||{});
-}
-function salvarAcordos(){
-  const data={};
-  ENTIDADES.forEach(e=>{
-    const fields=['ano','grat','jorn','int','folga','tel','site','partes'];
-    data[e.id]={};
-    fields.forEach(f=>{ const el=document.getElementById(`${e.id}_${f}`); if(el) data[e.id][f]=el.value; });
-  });
-  localStorage.setItem('sind4_acordos',JSON.stringify(data));
-  showToast('Acordos coletivos salvos com sucesso! ✅');
-}
-
-/* ── FERIADOS ── */
-function addFeriado(){
-  const data=document.getElementById('novaData').value;
-  const nome=document.getElementById('novoNome').value.trim();
-  const abr=document.getElementById('novaAbrang').value;
-  const regra=document.getElementById('novaRegra').value;
-  const obs=document.getElementById('novaObs').value.trim();
-  if(!data||!nome){alert('Preencha data e nome.');return;}
-  feriados.push({data,nome,abrangencia:abr,regra,obs});
-  feriados.sort((a,b)=>a.data.localeCompare(b.data));
-  salvarFer(); renderTbl();
-  ['novaData','novoNome','novaObs'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('novaBadge').style.display='none';
-}
-let _feriadoRemovido = null;
-let _restoreTimer = null;
-
-
-/* ── EXPORTAR / IMPORTAR DADOS ── */
-function exportarDados(){
-  const dados={versao:'1.0',exportadoEm:new Date().toLocaleString('pt-BR'),feriados:JSON.parse(localStorage.getItem('sind4_feriados')||'[]'),acordos:JSON.parse(localStorage.getItem('sind4_acordos')||'{}')};
-  const blob=new Blob([JSON.stringify(dados,null,2)],{type:'application/json'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.download='sindeci-dados-'+new Date().toLocaleDateString('pt-BR').replace(/\//g,'-')+'.json';
-  a.href=url;a.click();URL.revokeObjectURL(url);
-  showToast('\u2705 Dados exportados com sucesso!');
-}
-function importarDados(event){
-  const file=event.target.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=function(e){
-    try{
-      const dados=JSON.parse(e.target.result);
-      if(!dados.feriados||!dados.acordos){showToast('\u274c Arquivo inv\u00e1lido.',true);return;}
-      window._sindImport=dados;
-      const total=dados.feriados.length;
-      const quando=dados.exportadoEm||'data desconhecida';
-      const modal=document.createElement('div');modal.className='confirm-modal';modal.id='importModal';
-      const box=document.createElement('div');box.className='confirm-box';
-      box.innerHTML='<div class="confirm-title">\ud83d\udce5 Importar Dados</div><div class="confirm-sub">Backup de: <strong>'+quando+'</strong><br>Cont\u00e9m <strong>'+total+' feriado(s)</strong> e acordos.<br><br><span style="color:#e87070;">\u26a0\ufe0f Vai substituir os dados atuais.</span></div>';
-      const btns=document.createElement('div');btns.className='confirm-btns';
-      const bNo=document.createElement('button');bNo.textContent='\u2715 Cancelar';bNo.style.cssText='flex:1;padding:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:7px;color:white;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;';bNo.onclick=()=>modal.remove();
-      const bSim=document.createElement('button');bSim.textContent='\u2713 Importar';bSim.style.cssText='flex:1;padding:10px;background:linear-gradient(135deg,#2980b9,#3498db);border:none;border-radius:7px;color:white;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;';bSim.onclick=()=>{modal.remove();executarImport();};
-      btns.appendChild(bNo);btns.appendChild(bSim);box.appendChild(btns);modal.appendChild(box);document.body.appendChild(modal);
-    }catch(err){showToast('\u274c Erro ao ler arquivo.',true);}
-  };
-  reader.readAsText(file);event.target.value='';
-}
-function executarImport(){
-  const d=window._sindImport;if(!d)return;
-  localStorage.setItem('sind4_feriados',JSON.stringify(d.feriados));
-  localStorage.setItem('sind4_acordos',JSON.stringify(d.acordos));
-  feriados=d.feriados;renderTbl();
-  const savedA=d.acordos;
-  Object.keys(savedA).forEach(eid=>{Object.keys(savedA[eid]).forEach(f=>{const el=document.getElementById(eid+'_'+f);if(el)el.value=savedA[eid][f];});});
-  window._sindImport=null;
-  showToast('\u2705 '+d.feriados.length+' feriado(s) e acordos importados!');
-}
-
-function removeFer(i){
-  const f = feriados[i];
-  // Custom confirmation modal
-  const modal = document.createElement('div');
-  modal.className = 'confirm-modal';
-  modal.id = 'confirmModal';
-  modal.innerHTML = `
-    <div class="confirm-box">
-      <div class="confirm-title">⚠️ Remover Feriado</div>
-      <div class="confirm-sub">Deseja remover <strong>${f.nome}</strong> (${fmtC(f.data)})?<br>Você poderá restaurar logo após a remoção.</div>
-      <div class="confirm-btns">
-        <button onclick="document.getElementById('confirmModal').remove()"
-          style="flex:1;padding:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:7px;color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;">
-          ✕ Não
-        </button>
-        <button onclick="confirmarRemocao(${i})"
-          style="flex:1;padding:10px;background:linear-gradient(135deg,#e74c3c,#c0392b);border:none;border-radius:7px;color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;">
-          ✓ Sim, Remover
-        </button>
+<!-- PAGE MÓDULO JURÍDICO -->
+<div class="page" id="page-juridico">
+  <div class="sec" style="margin-bottom:14px;">
+    <div class="sec-title">⚖️ Módulo Jurídico com IA</div>
+    <div class="alert a-info" style="font-size:12px;">💡 Gere contratos de parceria e relatórios com inteligência artificial, integrado ao sistema do SINDCOMERCIÁRIOS.</div>
+  </div>
+  <div class="sec" style="margin-bottom:14px;">
+    <div class="sec-title">🔑 Chave de API</div>
+    <div class="g2" style="align-items:flex-end;">
+      <div class="field">
+        <label>Chave Anthropic API (salva neste navegador)</label>
+        <input type="password" id="jur-apikey" placeholder="sk-ant-..." autocomplete="off">
       </div>
-    </div>`;
-  document.body.appendChild(modal);
-}
-
-function confirmarRemocao(i){
-  document.getElementById('confirmModal').remove();
-  // Salvar backup para restaurar
-  _feriadoRemovido = { feriado: {...feriados[i]}, indice: i };
-  feriados.splice(i, 1);
-  salvarFer();
-  renderTbl();
-  // Mostrar toast com botão restaurar
-  const t = document.getElementById('restoreToast');
-  t.classList.add('show');
-  if(_restoreTimer) clearTimeout(_restoreTimer);
-  _restoreTimer = setTimeout(()=>{
-    t.classList.remove('show');
-    _feriadoRemovido = null;
-  }, 8000); // 8 segundos para restaurar
-}
-
-function restaurarFeriado(){
-  if(!_feriadoRemovido) return;
-  clearTimeout(_restoreTimer);
-  feriados.splice(_feriadoRemovido.indice, 0, _feriadoRemovido.feriado);
-  feriados.sort((a,b)=>a.data.localeCompare(b.data));
-  salvarFer();
-  renderTbl();
-  _feriadoRemovido = null;
-  document.getElementById('restoreToast').classList.remove('show');
-  showToast('✅ Feriado restaurado com sucesso!');
-}
-function salvarFer(){ localStorage.setItem('sind4_feriados',JSON.stringify(feriados)); }
-
-function renderTbl(){
-  const body=document.getElementById('tblBody');
-  const empty=document.getElementById('tblEmpty');
-  if(!feriados.length){empty.style.display='flex';body.innerHTML='';return;}
-  empty.style.display='none';
-  const aL={todas:'Todas',itabirito:'Itabirito',op_mariana:'OP/Mariana'};
-  const aC={todas:'b-gold',itabirito:'b-green',op_mariana:'b-blue'};
-  const rL={generos_only:'🛒 Gêneros · 🚫 Lojas proibidas',permitido:'🛒 Gêneros · 🏪 Lojas c/ acordo',proibido:'🚫 Proibido a todos',acordo_lojas:'📋 Lojas só c/ acordo',comercio_op:'🏛️ Comércio livre OP'};
-  const rC={generos_only:'b-green',permitido:'b-gold',proibido:'b-red',acordo_lojas:'b-orange',comercio_op:'b-blue'};
-  body.innerHTML=feriados.map((f,i)=>`
-    <tr>
-      <td><strong>${fmtC(f.data)}</strong></td>
-      <td>${f.nome}</td>
-      <td style="color:rgba(255,255,255,.5);font-size:11.5px;">${getDia(f.data)}</td>
-      <td><span class="badge ${aC[f.abrangencia]||'b-gold'}">${aL[f.abrangencia]||f.abrangencia}</span></td>
-      <td><span class="badge ${rC[f.regra]||'b-gray'}">${rL[f.regra]||f.regra}</span></td>
-      <td style="font-size:11px;color:rgba(255,255,255,.4);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${f.obs}">${f.obs||'—'}</td>
-      <td>
-        <div style="display:flex;gap:4px;">
-          <button class="btn btn-sm" style="background:rgba(200,168,75,.15);border:1px solid rgba(200,168,75,.3);color:var(--gold2);" onclick="editarRegra(${i})">✏️ Regra</button>
-          <button class="btn btn-red btn-sm" onclick="removeFer(${i})">✕ Remover</button>
+      <div>
+        <button class="btn btn-gold" onclick="jurSalvarChave()" style="height:36px;margin-top:18px;">💾 Salvar</button>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:rgba(255,255,255,.35);">🔒 Salva apenas neste navegador. Vai direto para a API da Anthropic. Obtenha em <strong style="color:var(--gold2);">console.anthropic.com</strong></div>
+    <div id="jur-api-status" style="margin-top:8px;"></div>
+  </div>
+  <div class="jur-tabs">
+    <button class="jur-tab active" onclick="jurShowTab('contrato',this)">📄 Contratos de Parceria</button>
+    <button class="jur-tab" onclick="jurShowTab('relatorio',this)">📊 Relatórios / Análise</button>
+  </div>
+  <div id="jur-contrato">
+    <div class="sec">
+      <div class="sec-title">Tipo de Parceiro</div>
+      <div class="type-pills">
+        <button class="type-pill active" id="tp-dental" onclick="jurSelectTipo('dental',this)">🦷 Clínica Odontológica</button>
+        <button class="type-pill" id="tp-medical" onclick="jurSelectTipo('medical',this)">🏥 Clínica Médica / Convênio</button>
+        <button class="type-pill" id="tp-other" onclick="jurSelectTipo('other',this)">➕ Outro</button>
+      </div>
+      <div id="jur-other-wrap" style="display:none;"><div class="field"><label>Descreva o tipo de parceiro</label><input id="jur-other-desc" placeholder="Ex: Farmácia, Ótica, Academia..."></div></div>
+    </div>
+    <div class="sec">
+      <div class="sec-title">Dados do Parceiro</div>
+      <div class="g2" style="margin-bottom:11px;"><div class="field" style="grid-column:1/-1;"><label>Razão Social / Nome da Clínica *</label><input id="jur-name" placeholder="Ex: Clínica Sorriso Saúde Ltda"></div></div>
+      <div class="g3" style="margin-bottom:11px;">
+        <div class="field"><label>CNPJ</label><input id="jur-cnpj" placeholder="00.000.000/0001-00"></div>
+        <div class="field"><label>Cidade</label><input id="jur-city" placeholder="Itabirito, Ouro Preto..."></div>
+        <div class="field" id="jur-reg-wrap"><label id="jur-reg-label">CRO</label><input id="jur-reg" placeholder="Número do registro"></div>
+      </div>
+      <div class="g2" style="margin-bottom:11px;">
+        <div class="field"><label>Endereço completo</label><input id="jur-address" placeholder="Rua, número, bairro, CEP"></div>
+        <div class="field"><label>Representante Legal *</label><input id="jur-rep" placeholder="Nome completo"></div>
+      </div>
+      <div class="g2">
+        <div class="field"><label>CPF do Representante</label><input id="jur-cpf" placeholder="000.000.000-00"></div>
+        <div class="field"><label>Vigência do Contrato</label>
+          <select id="jur-validity"><option value="6">6 meses</option><option value="12" selected>12 meses</option><option value="24">24 meses</option><option value="36">36 meses (3 anos)</option></select>
         </div>
-      </td>
-    </tr>`).join('');
-}
-
-function addFeriadosPadrao(){
-  const padrao=[
-    {data:'2026-01-01',nome:'Confraternização Universal',abrangencia:'todas',regra:'proibido',obs:''},
-    {data:'2026-04-03',nome:'Paixão de Cristo (Sexta-Feira Santa)',abrangencia:'todas',regra:'generos_only',obs:''},
-    {data:'2026-04-21',nome:'Tiradentes',abrangencia:'todas',regra:'generos_only',obs:''},
-    {data:'2026-05-01',nome:'Dia do Trabalho',abrangencia:'todas',regra:'proibido',obs:''},
-    {data:'2026-06-04',nome:'Corpus Christi',abrangencia:'todas',regra:'generos_only',obs:''},
-    {data:'2026-08-28',nome:'Aniversário de Itabirito',abrangencia:'itabirito',regra:'generos_only',obs:'Feriado municipal de Itabirito.'},
-    {data:'2026-09-07',nome:'Independência do Brasil',abrangencia:'todas',regra:'generos_only',obs:''},
-    {data:'2026-10-12',nome:'Nossa Senhora Aparecida',abrangencia:'todas',regra:'generos_only',obs:''},
-    {data:'2026-11-02',nome:'Finados',abrangencia:'todas',regra:'generos_only',obs:''},
-    {data:'2026-11-15',nome:'Proclamação da República',abrangencia:'todas',regra:'generos_only',obs:''},
-    {data:'2026-11-20',nome:'Dia da Consciência Negra',abrangencia:'op_mariana',regra:'comercio_op',obs:'Em Ouro Preto e Mariana, todo o comércio pode funcionar nesta data com as regras de pagamento da CCT.'},
-    {data:'2026-12-08',nome:'Nossa Senhora da Conceição',abrangencia:'itabirito',regra:'acordo_lojas',obs:'Lojas de Itabirito podem abrir somente se houver acordo prévio assinado com o sindicato. Sem acordo, somente gêneros alimentícios podem funcionar.'},
-    {data:'2026-12-25',nome:'Natal',abrangencia:'todas',regra:'proibido',obs:''},
-  ];
-  let n=0;
-  padrao.forEach(f=>{ if(!feriados.find(x=>x.data===f.data&&x.abrangencia===f.abrangencia)){feriados.push(f);n++;} });
-  feriados.sort((a,b)=>a.data.localeCompare(b.data));
-  salvarFer(); renderTbl();
-  alert(`${n} feriado(s) importado(s) com as regras corretas da CCT!`);
-}
-
-/* ── GERAR ── */
-function preencherSelFer(){
-  const sel=document.getElementById('gFeriado'); const cur=sel.value;
-  sel.innerHTML='<option value="">— Selecione —</option>';
-  feriados.forEach((f,i)=>{ const o=document.createElement('option'); o.value=i; o.textContent=`${fmtC(f.data)} — ${f.nome}`; sel.appendChild(o); });
-  if(cur) sel.value=cur;
-}
-
-function onFeriadoChange(){
-  const idx=document.getElementById('gFeriado').value;
-  const info=document.getElementById('gInfo');
-  if(idx===''){info.style.display='none';return;}
-  const f=feriados[idx];
-  info.style.display='block';
-  document.getElementById('gDataTxt').value=fmtC(f.data);
-  document.getElementById('gDiaTxt').value=getDia(f.data);
-  document.getElementById('gObs').value=f.obs||'';
-
-  // Alert de regra
-  const alertEl=document.getElementById('gRegAlert');
-  const rMsg={
-    generos_only:'🛒 Somente GÊNEROS ALIMENTÍCIOS podem trabalhar. 🚫 LOJAS estão PROIBIDAS de exigir trabalho neste feriado.',
-    proibido:'🚫 FERIADO PROIBIDO — Nenhum estabelecimento pode convocar funcionários. (01/01 · 01/05 · 25/12)',
-    permitido:'🛒 Gêneros Alimentícios podem trabalhar com as regras da CCT. 🏪 Lojas: somente com acordo assinado com o sindicato.',
-    acordo_lojas:'📋 Lojas: somente com acordo assinado. Gêneros alimentícios podem sempre funcionar.',
-    comercio_op:'🏛️ Comércio em geral pode funcionar — Ouro Preto e Mariana (20/11).',
-  };
-  const rCl={generos_only:'a-gold',proibido:'a-red',permitido:'a-gold',acordo_lojas:'a-gold',comercio_op:'a-green'};
-  alertEl.className='alert '+( rCl[f.regra]||'a-gold');
-  alertEl.textContent=rMsg[f.regra]||'';
-  alertEl.style.display='flex';
-
-  // Entidades
-  const sel=document.getElementById('gEntidade');
-  sel.innerHTML='<option value="">— Selecione a entidade —</option>';
-  ENTIDADES.forEach(e=>{
-    const abr=f.abrangencia;
-    const ok=abr==='todas'||(abr==='itabirito'&&e.cidade==='itabirito')||(abr==='op_mariana'&&e.cidade==='op_mariana');
-    if(!ok) return;
-    // Para feriado proibido, não mostrar ita_g (gêneros sempre podem? Não — proibido é proibido pra todos)
-    const o=document.createElement('option'); o.value=e.id; o.textContent=e.label; sel.appendChild(o);
-  });
-  onEntidadeChange();
-}
-
-function onEntidadeChange(){
-  const eId=document.getElementById('gEntidade').value;
-  if(!eId) return;
-  const ent=ENTIDADES.find(e=>e.id===eId);
-  const tBoth=document.getElementById('tBoth');
-  const tGen=document.getElementById('tGen');
-  const tLoj=document.getElementById('tLoj');
-
-  // Sempre mostra os 3 botões — só habilita/desabilita conforme a entidade
-  [tBoth,tGen,tLoj].forEach(b=>{ b.disabled=false; b.classList.remove('active'); });
-
-  if(ent.temGen && ent.temLoj){
-    // op_f: tem ambos — seleciona Ambos
-    tipoAtivo='ambos'; tBoth.classList.add('active');
-  } else if(ent.temGen && !ent.temLoj){
-    // ita_g, op_s: só gêneros — desabilita Lojas e Ambos
-    tBoth.disabled=true; tLoj.disabled=true;
-    tipoAtivo='generos'; tGen.classList.add('active');
-  } else {
-    // Entidade só tem Lojas — desabilita Gêneros e Ambos
-    tBoth.disabled=true; tGen.disabled=true;
-    tipoAtivo='lojas'; tLoj.classList.add('active');
-  }
-}
-function setTipo(t,btn){ tipoAtivo=t; document.querySelectorAll('#gTipoWrap .toggle-btn').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active'); }
-
-let formatoAtivo='whatsapp';
-function setFormato(fmt,btn){
-  formatoAtivo=fmt;
-  document.querySelectorAll('.fmt-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const hasFer=document.getElementById('gFeriado').value!=='';
-  const hasEnt=document.getElementById('gEntidade').value!=='';
-  if(hasFer&&hasEnt) gerar();
-}
-
-function gerar(){
-  const fidx=document.getElementById('gFeriado').value;
-  const eId=document.getElementById('gEntidade').value;
-  if(fidx===''||!eId){alert('Selecione o feriado e a entidade.');return;}
-  const f=feriados[fidx];
-  const ac=getAcordo(eId);
-  const ent=ENTIDADES.find(e=>e.id===eId);
-  const obs=document.getElementById('gObs').value.trim();
-  const cidade=ent.cidade==='itabirito'?'ITABIRITO':'OURO PRETO E MARIANA';
-  const ctx={feriado:f.nome.toUpperCase(),dataLonga:fmtL(f.data),dataCurta:fmtC(f.data),diaSem:getDia(f.data).toUpperCase(),cidade,ac,obs,regra:f.regra,cct:`Convenção Coletiva de Trabalho — ${ac.ano||'2026'}`,eId};
-
-  document.getElementById('gEmpty').style.display='none';
-  document.getElementById('gResult').style.display='block';
-
-  const tabs=document.getElementById('prevTabs');
-  tabs.innerHTML='';
-  const mostraGen=tipoAtivo!=='lojas'&&ent.temGen;
-  const mostraLoj=tipoAtivo!=='generos'&&ent.temLoj;
-  if(mostraGen) tabs.innerHTML+=`<button class="prev-tab active" onclick="swTab('gen',this)">🛒 Gêneros Alimentícios</button>`;
-  if(mostraLoj) tabs.innerHTML+=`<button class="prev-tab ${!mostraGen?'active':''}" onclick="swTab('loj',this)">🏪 Lojas em Geral</button>`;
-
-  const wpp=formatoAtivo==='whatsapp';
-  ['prevGen','prevLoj','prevGenInsta','prevLojInsta'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.style.display='none';
-  });
-  if(mostraGen){
-    buildGen(ctx); buildInsta('Gen',ctx);
-    document.getElementById(wpp?'prevGen':'prevGenInsta').style.display='flex';
-  }
-  if(mostraLoj){
-    buildLoj(ctx); buildInsta('Loj',ctx);
-    document.getElementById(wpp?'prevLoj':'prevLojInsta').style.display='flex';
-  }
-  if(!mostraGen&&mostraLoj) swTabDirect('loj');
-}
-
-function swTab(w,btn){
-  document.querySelectorAll('.prev-tab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  const wpp=formatoAtivo==='whatsapp';
-  document.getElementById('prevGen').style.display=(w==='gen'&&wpp)?'flex':'none';
-  document.getElementById('prevLoj').style.display=(w==='loj'&&wpp)?'flex':'none';
-  document.getElementById('prevGenInsta').style.display=(w==='gen'&&!wpp)?'flex':'none';
-  document.getElementById('prevLojInsta').style.display=(w==='loj'&&!wpp)?'flex':'none';
-}
-function swTabDirect(w){
-  const wpp=formatoAtivo==='whatsapp';
-  document.getElementById('prevGen').style.display=(w==='gen'&&wpp)?'flex':'none';
-  document.getElementById('prevLoj').style.display=(w==='loj'&&wpp)?'flex':'none';
-  document.getElementById('prevGenInsta').style.display=(w==='gen'&&!wpp)?'flex':'none';
-  document.getElementById('prevLojInsta').style.display=(w==='loj'&&!wpp)?'flex':'none';
-}
-
-/* ── BUILD CARDS ── */
-function listaDir(ac, eId){
-  const isIta = eId && eId.startsWith('ita');
-  const pgtoTxt = isIta
-    ? 'paga no final do expediente'
-    : 'incluída na folha de pagamento do mês correspondente ao feriado';
-  return `
-    <div class="c-lista">
-      <div class="c-item"><span class="c-arrow">➤</span><span><strong>Gratificação</strong> — R$ ${ac.grat||'—'}, ${pgtoTxt};</span></div>
-      <div class="c-item"><span class="c-arrow">➤</span><span>Jornada máxima de <strong>${ac.jorn||'—'}</strong>, com ${ac.int||'—'} de intervalo;</span></div>
-      <div class="c-item"><span class="c-arrow">➤</span><span><strong>1 folga compensatória</strong> em até ${ac.folga||'—'} (não pode ser domingo ou feriado);</span></div>
-      <div class="c-item"><span class="c-arrow">➤</span><span><strong>Vale-transporte.</strong></span></div>
-    </div>
-    <div class="c-proib-box">🚫 É proibido ultrapassar a jornada de ${ac.jorn||'—'}.</div>
-    <div class="c-alerta"><span>⚠️</span><span class="c-alerta-txt">O descumprimento dessas normas sujeita o empregador ao pagamento de multa, a ser paga diretamente ao funcionário prejudicado.</span></div>`;
-}
-
-function rodapeGen(c){
-  const partesStr = c.ac.partes || '';
-  return `
-    <div class="c-rod-logo" style="margin-bottom:10px;">
-      <img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS" style="height:44px;object-fit:contain;background:#fff;border-radius:8px;padding:4px 10px;">
-      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">
-        ${partesStr ? `<div style="font-size:12px;font-weight:900;color:#0a3d6e;letter-spacing:.8px;text-transform:uppercase;">${partesStr}</div>` : ''}
-        <div style="font-size:9.5px;font-weight:700;color:#1a3a6e;opacity:.75;letter-spacing:.3px;">${c.cct}</div>
       </div>
     </div>
-    <div class="c-rod"><span>📱 DENÚNCIAS: ${c.ac.tel||'—'}</span><span style="color:#0a3d6e;margin:0 4px;font-size:13px;">|</span><span>🌐 ${c.ac.site||'—'}</span></div>`;
-}
-function rodapeLoj(c){
-  const partesStr = c.ac.partes || '';
-  return `
-    <div class="c-rod-logo" style="margin-bottom:8px;">
-      <img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS" style="height:44px;object-fit:contain;background:#fff;border-radius:8px;padding:4px 10px;">
-      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">
-        ${partesStr ? `<div style="font-size:12px;font-weight:900;color:#0a3d6e;letter-spacing:.8px;text-transform:uppercase;">${partesStr}</div>` : ''}
-        <div style="font-size:9.5px;font-weight:700;color:#1a3a6e;opacity:.75;letter-spacing:.3px;">${c.cct}</div>
+    <div class="sec">
+      <div class="sec-title">Condições da Parceria</div>
+      <div class="g2" style="margin-bottom:11px;">
+        <div class="field"><label>Desconto para Associados (%)</label><input type="number" id="jur-discount" min="0" max="100" placeholder="Ex: 20"></div>
+        <div class="field" style="grid-column:1/-1;"><label>Serviços Abrangidos</label><textarea id="jur-services" placeholder="Ex: Consultas, limpeza, raio-x, ortodontia..."></textarea></div>
+        <div class="field" style="grid-column:1/-1;"><label>Observações Especiais (opcional)</label><textarea id="jur-obs" rows="2" placeholder="Condições especiais, forma de identificação do associado..."></textarea></div>
       </div>
     </div>
-    <div class="c-rod" style="margin-top:0;">
-      <span>📱 DENÚNCIAS: ${c.ac.tel||'—'}</span>
-      <span style="color:#0a3d6e;margin:0 4px;font-size:13px;">|</span>
-      <span>🌐 ${c.ac.site||'www.sindeci.com.br'}</span>
-    </div>`;
-}
-
-function buildGen(c){
-  const obsH = c.obs ? `<div class="c-obs">📌 ${c.obs}</div>` : '';
-  let corpo = '';
-
-  if(c.regra === 'proibido'){
-    corpo = `
-    <div class="c-destaque">🚫 ESTABELECIMENTOS DE GÊNEROS ALIMENTÍCIOS<br>NÃO PODERÃO FUNCIONAR NESTA DATA.<br>(01/01 · 01/05 · 25/12)</div>
-    <div class="c-corpo">NENHUM ESTABELECIMENTO PODE CONVOCAR<br>FUNCIONÁRIOS PARA TRABALHAR NESTES FERIADOS.</div>`;
-  } else {
-    // generos_only, permitido, comercio_op, acordo_lojas — gêneros SEMPRE podem
-    corpo = `
-    <div class="c-pode">✅ GÊNEROS ALIMENTÍCIOS ESTÃO AUTORIZADOS<br>A FUNCIONAR NESTE FERIADO.</div>
-    <div class="c-intro">🛒 O funcionário que trabalhar no feriado tem direito a:</div>
-    ${listaDir(c.ac, c.eId)}`;
-  }
-
-  const partesTagGen = c.ac.partes ? `<div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:#0a3d6e;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;background:rgba(255,255,255,.4);padding:4px 18px;border-radius:20px;display:inline-block;">${c.ac.partes}</div>` : '';
-  document.getElementById('cardGen').innerHTML = `
-    <div class="mega-header">
-      <div class="mega-icon-wrap"><div class="mega-icon">📢</div></div>
-      <div class="mega-label">Comunicado Importante</div>
+    <div id="jur-c-error" class="alert a-red" style="display:none;margin-bottom:12px;"></div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:14px;"><button class="btn btn-gold" id="jur-btn-contract" onclick="jurGerarContrato()">⚡ Gerar Contrato com IA</button></div>
+    <div id="jur-contract-result" style="display:none;" class="sec">
+      <div class="jur-result-hdr">
+        <div><span class="sec-title" style="margin:0;">📄 Contrato Gerado</span><span class="badge b-green" style="margin-left:8px;">✅ Pronto</span></div>
+        <div style="display:flex;gap:8px;"><button class="jur-copy-btn" onclick="jurCopiarContrato()">📋 Copiar</button><button class="jur-print-btn" onclick="jurImprimirContrato()">🖨️ Imprimir</button></div>
+      </div>
+      <div id="jur-c-loading" class="jur-loading" style="display:none;"><div class="jur-loading-fill"></div></div>
+      <div id="jur-contract-text" class="jur-result"></div>
     </div>
-    ${partesTagGen}
-    <div class="c-tit">${c.cidade} – SUPERMERCADOS E GÊNEROS ALIMENTÍCIOS<br>${c.dataLonga} – ${c.feriado}</div>
-    <hr class="c-hr">
-    ${corpo}
-    ${obsH}
-    ${rodapeGen(c)}`;
-}
-
-
-function buildLoj(c){
-  const obsH = c.obs ? `<div class="c-obs">📌 ${c.obs}</div>` : '';
-
-  let corpo = '';
-
-  if(c.regra === 'proibido'){
-    // 01/01 · 01/05 · 25/12 — proibido absoluto
-    corpo = `
-    <div class="c-destaque">🚫 É PROIBIDO CONVOCAR FUNCIONÁRIOS<br>PARA TRABALHAR NESTE DIA.<br><br>ESTE É UM DOS 3 FERIADOS ABSOLUTAMENTE<br>PROIBIDOS PELA CONVENÇÃO COLETIVA.</div>
-    <div class="c-corpo">NENHUM ESTABELECIMENTO PODE FUNCIONAR EM:<br><br>01 DE JANEIRO · 01 DE MAIO · 25 DE DEZEMBRO</div>
-    <hr class="c-hr2">
-    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
-
-  } else if(c.regra === 'generos_only'){
-    // Regra padrão: somente gêneros podem — lojas PROIBIDAS
-    corpo = `
-    <div class="c-destaque">🚫 AS LOJAS NÃO PODEM CONVOCAR<br>FUNCIONÁRIOS PARA TRABALHAR NESTE DIA.<br><br>NÃO EXISTE ACORDO COM O SINDICATO<br>QUE AUTORIZE ESSA EXIGÊNCIA.</div>
-    <div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER<br>DE RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS,<br>EM FACE DE TODOS AQUELES QUE INSISTIREM<br>NO DESCUMPRIMENTO DA LEI.</div>
-    <hr class="c-hr2">
-    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
-
-  } else if(c.regra === 'comercio_op'){
-    // 20/11 OP — comércio livre, pode trabalhar
-    corpo = `
-    <div class="c-pode">✅ AS LOJAS PODERÃO FUNCIONAR NESTA DATA,<br>SEGUINDO AS REGRAS DA CCT.</div>
-    <div class="c-intro">🏪 O funcionário que trabalhar no feriado tem direito a:</div>
-    ${listaDir(c.ac, c.eId)}`;
-
-  } else if(c.regra === 'acordo_lojas'){
-    // 08/12 Itabirito — somente com acordo assinado
-    corpo = `
-    <div class="c-acordo">📋 AS LOJAS SOMENTE PODERÃO FUNCIONAR<br>MEDIANTE ACORDO PRÉVIO,<br>FORMAL E ASSINADO COM O SINDICATO.</div>
-    <div class="c-corpo">SEM ACORDO ASSINADO,<br>O FUNCIONAMENTO É PROIBIDO E SUJEITA<br>O EMPREGADOR ÀS SANÇÕES DA CCT.</div>
-    <hr class="c-hr2">
-    <div class="c-alerta"><span>⚠️</span><span class="c-alerta-txt">Havendo acordo, os direitos do funcionário são: gratificação, jornada limitada, folga compensatória e vale-transporte.</span></div>`;
-
-  } else {
-    // permitido — lojas com acordo (regra normal)
-    corpo = `
-    <div class="c-destaque">🚫 EM REGRA, AS LOJAS NÃO PODEM EXIGIR<br>QUE O FUNCIONÁRIO TRABALHE NESTE FERIADO.<br><br>SOMENTE PODERÃO FUNCIONAR MEDIANTE<br>ACORDO PRÉVIO ASSINADO COM O SINDICATO.</div>
-    <div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER<br>DE RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS,<br>EM FACE DE TODOS AQUELES QUE INSISTIREM<br>NO DESCUMPRIMENTO DA LEI.</div>
-    <hr class="c-hr2">
-    <div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;
-  }
-
-  const partesTagLoj = c.ac.partes ? `<div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:900;color:#0a3d6e;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;background:rgba(255,255,255,.5);border:1.5px solid rgba(10,61,110,.25);padding:5px 20px;border-radius:20px;display:inline-block;">${c.ac.partes}</div>` : '';
-  document.getElementById('cardLoj').innerHTML = `
-    <div class="mega-header">
-      <div class="mega-icon-wrap"><div class="mega-icon">📢</div></div>
-      <div class="mega-label">Comunicado Importante</div>
+  </div>
+  <div id="jur-relatorio" style="display:none;">
+    <div class="sec">
+      <div class="sec-title">📌 Fontes de Análise</div>
+      <div class="src-item" onclick="jurToggleSrc('cct',this)" id="jsrc-cct"><div class="src-check" id="jchk-cct"></div><span style="font-size:18px;">📜</span><div><div style="font-size:12px;font-weight:700;color:#fff;">CCTs e Acordos Coletivos</div><div style="font-size:10.5px;color:rgba(255,255,255,.4);">Análise de cláusulas, direitos e prazos</div></div></div>
+      <div class="src-item" onclick="jurToggleSrc('feriados',this)" id="jsrc-feriados"><div class="src-check" id="jchk-feriados"></div><span style="font-size:18px;">📅</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Feriados e Comunicados</div><div style="font-size:10.5px;color:rgba(255,255,255,.4);">Relatório de feriados e comunicados gerados</div></div></div>
+      <div class="src-item" onclick="jurToggleSrc('contratos',this)" id="jsrc-contratos"><div class="src-check" id="jchk-contratos"></div><span style="font-size:18px;">📄</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Contratos de Parceria</div><div style="font-size:10.5px;color:rgba(255,255,255,.4);">Análise e comparação de contratos</div></div></div>
+      <div class="src-item" onclick="jurToggleSrc('associados',this)" id="jsrc-associados"><div class="src-check" id="jchk-associados"></div><span style="font-size:18px;">👥</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Dados de Associados e Parceiros</div><div style="font-size:10.5px;color:rgba(255,255,255,.4);">Perfil da base, parceiros ativos, oportunidades</div></div></div>
     </div>
-    ${partesTagLoj}
-    <div class="c-tit">LOJAS EM GERAL — ${c.cidade}<br>📅 ${c.dataCurta} (${c.diaSem})<br>${c.feriado}</div>
-    <hr class="c-hr">
-    ${corpo}
-    ${obsH}
-    <div class="c-cct-box">
-      <div class="c-cct-box-title">📜 Convenções Coletivas de Trabalho</div>
-      <div class="c-cct-box-item">➤ <strong>Itabirito</strong> — SINDECI x SINCOVITA</div>
-      <div class="c-cct-box-item">➤ <strong>Ouro Preto e Mariana</strong> — SINDECI x FECOMÉRCIO</div>
-      <div class="c-cct-box-item">➤ <strong>Ouro Preto e Mariana</strong> — SINDECI x SINDSUPER</div>
+    <div class="sec">
+      <div class="sec-title">📝 Contexto e Pergunta</div>
+      <div class="field" style="margin-bottom:11px;"><label>Cole aqui os dados para análise</label><textarea id="jur-r-context" rows="5" placeholder="Ex: Cole o texto de uma cláusula da CCT, dados de parceiros..."></textarea></div>
+      <div class="field"><label>O que você quer saber ou analisar? *</label><input id="jur-r-question" placeholder="Ex: Quais são os riscos desta cláusula? Gere um relatório completo..."></div>
     </div>
-    ${rodapeLoj(c)}`;
-}
-
-
-function buildGenInsta(c){
-  const isProib = c.regra==='proibido';
-  const msgClass = isProib ? 'proib' : 'ok';
-  const msgTxt = isProib
-    ? '🚫 Nenhum estabelecimento pode funcionar nesta data.<br>É um dos 3 feriados absolutamente proibidos pela CCT.'
-    : '🛒 Os estabelecimentos de gêneros alimentícios que funcionarem neste feriado devem respeitar as regras da Convenção Coletiva de Trabalho.<br><br>Funcionário, conheça seus direitos!';
-  document.getElementById('cardGen').innerHTML=`
-    <div class="insta-card" id="instaGen">
-      <div class="insta-top">
-        <img class="insta-logo" src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS">
-        <div class="insta-data">${c.dataCurta}<br>${c.diaSem}</div>
+    <div id="jur-r-error" class="alert a-red" style="display:none;margin-bottom:12px;"></div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:14px;"><button class="btn btn-gold" id="jur-btn-report" onclick="jurGerarRelatorio()">📊 Gerar Relatório com IA</button></div>
+    <div id="jur-report-result" style="display:none;" class="sec">
+      <div class="jur-result-hdr">
+        <div><span class="sec-title" style="margin:0;">📋 Relatório Gerado</span><span class="badge b-green" style="margin-left:8px;">✅ Concluído</span></div>
+        <button class="jur-copy-btn" onclick="jurCopiarRelatorio()">📋 Copiar</button>
       </div>
-      <div class="insta-badge">📢 COMUNICADO OFICIAL</div>
-      <div class="insta-mega">📢</div>
-      <div class="insta-feriado">
-        <span>FERIADO</span>
-        ${c.feriado}
-      </div>
-      <div class="insta-line"></div>
-      <div class="insta-msg ${msgClass}">${msgTxt}</div>
-      <div class="insta-bottom">
-        <div class="insta-ctt">📱 ${c.ac.tel||'(31) 3561-2269'}</div>
-        <div class="insta-tag">🌐 ${c.ac.site||'www.sindeci.com.br'}</div>
-      </div>
-    </div>`;
-}
-
-function buildLojInsta(c){
-  const isProib = c.regra==='proibido';
-  const isGenOnly = c.regra==='generos_only';
-  const isAcordo = c.regra==='acordo_lojas';
-  const isLivre = c.regra==='comercio_op';
-
-  let msgTxt='', msgClass='';
-  if(isProib){
-    msgTxt='🚫 NENHUMA LOJA pode funcionar nesta data.<br>É um dos 3 feriados absolutamente proibidos pela CCT.<br><br>Comerciário, faça valer seus direitos!';
-    msgClass='proib';
-  } else if(isGenOnly){
-    msgTxt='🚫 As LOJAS não podem exigir que o funcionário trabalhe neste feriado.<br><br>Não existe acordo que autorize essa exigência.<br>Comerciário, denuncie o abuso!';
-    msgClass='proib';
-  } else if(isAcordo){
-    msgTxt='📋 As lojas somente poderão funcionar se houver <strong>acordo prévio assinado</strong> com o sindicato.<br><br>Sem acordo, o funcionamento é PROIBIDO.';
-    msgClass='';
-  } else if(isLivre){
-    msgTxt='✅ As lojas poderão funcionar nesta data seguindo as regras da Convenção Coletiva de Trabalho.<br><br>Funcionário, conheça seus direitos!';
-    msgClass='ok';
-  } else {
-    msgTxt='🏪 As lojas somente poderão funcionar mediante <strong>acordo assinado</strong> com o sindicato.<br><br>Comerciário, conheça seus direitos!';
-    msgClass='';
-  }
-
-  document.getElementById('cardLoj').innerHTML=`
-    <div class="insta-card" id="instaLoj">
-      <div class="insta-top">
-        <img class="insta-logo" src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS">
-        <div class="insta-data">${c.dataCurta}<br>${c.diaSem}</div>
-      </div>
-      <div class="insta-badge">📢 COMUNICADO OFICIAL</div>
-      <div class="insta-mega">📢</div>
-      <div class="insta-feriado">
-        <span>FERIADO — LOJAS</span>
-        ${c.feriado}
-      </div>
-      <div class="insta-line"></div>
-      <div class="insta-msg ${msgClass}">${msgTxt}</div>
-      <div class="insta-bottom">
-        <div class="insta-ctt">📱 ${c.ac.tel||'(31) 3561-2269'}</div>
-        <div class="insta-tag">🌐 ${c.ac.site||'www.sindeci.com.br'}</div>
-      </div>
-    </div>`;
-}
-
-
-/* ── INSTAGRAM CARDS — REDESIGN IMPACTANTE ── */
-function buildInsta(tipo, c) {
-  const el = document.getElementById('card' + tipo + 'Insta');
-  if (!el) return;
-
-  const isGen = tipo === 'Gen';
-  const isProib = c.regra === 'proibido';
-  const isGenOnly = c.regra === 'generos_only';
-  const isOP = c.regra === 'comercio_op';
-  const isAcordo = c.regra === 'acordo_lojas' || c.regra === 'permitido';
-
-  // Define visual state
-  let bandClass = '', bandTxt = '', bgClass = '', diagClass = '', shape1Class = '', shape2Class = '', headerBadgeClass = '', headerBadgeTxt = '', bigIcon = '';
-
-  if (isGen) {
-    bgClass = 'insta-bg-gen'; diagClass = 'insta-diag-gen'; shape1Class = 'insta-shape1-gen'; shape2Class = 'insta-shape2-gen';
-    headerBadgeClass = 'insta-header-badge-gen'; headerBadgeTxt = '🛒 Supermercados';
-    if (isProib) {
-      bandClass = 'insta-band-loj'; bandTxt = '🚫 PROIBIDO FUNCIONAR NESTA DATA'; bigIcon = '🚫';
-    } else {
-      bandClass = 'insta-band-gen'; bandTxt = '✅ AUTORIZADO A FUNCIONAR COM AS REGRAS DA CCT'; bigIcon = '📢';
-    }
-  } else {
-    bgClass = 'insta-bg-loj'; diagClass = 'insta-diag-loj'; shape1Class = 'insta-shape1-loj'; shape2Class = 'insta-shape2-loj';
-    headerBadgeClass = 'insta-header-badge-loj'; headerBadgeTxt = '🏪 Lojas em Geral';
-    bigIcon = '📢';
-    if (isProib) {
-      bandClass = 'insta-band-loj'; bandTxt = '🚫 PROIBIDO — NENHUM ESTABELECIMENTO PODE FUNCIONAR NESTA DATA';
-    } else if (isGenOnly) {
-      bandClass = 'insta-band-loj'; bandTxt = '🚫 LOJAS NÃO PODEM CONVOCAR FUNCIONÁRIOS PARA TRABALHAR';
-    } else if (isOP) {
-      bandClass = 'insta-band-gen'; bandTxt = '✅ COMÉRCIO LIVRE — PODE FUNCIONAR COM AS REGRAS DA CCT';
-    } else {
-      bandClass = 'insta-band-amber'; bandTxt = '📋 SOMENTE COM ACORDO ASSINADO COM O SINDICATO';
-    }
-  }
-
-  // CCT list (only for lojas)
-  const cctList = (!isGen) ? `
-    <div class="insta-cct-list">
-      <div class="insta-cct-title">📜 Convenções Coletivas</div>
-      <div class="insta-cct-item">➤ <strong>Itabirito</strong> — SINDECI x SINCOVITA</div>
-      <div class="insta-cct-item">➤ <strong>Ouro Preto e Mariana</strong> — SINDECI x FECOMÉRCIO</div>
-      <div class="insta-cct-item">➤ <strong>Ouro Preto e Mariana</strong> — SINDECI x SINDSUPER</div>
-    </div>` : '';
-
-  const partesStr = c.ac.partes || '';
-  const cidadeStr = c.cidade;
-  const anoStr = c.ac.ano || '2026';
-
-  el.innerHTML = `
-    <div class="${bgClass}"></div>
-    <div class="insta-shape1 ${shape1Class}"></div>
-    <div class="insta-shape2 ${shape2Class}"></div>
-    <div class="insta-diag ${diagClass}"></div>
-    <div class="insta-body">
-
-      <div class="insta-header">
-        <div class="insta-logo-box">
-          <img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS">
-        </div>
-        <div class="insta-header-badge ${headerBadgeClass}">${headerBadgeTxt}</div>
-      </div>
-
-      <div class="insta-main">
-        <div class="insta-big-icon">${bigIcon}</div>
-        <div class="insta-feriado-name">${c.feriado}</div>
-        <div class="insta-feriado-date">${c.dataLonga} · ${c.diaSem}</div>
-        <div class="insta-band ${bandClass}">
-          <div class="insta-band-txt">${bandTxt}</div>
-        </div>
-        ${cctList}
-        ${partesStr ? `<div style="margin-top:8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;">${partesStr}</div>` : ''}
-      </div>
-
-      <div class="insta-foot">
-        <div class="insta-foot-left">
-          <div class="insta-foot-city">${cidadeStr}</div>
-          <div class="insta-foot-site">🌐 ${c.ac.site || 'www.sindeci.com.br'}</div>
-        </div>
-        <div class="insta-foot-year">CCT ${anoStr}</div>
-      </div>
-
-    </div>`;
-}
-
-/* ── DOWNLOAD ── */
-function baixar(cardId,tipo){
-  const fidx=document.getElementById('gFeriado').value;
-  const eId=document.getElementById('gEntidade').value;
-  const f=feriados[fidx];
-  const nome=f.nome.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/gi,'');
-  const [y,m,d]=f.data.split('-');
-  const cidSlug=eId.startsWith('ita')?'itabirito':'op_mariana';
-  const filename=`comunicado_${tipo}_${nome}_${d}-${m}-${y}_${cidSlug}.png`;
-  html2canvas(document.getElementById(cardId),{scale:3,useCORS:true,backgroundColor:null,logging:false})
-    .then(cv=>{ const a=document.createElement('a');a.download=filename;a.href=cv.toDataURL('image/png');a.click(); });
-}
-
-/* ── TOAST ── */
-function showToast(msg, isError){
-  const t=document.getElementById('saveToast');
-  const m=document.getElementById('toastMsg');
-  m.textContent=msg;
-  t.style.background=isError?'linear-gradient(135deg,#e74c3c,#c0392b)':'linear-gradient(135deg,#27ae60,#2ecc71)';
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3500);
-}
-
-/* ── INIT ── */
-renderTbl();
-const savedA=JSON.parse(localStorage.getItem('sind4_acordos')||'{}');
-Object.keys(savedA).forEach(eid=>{
-  Object.keys(savedA[eid]).forEach(f=>{ const el=document.getElementById(`${eid}_${f}`); if(el) el.value=savedA[eid][f]; });
-});
-</script>
-
-<div class="toast" id="saveToast">
-  <span class="toast-icon">✅</span>
-  <span id="toastMsg">Acordos salvos com sucesso!</span>
+      <div id="jur-r-loading" class="jur-loading" style="display:none;"><div class="jur-loading-fill"></div></div>
+      <div id="jur-report-text" class="jur-report"></div>
+    </div>
+  </div>
 </div>
 
-<div class="toast-restore" id="restoreToast">
-  <span>🗑️ Feriado removido</span>
-  <button class="restore-btn" onclick="restaurarFeriado()">↩️ Restaurar</button>
-</div>
+<div class="toast" id="saveToast"><span class="toast-icon">✅</span><span id="toastMsg">Acordos salvos com sucesso!</span></div>
+<div class="toast-restore" id="restoreToast"><span>🗑️ Feriado removido</span><button class="restore-btn" onclick="restaurarFeriado()">↩️ Restaurar</button></div>
 
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('✅ SW registrado:', reg.scope))
-      .catch(err => console.log('SW erro:', err));
-  });
-}
-</script>
-
-<!-- BANNER INSTALAR APP -->
-<div id="installBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(90deg,#0a2d6b,#1565c0);color:#fff;padding:14px 18px;z-index:10000;display:none;align-items:center;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,.4);">
+<div id="installBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(90deg,#0a2d6b,#1565c0);color:#fff;padding:14px 18px;z-index:10000;align-items:center;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,.4);">
   <span style="font-size:24px;">📱</span>
-  <div style="flex:1;">
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;">Instalar como App</div>
-    <div style="font-size:11px;color:rgba(255,255,255,.7);margin-top:1px;">Adicione à tela inicial para acesso rápido</div>
-  </div>
+  <div style="flex:1;"><div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;">Instalar como App</div><div style="font-size:11px;color:rgba(255,255,255,.7);margin-top:1px;">Adicione à tela inicial para acesso rápido</div></div>
   <button id="btnInstall" style="background:linear-gradient(135deg,#c8a84b,#e2c06a);color:#0d1f3c;border:none;border-radius:8px;padding:9px 18px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;">⬇️ Instalar</button>
   <button onclick="document.getElementById('installBanner').style.display='none'" style="background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.6);font-size:18px;cursor:pointer;padding:4px 8px;border-radius:4px;">✕</button>
 </div>
 
 <script>
-let deferredPrompt;
-const banner = document.getElementById('installBanner');
-const btnInstall = document.getElementById('btnInstall');
 
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  banner.style.display = 'flex';
-});
+const LOGO_SRC='icon-192.png';
+const DIAS=["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"];
+const MESES=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+document.getElementById('logoHdr').src=LOGO_SRC;
+const PROIBIDOS_ABS=['01-01','05-01','12-25'];
+function isProibidoAbs(d){const[y,m,dd]=d.split('-');return PROIBIDOS_ABS.includes(`${m}-${dd}`);}
+function is08Dez(d){const[y,m,dd]=d.split('-');return m==='12'&&dd==='08';}
+function is20Nov(d){const[y,m,dd]=d.split('-');return m==='11'&&dd==='20';}
+let feriados=JSON.parse(localStorage.getItem('sind4_feriados')||'[]');
+let tipoAtivo='ambos';
+const ENTIDADES=[
+  {id:'ita_g',label:'Itabirito — Gêneros + Lojas (SINDCOMERCIÁRIOS)',cidade:'itabirito',temGen:true,temLoj:true},
+  {id:'op_f',label:'Ouro Preto/Mariana — Fecomércio (Peq. Supermercados + Lojas)',cidade:'op_mariana',temGen:true,temLoj:true},
+  {id:'op_s',label:'Ouro Preto/Mariana — Sindsuper (Grandes Supermercados + Lojas)',cidade:'op_mariana',temGen:true,temLoj:true},
+];
+function getDia(ds){const[y,m,d]=ds.split('-').map(Number);return DIAS[new Date(y,m-1,d).getDay()];}
+function fmtL(ds){const[y,m,d]=ds.split('-').map(Number);return `${String(d).padStart(2,'0')} DE ${MESES[m-1].toUpperCase()} DE ${y}`;}
+function fmtC(ds){const[y,m,d]=ds.split('-').map(Number);return `${String(d).padStart(2,'0')}/${String(m).padStart(2,'0')}/${y}`;}
+function calcDia(iid,bid){const v=document.getElementById(iid).value,b=document.getElementById(bid);if(!v){b.style.display='none';return;}b.textContent=getDia(v);b.style.display='inline-block';}
+function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');btn.classList.add('active');if(id==='gerar')preencherSelFer();}
+function getAcordo(id){const saved=JSON.parse(localStorage.getItem('sind4_acordos')||'{}');const fields=['ano','grat','jorn','int','folga','tel','site','partes'];const defaults={};fields.forEach(f=>{const el=document.getElementById(`${id}_${f}`);if(el)defaults[f]=el.value;});return Object.assign({},defaults,saved[id]||{});}
+function salvarAcordos(){const data={};ENTIDADES.forEach(e=>{const fields=['ano','grat','jorn','int','folga','tel','site','partes'];data[e.id]={};fields.forEach(f=>{const el=document.getElementById(`${e.id}_${f}`);if(el)data[e.id][f]=el.value;});});localStorage.setItem('sind4_acordos',JSON.stringify(data));showToast('Acordos coletivos salvos com sucesso! ✅');}
+function addFeriado(){const data=document.getElementById('novaData').value,nome=document.getElementById('novoNome').value.trim(),abr=document.getElementById('novaAbrang').value,regra=document.getElementById('novaRegra').value,obs=document.getElementById('novaObs').value.trim();if(!data||!nome){alert('Preencha data e nome.');return;}feriados.push({data,nome,abrangencia:abr,regra,obs});feriados.sort((a,b)=>a.data.localeCompare(b.data));salvarFer();renderTbl();['novaData','novoNome','novaObs'].forEach(id=>document.getElementById(id).value='');document.getElementById('novaBadge').style.display='none';}
+let _feriadoRemovido=null,_restoreTimer=null;
+function exportarDados(){const dados={versao:'1.0',exportadoEm:new Date().toLocaleString('pt-BR'),feriados:JSON.parse(localStorage.getItem('sind4_feriados')||'[]'),acordos:JSON.parse(localStorage.getItem('sind4_acordos')||'{}')};const blob=new Blob([JSON.stringify(dados,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.download='sindeci-dados-'+new Date().toLocaleDateString('pt-BR').replace(/\//g,'-')+'.json';a.href=url;a.click();URL.revokeObjectURL(url);showToast('✅ Dados exportados com sucesso!');}
+function importarDados(event){const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=function(e){try{const dados=JSON.parse(e.target.result);if(!dados.feriados||!dados.acordos){showToast('❌ Arquivo inválido.',true);return;}window._sindImport=dados;const total=dados.feriados.length,quando=dados.exportadoEm||'data desconhecida';const modal=document.createElement('div');modal.className='confirm-modal';modal.id='importModal';const box=document.createElement('div');box.className='confirm-box';box.innerHTML='<div class="confirm-title">📥 Importar Dados</div><div class="confirm-sub">Backup de: <strong>'+quando+'</strong><br>Contém <strong>'+total+' feriado(s)</strong> e acordos.<br><br><span style="color:#e87070;">⚠️ Vai substituir os dados atuais.</span></div>';const btns=document.createElement('div');btns.className='confirm-btns';const bNo=document.createElement('button');bNo.textContent='✕ Cancelar';bNo.style.cssText='flex:1;padding:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:7px;color:white;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;';bNo.onclick=()=>modal.remove();const bSim=document.createElement('button');bSim.textContent='✓ Importar';bSim.style.cssText='flex:1;padding:10px;background:linear-gradient(135deg,#2980b9,#3498db);border:none;border-radius:7px;color:white;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;';bSim.onclick=()=>{modal.remove();executarImport();};btns.appendChild(bNo);btns.appendChild(bSim);box.appendChild(btns);modal.appendChild(box);document.body.appendChild(modal);}catch(err){showToast('❌ Erro ao ler arquivo.',true);}};reader.readAsText(file);event.target.value='';}
+function executarImport(){const d=window._sindImport;if(!d)return;localStorage.setItem('sind4_feriados',JSON.stringify(d.feriados));localStorage.setItem('sind4_acordos',JSON.stringify(d.acordos));feriados=d.feriados;renderTbl();const savedA=d.acordos;Object.keys(savedA).forEach(eid=>{Object.keys(savedA[eid]).forEach(f=>{const el=document.getElementById(eid+'_'+f);if(el)el.value=savedA[eid][f];});});window._sindImport=null;showToast('✅ '+d.feriados.length+' feriado(s) e acordos importados!');}
+function removeFer(i){const f=feriados[i];const modal=document.createElement('div');modal.className='confirm-modal';modal.id='confirmModal';modal.innerHTML=`<div class="confirm-box"><div class="confirm-title">⚠️ Remover Feriado</div><div class="confirm-sub">Deseja remover <strong>${f.nome}</strong> (${fmtC(f.data)})?<br>Você poderá restaurar logo após a remoção.</div><div class="confirm-btns"><button onclick="document.getElementById('confirmModal').remove()" style="flex:1;padding:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:7px;color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;">✕ Não</button><button onclick="confirmarRemocao(${i})" style="flex:1;padding:10px;background:linear-gradient(135deg,#e74c3c,#c0392b);border:none;border-radius:7px;color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;">✓ Sim, Remover</button></div></div>`;document.body.appendChild(modal);}
+function confirmarRemocao(i){document.getElementById('confirmModal').remove();_feriadoRemovido={feriado:{...feriados[i]},indice:i};feriados.splice(i,1);salvarFer();renderTbl();const t=document.getElementById('restoreToast');t.classList.add('show');if(_restoreTimer)clearTimeout(_restoreTimer);_restoreTimer=setTimeout(()=>{t.classList.remove('show');_feriadoRemovido=null;},8000);}
+function restaurarFeriado(){if(!_feriadoRemovido)return;clearTimeout(_restoreTimer);feriados.splice(_feriadoRemovido.indice,0,_feriadoRemovido.feriado);feriados.sort((a,b)=>a.data.localeCompare(b.data));salvarFer();renderTbl();_feriadoRemovido=null;document.getElementById('restoreToast').classList.remove('show');showToast('✅ Feriado restaurado com sucesso!');}
+function salvarFer(){localStorage.setItem('sind4_feriados',JSON.stringify(feriados));}
+function editarRegra(i){alert('Função de edição: remova e recadastre o feriado com a nova regra.');}
+function renderTbl(){const body=document.getElementById('tblBody'),empty=document.getElementById('tblEmpty');if(!feriados.length){empty.style.display='flex';body.innerHTML='';return;}empty.style.display='none';const aL={todas:'Todas',itabirito:'Itabirito',op_mariana:'OP/Mariana'},aC={todas:'b-gold',itabirito:'b-green',op_mariana:'b-blue'},rL={generos_only:'🛒 Gêneros · 🚫 Lojas proibidas',permitido:'🛒 Gêneros · 🏪 Lojas c/ acordo',proibido:'🚫 Proibido a todos',acordo_lojas:'📋 Lojas só c/ acordo',comercio_op:'🏛️ Comércio livre OP'},rC={generos_only:'b-green',permitido:'b-gold',proibido:'b-red',acordo_lojas:'b-orange',comercio_op:'b-blue'};body.innerHTML=feriados.map((f,i)=>`<tr><td><strong>${fmtC(f.data)}</strong></td><td>${f.nome}</td><td style="color:rgba(255,255,255,.5);font-size:11.5px;">${getDia(f.data)}</td><td><span class="badge ${aC[f.abrangencia]||'b-gold'}">${aL[f.abrangencia]||f.abrangencia}</span></td><td><span class="badge ${rC[f.regra]||'b-gray'}">${rL[f.regra]||f.regra}</span></td><td style="font-size:11px;color:rgba(255,255,255,.4);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${f.obs}">${f.obs||'—'}</td><td><div style="display:flex;gap:4px;"><button class="btn btn-sm" style="background:rgba(200,168,75,.15);border:1px solid rgba(200,168,75,.3);color:var(--gold2);" onclick="editarRegra(${i})">✏️ Regra</button><button class="btn btn-red btn-sm" onclick="removeFer(${i})">✕ Remover</button></div></td></tr>`).join('');}
+function addFeriadosPadrao(){const padrao=[{data:'2026-01-01',nome:'Confraternização Universal',abrangencia:'todas',regra:'proibido',obs:''},{data:'2026-04-03',nome:'Paixão de Cristo (Sexta-Feira Santa)',abrangencia:'todas',regra:'generos_only',obs:''},{data:'2026-04-21',nome:'Tiradentes',abrangencia:'todas',regra:'generos_only',obs:''},{data:'2026-05-01',nome:'Dia do Trabalho',abrangencia:'todas',regra:'proibido',obs:''},{data:'2026-06-04',nome:'Corpus Christi',abrangencia:'todas',regra:'generos_only',obs:''},{data:'2026-08-28',nome:'Aniversário de Itabirito',abrangencia:'itabirito',regra:'generos_only',obs:'Feriado municipal de Itabirito.'},{data:'2026-09-07',nome:'Independência do Brasil',abrangencia:'todas',regra:'generos_only',obs:''},{data:'2026-10-12',nome:'Nossa Senhora Aparecida',abrangencia:'todas',regra:'generos_only',obs:''},{data:'2026-11-02',nome:'Finados',abrangencia:'todas',regra:'generos_only',obs:''},{data:'2026-11-15',nome:'Proclamação da República',abrangencia:'todas',regra:'generos_only',obs:''},{data:'2026-11-20',nome:'Dia da Consciência Negra',abrangencia:'op_mariana',regra:'comercio_op',obs:'Em Ouro Preto e Mariana, todo o comércio pode funcionar nesta data com as regras de pagamento da CCT.'},{data:'2026-12-08',nome:'Nossa Senhora da Conceição',abrangencia:'itabirito',regra:'acordo_lojas',obs:'Lojas de Itabirito podem abrir somente se houver acordo prévio assinado com o sindicato. Sem acordo, somente gêneros alimentícios podem funcionar.'},{data:'2026-12-25',nome:'Natal',abrangencia:'todas',regra:'proibido',obs:''}];let n=0;padrao.forEach(f=>{if(!feriados.find(x=>x.data===f.data&&x.abrangencia===f.abrangencia)){feriados.push(f);n++;}});feriados.sort((a,b)=>a.data.localeCompare(b.data));salvarFer();renderTbl();alert(`${n} feriado(s) importado(s) com as regras corretas da CCT!`);}
+function preencherSelFer(){const sel=document.getElementById('gFeriado'),cur=sel.value;sel.innerHTML='<option value="">— Selecione —</option>';feriados.forEach((f,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${fmtC(f.data)} — ${f.nome}`;sel.appendChild(o);});if(cur)sel.value=cur;}
+function onFeriadoChange(){const idx=document.getElementById('gFeriado').value,info=document.getElementById('gInfo');if(idx===''){info.style.display='none';return;}const f=feriados[idx];info.style.display='block';document.getElementById('gDataTxt').value=fmtC(f.data);document.getElementById('gDiaTxt').value=getDia(f.data);document.getElementById('gObs').value=f.obs||'';const alertEl=document.getElementById('gRegAlert');const rMsg={generos_only:'🛒 Somente GÊNEROS ALIMENTÍCIOS podem trabalhar. 🚫 LOJAS estão PROIBIDAS de exigir trabalho neste feriado.',proibido:'🚫 FERIADO PROIBIDO — Nenhum estabelecimento pode convocar funcionários. (01/01 · 01/05 · 25/12)',permitido:'🛒 Gêneros Alimentícios podem trabalhar com as regras da CCT. 🏪 Lojas: somente com acordo assinado com o sindicato.',acordo_lojas:'📋 Lojas: somente com acordo assinado. Gêneros alimentícios podem sempre funcionar.',comercio_op:'🏛️ Comércio em geral pode funcionar — Ouro Preto e Mariana (20/11).'};const rCl={generos_only:'a-gold',proibido:'a-red',permitido:'a-gold',acordo_lojas:'a-gold',comercio_op:'a-green'};alertEl.className='alert '+(rCl[f.regra]||'a-gold');alertEl.textContent=rMsg[f.regra]||'';alertEl.style.display='flex';const sel=document.getElementById('gEntidade');sel.innerHTML='<option value="">— Selecione a entidade —</option>';ENTIDADES.forEach(e=>{const abr=f.abrangencia,ok=abr==='todas'||(abr==='itabirito'&&e.cidade==='itabirito')||(abr==='op_mariana'&&e.cidade==='op_mariana');if(!ok)return;const o=document.createElement('option');o.value=e.id;o.textContent=e.label;sel.appendChild(o);});onEntidadeChange();}
+function onEntidadeChange(){const eId=document.getElementById('gEntidade').value;if(!eId)return;const ent=ENTIDADES.find(e=>e.id===eId),tBoth=document.getElementById('tBoth'),tGen=document.getElementById('tGen'),tLoj=document.getElementById('tLoj');[tBoth,tGen,tLoj].forEach(b=>{b.disabled=false;b.classList.remove('active');});if(ent.temGen&&ent.temLoj){tipoAtivo='ambos';tBoth.classList.add('active');}else if(ent.temGen&&!ent.temLoj){tBoth.disabled=true;tLoj.disabled=true;tipoAtivo='generos';tGen.classList.add('active');}else{tBoth.disabled=true;tGen.disabled=true;tipoAtivo='lojas';tLoj.classList.add('active');}}
+function setTipo(t,btn){tipoAtivo=t;document.querySelectorAll('#gTipoWrap .toggle-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');}
+let formatoAtivo='whatsapp';
+function setFormato(fmt,btn){formatoAtivo=fmt;document.querySelectorAll('.fmt-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const hasFer=document.getElementById('gFeriado').value!=='',hasEnt=document.getElementById('gEntidade').value!=='';if(hasFer&&hasEnt)gerar();}
+function gerar(){const fidx=document.getElementById('gFeriado').value,eId=document.getElementById('gEntidade').value;if(fidx===''||!eId){alert('Selecione o feriado e a entidade.');return;}const f=feriados[fidx],ac=getAcordo(eId),ent=ENTIDADES.find(e=>e.id===eId),obs=document.getElementById('gObs').value.trim(),cidade=ent.cidade==='itabirito'?'ITABIRITO':'OURO PRETO E MARIANA';const ctx={feriado:f.nome.toUpperCase(),dataLonga:fmtL(f.data),dataCurta:fmtC(f.data),diaSem:getDia(f.data).toUpperCase(),cidade,ac,obs,regra:f.regra,cct:`Convenção Coletiva de Trabalho — ${ac.ano||'2026'}`,eId};document.getElementById('gEmpty').style.display='none';document.getElementById('gResult').style.display='block';const tabs=document.getElementById('prevTabs');tabs.innerHTML='';const mostraGen=tipoAtivo!=='lojas'&&ent.temGen,mostraLoj=tipoAtivo!=='generos'&&ent.temLoj;if(mostraGen)tabs.innerHTML+=`<button class="prev-tab active" onclick="swTab('gen',this)">🛒 Gêneros Alimentícios</button>`;if(mostraLoj)tabs.innerHTML+=`<button class="prev-tab ${!mostraGen?'active':''}" onclick="swTab('loj',this)">🏪 Lojas em Geral</button>`;const wpp=formatoAtivo==='whatsapp';['prevGen','prevLoj','prevGenInsta','prevLojInsta'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none';});if(mostraGen){buildGen(ctx);buildInsta('Gen',ctx);document.getElementById(wpp?'prevGen':'prevGenInsta').style.display='flex';}if(mostraLoj){buildLoj(ctx);buildInsta('Loj',ctx);document.getElementById(wpp?'prevLoj':'prevLojInsta').style.display='flex';}if(!mostraGen&&mostraLoj)swTabDirect('loj');}
+function swTab(w,btn){document.querySelectorAll('.prev-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');const wpp=formatoAtivo==='whatsapp';document.getElementById('prevGen').style.display=(w==='gen'&&wpp)?'flex':'none';document.getElementById('prevLoj').style.display=(w==='loj'&&wpp)?'flex':'none';document.getElementById('prevGenInsta').style.display=(w==='gen'&&!wpp)?'flex':'none';document.getElementById('prevLojInsta').style.display=(w==='loj'&&!wpp)?'flex':'none';}
+function swTabDirect(w){const wpp=formatoAtivo==='whatsapp';document.getElementById('prevGen').style.display=(w==='gen'&&wpp)?'flex':'none';document.getElementById('prevLoj').style.display=(w==='loj'&&wpp)?'flex':'none';document.getElementById('prevGenInsta').style.display=(w==='gen'&&!wpp)?'flex':'none';document.getElementById('prevLojInsta').style.display=(w==='loj'&&!wpp)?'flex':'none';}
+function listaDir(ac,eId){const isIta=eId&&eId.startsWith('ita'),pgtoTxt=isIta?'paga no final do expediente':'incluída na folha de pagamento do mês correspondente ao feriado';return `<div class="c-lista"><div class="c-item"><span class="c-arrow">➤</span><span><strong>Gratificação</strong> — R$ ${ac.grat||'—'}, ${pgtoTxt};</span></div><div class="c-item"><span class="c-arrow">➤</span><span>Jornada máxima de <strong>${ac.jorn||'—'}</strong>, com ${ac.int||'—'} de intervalo;</span></div><div class="c-item"><span class="c-arrow">➤</span><span><strong>1 folga compensatória</strong> em até ${ac.folga||'—'} (não pode ser domingo ou feriado);</span></div><div class="c-item"><span class="c-arrow">➤</span><span><strong>Vale-transporte.</strong></span></div></div><div class="c-proib-box">🚫 É proibido ultrapassar a jornada de ${ac.jorn||'—'}.</div><div class="c-alerta"><span>⚠️</span><span class="c-alerta-txt">O descumprimento dessas normas sujeita o empregador ao pagamento de multa, a ser paga diretamente ao funcionário prejudicado.</span></div>`;}
+function rodapeGen(c){const p=c.ac.partes||'';return `<div class="c-rod-logo" style="margin-bottom:10px;"><img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS" style="height:44px;object-fit:contain;background:#fff;border-radius:8px;padding:4px 10px;"><div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">${p?`<div style="font-size:12px;font-weight:900;color:#0a3d6e;letter-spacing:.8px;text-transform:uppercase;">${p}</div>`:''}<div style="font-size:9.5px;font-weight:700;color:#1a3a6e;opacity:.75;letter-spacing:.3px;">${c.cct}</div></div></div><div class="c-rod"><span>📱 DENÚNCIAS: ${c.ac.tel||'—'}</span><span style="color:#0a3d6e;margin:0 4px;font-size:13px;">|</span><span>🌐 ${c.ac.site||'—'}</span></div>`;}
+function rodapeLoj(c){const p=c.ac.partes||'';return `<div class="c-rod-logo" style="margin-bottom:8px;"><img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS" style="height:44px;object-fit:contain;background:#fff;border-radius:8px;padding:4px 10px;"><div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">${p?`<div style="font-size:12px;font-weight:900;color:#0a3d6e;letter-spacing:.8px;text-transform:uppercase;">${p}</div>`:''}<div style="font-size:9.5px;font-weight:700;color:#1a3a6e;opacity:.75;letter-spacing:.3px;">${c.cct}</div></div></div><div class="c-rod" style="margin-top:0;"><span>📱 DENÚNCIAS: ${c.ac.tel||'—'}</span><span style="color:#0a3d6e;margin:0 4px;font-size:13px;">|</span><span>🌐 ${c.ac.site||'www.sindeci.com.br'}</span></div>`;}
+function buildGen(c){const obsH=c.obs?`<div class="c-obs">📌 ${c.obs}</div>`:'';let corpo='';if(c.regra==='proibido'){corpo=`<div class="c-destaque">🚫 ESTABELECIMENTOS DE GÊNEROS ALIMENTÍCIOS<br>NÃO PODERÃO FUNCIONAR NESTA DATA.<br>(01/01 · 01/05 · 25/12)</div><div class="c-corpo">NENHUM ESTABELECIMENTO PODE CONVOCAR<br>FUNCIONÁRIOS PARA TRABALHAR NESTES FERIADOS.</div>`;}else{corpo=`<div class="c-pode">✅ GÊNEROS ALIMENTÍCIOS ESTÃO AUTORIZADOS<br>A FUNCIONAR NESTE FERIADO.</div><div class="c-intro">🛒 O funcionário que trabalhar no feriado tem direito a:</div>${listaDir(c.ac,c.eId)}`;}const pt=c.ac.partes?`<div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:#0a3d6e;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;background:rgba(255,255,255,.4);padding:4px 18px;border-radius:20px;display:inline-block;">${c.ac.partes}</div>`:'';document.getElementById('cardGen').innerHTML=`<div class="mega-header"><div class="mega-icon-wrap"><div class="mega-icon">📢</div></div><div class="mega-label">Comunicado Importante</div></div>${pt}<div class="c-tit">${c.cidade} – SUPERMERCADOS E GÊNEROS ALIMENTÍCIOS<br>${c.dataLonga} – ${c.feriado}</div><hr class="c-hr">${corpo}${obsH}${rodapeGen(c)}`;}
+function buildLoj(c){const obsH=c.obs?`<div class="c-obs">📌 ${c.obs}</div>`:'';let corpo='';if(c.regra==='proibido'){corpo=`<div class="c-destaque">🚫 É PROIBIDO CONVOCAR FUNCIONÁRIOS<br>PARA TRABALHAR NESTE DIA.<br><br>ESTE É UM DOS 3 FERIADOS ABSOLUTAMENTE<br>PROIBIDOS PELA CONVENÇÃO COLETIVA.</div><div class="c-corpo">NENHUM ESTABELECIMENTO PODE FUNCIONAR EM:<br><br>01 DE JANEIRO · 01 DE MAIO · 25 DE DEZEMBRO</div><hr class="c-hr2"><div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;}else if(c.regra==='generos_only'){corpo=`<div class="c-destaque">🚫 AS LOJAS NÃO PODEM CONVOCAR<br>FUNCIONÁRIOS PARA TRABALHAR NESTE DIA.<br><br>NÃO EXISTE ACORDO COM O SINDICATO<br>QUE AUTORIZE ESSA EXIGÊNCIA.</div><div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER<br>DE RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS,<br>EM FACE DE TODOS AQUELES QUE INSISTIREM<br>NO DESCUMPRIMENTO DA LEI.</div><hr class="c-hr2"><div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;}else if(c.regra==='comercio_op'){corpo=`<div class="c-pode">✅ AS LOJAS PODERÃO FUNCIONAR NESTA DATA,<br>SEGUINDO AS REGRAS DA CCT.</div><div class="c-intro">🏪 O funcionário que trabalhar no feriado tem direito a:</div>${listaDir(c.ac,c.eId)}`;}else if(c.regra==='acordo_lojas'){corpo=`<div class="c-acordo">📋 AS LOJAS SOMENTE PODERÃO FUNCIONAR<br>MEDIANTE ACORDO PRÉVIO,<br>FORMAL E ASSINADO COM O SINDICATO.</div><div class="c-corpo">SEM ACORDO ASSINADO,<br>O FUNCIONAMENTO É PROIBIDO E SUJEITA<br>O EMPREGADOR ÀS SANÇÕES DA CCT.</div><hr class="c-hr2"><div class="c-alerta"><span>⚠️</span><span class="c-alerta-txt">Havendo acordo, os direitos do funcionário são: gratificação, jornada limitada, folga compensatória e vale-transporte.</span></div>`;}else{corpo=`<div class="c-destaque">🚫 EM REGRA, AS LOJAS NÃO PODEM EXIGIR<br>QUE O FUNCIONÁRIO TRABALHE NESTE FERIADO.<br><br>SOMENTE PODERÃO FUNCIONAR MEDIANTE<br>ACORDO PRÉVIO ASSINADO COM O SINDICATO.</div><div class="c-corpo">ESTE SINDICATO NÃO SE EXIMIRÁ DO SEU DEVER<br>DE RESGUARDAR OS DIREITOS DOS TRABALHADORES<br>QUE REPRESENTA, E TOMARÁ TODAS AS MEDIDAS<br>CABÍVEIS, JUDICIAIS E EXTRAJUDICIAIS,<br>EM FACE DE TODOS AQUELES QUE INSISTIREM<br>NO DESCUMPRIMENTO DA LEI.</div><hr class="c-hr2"><div class="c-cta">COMERCIÁRIO, FAÇA VALER OS SEUS DIREITOS!<br>EM CASO DE ABUSO, DENUNCIE<br>NO SITE DO SINDICATO.</div>`;}const pt=c.ac.partes?`<div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:900;color:#0a3d6e;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;background:rgba(255,255,255,.5);border:1.5px solid rgba(10,61,110,.25);padding:5px 20px;border-radius:20px;display:inline-block;">${c.ac.partes}</div>`:'';document.getElementById('cardLoj').innerHTML=`<div class="mega-header"><div class="mega-icon-wrap"><div class="mega-icon">📢</div></div><div class="mega-label">Comunicado Importante</div></div>${pt}<div class="c-tit">LOJAS EM GERAL — ${c.cidade}<br>📅 ${c.dataCurta} (${c.diaSem})<br>${c.feriado}</div><hr class="c-hr">${corpo}${obsH}<div class="c-cct-box"><div class="c-cct-box-title">📜 Convenções Coletivas de Trabalho</div><div class="c-cct-box-item">➤ <strong>Itabirito</strong> — SINDECI x SINCOVITA</div><div class="c-cct-box-item">➤ <strong>Ouro Preto e Mariana</strong> — SINDECI x FECOMÉRCIO</div><div class="c-cct-box-item">➤ <strong>Ouro Preto e Mariana</strong> — SINDECI x SINDSUPER</div></div>${rodapeLoj(c)}`;}
+function buildInsta(tipo,c){const el=document.getElementById('card'+tipo+'Insta');if(!el)return;const isGen=tipo==='Gen',isProib=c.regra==='proibido',isGenOnly=c.regra==='generos_only',isOP=c.regra==='comercio_op';let bandClass='',bandTxt='',bigIcon='',headerBadgeTxt='',headerBadgeClass='';if(isGen){headerBadgeClass='insta-header-badge-gen';headerBadgeTxt='🛒 Supermercados';if(isProib){bandClass='insta-band-loj';bandTxt='🚫 PROIBIDO FUNCIONAR NESTA DATA';bigIcon='🚫';}else{bandClass='insta-band-gen';bandTxt='✅ AUTORIZADO A FUNCIONAR COM AS REGRAS DA CCT';bigIcon='📢';}}else{headerBadgeClass='insta-header-badge-loj';headerBadgeTxt='🏪 Lojas em Geral';bigIcon='📢';if(isProib){bandClass='insta-band-loj';bandTxt='🚫 PROIBIDO — NENHUM ESTABELECIMENTO PODE FUNCIONAR NESTA DATA';}else if(isGenOnly){bandClass='insta-band-loj';bandTxt='🚫 LOJAS NÃO PODEM CONVOCAR FUNCIONÁRIOS PARA TRABALHAR';}else if(isOP){bandClass='insta-band-gen';bandTxt='✅ COMÉRCIO LIVRE — PODE FUNCIONAR COM AS REGRAS DA CCT';}else{bandClass='insta-band-amber';bandTxt='📋 SOMENTE COM ACORDO ASSINADO COM O SINDICATO';}}const bgCls=isGen?'insta-bg-gen':'insta-bg-loj',diagCls=isGen?'insta-diag-gen':'insta-diag-loj',s1=isGen?'insta-shape1-gen':'insta-shape1-loj',s2=isGen?'insta-shape2-gen':'insta-shape2-loj',cctList=!isGen?`<div class="insta-cct-list"><div class="insta-cct-title">📜 Convenções Coletivas</div><div class="insta-cct-item">➤ <strong>Itabirito</strong> — SINDECI x SINCOVITA</div><div class="insta-cct-item">➤ <strong>Ouro Preto e Mariana</strong> — SINDECI x FECOMÉRCIO</div><div class="insta-cct-item">➤ <strong>Ouro Preto e Mariana</strong> — SINDECI x SINDSUPER</div></div>`:'';el.innerHTML=`<div class="${bgCls}"></div><div class="insta-shape1 ${s1}"></div><div class="insta-shape2 ${s2}"></div><div class="insta-diag ${diagCls}"></div><div class="insta-body"><div class="insta-header"><div class="insta-logo-box"><img src="${LOGO_SRC}" alt="SINDCOMERCIÁRIOS"></div><div class="insta-header-badge ${headerBadgeClass}">${headerBadgeTxt}</div></div><div class="insta-main"><div class="insta-big-icon">${bigIcon}</div><div class="insta-feriado-name">${c.feriado}</div><div class="insta-feriado-date">${c.dataLonga} · ${c.diaSem}</div><div class="insta-band ${bandClass}"><div class="insta-band-txt">${bandTxt}</div></div>${cctList}${c.ac.partes?`<div style="margin-top:8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;">${c.ac.partes}</div>`:''}</div><div class="insta-foot"><div class="insta-foot-left"><div class="insta-foot-city">${c.cidade}</div><div class="insta-foot-site">🌐 ${c.ac.site||'www.sindeci.com.br'}</div></div><div class="insta-foot-year">CCT ${c.ac.ano||'2026'}</div></div></div>`;}
+function baixar(cardId,tipo){const fidx=document.getElementById('gFeriado').value,eId=document.getElementById('gEntidade').value,f=feriados[fidx],nome=f.nome.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/gi,'');const[y,m,d]=f.data.split('-'),cidSlug=eId.startsWith('ita')?'itabirito':'op_mariana',filename=`comunicado_${tipo}_${nome}_${d}-${m}-${y}_${cidSlug}.png`;html2canvas(document.getElementById(cardId),{scale:3,useCORS:true,backgroundColor:null,logging:false}).then(cv=>{const a=document.createElement('a');a.download=filename;a.href=cv.toDataURL('image/png');a.click();});}
+function showToast(msg,isError){const t=document.getElementById('saveToast'),m=document.getElementById('toastMsg');m.textContent=msg;t.style.background=isError?'linear-gradient(135deg,#e74c3c,#c0392b)':'linear-gradient(135deg,#27ae60,#2ecc71)';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
+/* MÓDULO JURÍDICO */
+let _jurTipo='dental',_jurSources=new Set(),_jurContractText='',_jurReportText='';
+function jurShowTab(tab,btn){document.getElementById('jur-contrato').style.display=tab==='contrato'?'block':'none';document.getElementById('jur-relatorio').style.display=tab==='relatorio'?'block':'none';document.querySelectorAll('.jur-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+function jurSelectTipo(tipo,btn){_jurTipo=tipo;document.querySelectorAll('.type-pill').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById('jur-other-wrap').style.display=tipo==='other'?'block':'none';const rw=document.getElementById('jur-reg-wrap'),rl=document.getElementById('jur-reg-label');if(tipo==='dental'){rw.style.display='flex';rl.textContent='CRO (Odontologia)';}else if(tipo==='medical'){rw.style.display='flex';rl.textContent='CRM (Medicina)';}else{rw.style.display='none';}}
+function jurToggleSrc(key,el){if(_jurSources.has(key)){_jurSources.delete(key);el.classList.remove('selected');const c=document.getElementById('jchk-'+key);c.classList.remove('on');c.textContent='';}else{_jurSources.add(key);el.classList.add('selected');const c=document.getElementById('jchk-'+key);c.classList.add('on');c.textContent='✓';}}
+async function _jurCall(sys,usr){const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:3000,system:sys,messages:[{role:'user',content:usr}]})});const d=await r.json();if(d.error)throw new Error(d.error.message);return d.content[0].text;}
+async function jurGerarContrato(){const nm=document.getElementById('jur-name').value.trim(),rp=document.getElementById('jur-rep').value.trim(),err=document.getElementById('jur-c-error');if(!nm||!rp){err.style.display='flex';err.textContent='⚠️ Preencha ao menos o nome da clínica e do representante.';return;}err.style.display='none';const tipos={dental:'Clínica Odontológica',medical:'Clínica Médica / Convênio',other:(document.getElementById('jur-other-desc').value||'Prestador de Serviços')};const v=id=>document.getElementById(id).value.trim();const prompt=`Gere um CONTRATO DE PARCERIA COMERCIAL formal e completo entre:\n\nPARTE 1 — SINDICATO:\nSINDCOMERCIÁRIOS — Sindicato dos Empregados no Comércio de Itabirito, Ouro Preto e Mariana\nCNPJ: [a ser inserido]\nRepresentante: [Presidente do sindicato]\nSede: Itabirito/MG\n\nPARTE 2 — PARCEIRO:\nTipo: ${tipos[_jurTipo]}\nRazão Social: ${nm}\nCNPJ: ${v('jur-cnpj')||'[a ser inserido]'}\nEndereço: ${[v('jur-address'),v('jur-city')].filter(Boolean).join(', ')||'[a ser inserido]'}\nRepresentante Legal: ${rp}${v('jur-cpf')?', CPF '+v('jur-cpf'):''}\n${v('jur-reg')?'Registro profissional: '+v('jur-reg'):''}\n\nCONDIÇÕES:\n• Desconto: ${v('jur-discount')||'a negociar'}%\n• Serviços: ${v('jur-services')||'todos os serviços prestados'}\n• Vigência: ${v('jur-validity')} meses\n${v('jur-obs')?'• Obs: '+v('jur-obs'):''}\n\nCLÁUSULAS OBRIGATÓRIAS: 1ª Do Objeto | 2ª Obrigações do Parceiro | 3ª Obrigações do SINDCOMERCIÁRIOS | 4ª Benefícios aos Associados | 5ª Identificação (carteirinha) | 6ª Atendimento Preferencial | 7ª Divulgação e Uso de Marca | 8ª Vigência e Renovação | 9ª Rescisão | 10ª Foro (Itabirito/MG)\n\nFinalize com espaço para data, assinaturas e 2 testemunhas.`;const sys='Você é advogado especialista em direito sindical e contratual brasileiro. Gere contratos completos e juridicamente válidos para o SINDCOMERCIÁRIOS. Use linguagem jurídica formal. Responda APENAS com o texto do contrato.';const btn=document.getElementById('jur-btn-contract'),res=document.getElementById('jur-contract-result'),load=document.getElementById('jur-c-loading'),txt=document.getElementById('jur-contract-text');btn.disabled=true;btn.textContent='⏳ Gerando contrato...';res.style.display='block';load.style.display='block';txt.textContent='';try{_jurContractText=await _jurCall(sys,prompt);txt.textContent=_jurContractText;load.style.display='none';res.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){err.style.display='flex';err.textContent='❌ Erro: '+e.message;res.style.display='none';}btn.disabled=false;btn.textContent='⚡ Gerar Contrato com IA';}
+async function jurGerarRelatorio(){const q=document.getElementById('jur-r-question').value.trim(),ctx=document.getElementById('jur-r-context').value.trim(),err=document.getElementById('jur-r-error');if(!q&&!ctx){err.style.display='flex';err.textContent='⚠️ Adicione um contexto ou uma pergunta.';return;}err.style.display='none';const sl={cct:'CCTs e Acordos',feriados:'Feriados',contratos:'Contratos',associados:'Associados'},st=_jurSources.size>0?'Fontes: '+[..._jurSources].map(k=>sl[k]).join(', ')+'.':'';const usr=`${st}\nCONTEXTO: ${ctx||'(use seu conhecimento)'}\nSOLICITAÇÃO: ${q||'Gere um relatório completo.'}\nGere um relatório para o SINDCOMERCIÁRIOS.`;const sys='Você é analista jurídico especializado em direito sindical brasileiro. Gere relatórios objetivos e estratégicos. Use markdown (### títulos, - listas, **negrito**).';const btn=document.getElementById('jur-btn-report'),res=document.getElementById('jur-report-result'),load=document.getElementById('jur-r-loading'),txt=document.getElementById('jur-report-text');btn.disabled=true;btn.textContent='⏳ Analisando...';res.style.display='block';load.style.display='block';txt.innerHTML='';try{_jurReportText=await _jurCall(sys,usr);load.style.display='none';txt.innerHTML=_jurMd(_jurReportText);res.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){err.style.display='flex';err.textContent='❌ Erro: '+e.message;res.style.display='none';}btn.disabled=false;btn.textContent='📊 Gerar Relatório com IA';}
+function _jurMd(t){const ls=t.split('\n');let h='',ul=false;for(const l of ls){if(l.startsWith('### ')){if(ul){h+='</ul>';ul=false;}h+='<h3>'+l.slice(4)+'</h3>';}else if(l.startsWith('## ')){if(ul){h+='</ul>';ul=false;}h+='<h3 style="font-size:16px">'+l.slice(3)+'</h3>';}else if(l.startsWith('- ')){if(!ul){h+='<ul>';ul=true;}h+='<li>'+_jurB(l.slice(2))+'</li>';}else if(l.trim()===''){if(ul){h+='</ul>';ul=false;}h+='<br>';}else{if(ul){h+='</ul>';ul=false;}h+='<p>'+_jurB(l)+'</p>';}}if(ul)h+='</ul>';return h;}
+function _jurB(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');}
+function jurCopiarContrato(){navigator.clipboard.writeText(_jurContractText).then(()=>{if(typeof showToast==='function')showToast('✅ Contrato copiado!');});}
+function jurImprimirContrato(){const w=window.open('','_blank');w.document.write('<html><head><title>Contrato SINDCOMERCIÁRIOS</title><style>body{font-family:serif;font-size:12pt;line-height:1.9;padding:2.5cm;white-space:pre-wrap;color:#111;}</style></head><body>'+_jurContractText+'</body></html>');w.document.close();w.print();}
+function jurCopiarRelatorio(){navigator.clipboard.writeText(_jurReportText).then(()=>{if(typeof showToast==='function')showToast('✅ Relatório copiado!');});}
+function jurSalvarChave(){
+  const key=document.getElementById('jur-apikey').value.trim();
+  const st=document.getElementById('jur-api-status');
+  if(!key.startsWith('sk-ant-')){st.innerHTML='<div class="alert a-red" style="margin:0;font-size:11px;">⚠️ Chave inválida. Deve começar com sk-ant-</div>';return;}
+  localStorage.setItem('jur_apikey',key);
+  document.getElementById('jur-apikey').value='sk-ant-••••••••••••••';
+  st.innerHTML='<div class="alert a-green" style="margin:0;font-size:11px;">✅ Chave salva com sucesso!</div>';
+  setTimeout(()=>{st.innerHTML='';},3000);
+}
+/* INIT */
+renderTbl();
+const savedA=JSON.parse(localStorage.getItem('sind4_acordos')||'{}');
+Object.keys(savedA).forEach(eid=>{Object.keys(savedA[eid]).forEach(f=>{const el=document.getElementById(`${eid}_${f}`);if(el)el.value=savedA[eid][f];});});
+// Mostrar chave mascarada se já salva
+if(localStorage.getItem('jur_apikey')){document.getElementById('jur-apikey').value='sk-ant-••••••••••••••';document.getElementById('jur-api-status').innerHTML='<div class="alert a-green" style="margin:0;font-size:11px;">✅ Chave configurada e pronta para uso.</div>';}
 
-btnInstall.addEventListener('click', async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  if (outcome === 'accepted') {
-    banner.style.display = 'none';
-    if (typeof showToast === 'function') showToast('✅ App instalado com sucesso!');
-  }
-  deferredPrompt = null;
-});
-
-window.addEventListener('appinstalled', () => {
-  banner.style.display = 'none';
-  deferredPrompt = null;
-});
 </script>
+<script>
+
+// Service Worker registrado apenas no GitHub Pages
+if ('serviceWorker' in navigator && location.hostname !== 'www.claudeusercontent.com') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('SW registrado:', reg.scope))
+      .catch(err => console.log('SW erro:', err));
+  });
+}
+let deferredPrompt;
+const banner=document.getElementById('installBanner');
+const btnInstall=document.getElementById('btnInstall');
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;banner.style.display='flex';});
+btnInstall.addEventListener('click',async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();const{outcome}=await deferredPrompt.userChoice;if(outcome==='accepted'){banner.style.display='none';if(typeof showToast==='function')showToast('✅ App instalado com sucesso!');}deferredPrompt=null;});
+window.addEventListener('appinstalled',()=>{banner.style.display='none';deferredPrompt=null;});
+
+</script>
+
 </body>
 </html>
